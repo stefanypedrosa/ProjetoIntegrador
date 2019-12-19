@@ -1,0 +1,30 @@
+<div class="row" id="titulo">
+    <div class="col-md-12">
+        <h1>Entre em contato conosco</h1>
+    </div>
+</div>
+
+<div class="container" id="formulario">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite o nome" required>
+    </div>
+    <div class="form-group">
+        <label for="Sobrenome">Sobrenome</label>
+        <input type="text" class="form-control" id="sobrenome" placeholder="Digite o sobrenome" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com.br" required>
+    </div>
+    <div class="form-group">
+        <label for="Telefone">Telefone</label>
+        <input type="tel" class="form-control" id="tel" onKeyPress="numero()" placeholder="(XX) 99999-9999">
+    </div>
+    <div class="form-group">
+        <label for="mensagem">Mensagem</label>
+        <textarea class="form-control" id="mensagem" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary butao" onclick="validacao()">Enviar</button>
+</div>

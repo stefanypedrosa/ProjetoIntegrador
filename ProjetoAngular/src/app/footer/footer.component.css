@@ -1,0 +1,24 @@
+
+#subFooter{
+    margin-top:10%;
+    margin-right:0%;
+    margin-left:0%;
+    background-color: #059faa;
+    width:100%;
+    height: 100px;
+    position: relative;
+
+}
+
+.footer{
+    background-color: #059faa;
+    margin-right:0%;
+    margin-left:0%;
+    width:100%;
+    position: relative;
+}
+.footer p{
+    font-size:70%;
+    color:#dedcc5;
+    text-align: center;
+}
