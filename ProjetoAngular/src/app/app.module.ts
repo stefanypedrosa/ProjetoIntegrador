@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { EquipeComponent } from './sobre/equipe/equipe.component';
 import { TitleComponent } from './sobre/title/title.component';
 import { ValueComponent } from './sobre/value/value.component';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ValueComponent } from './sobre/value/value.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

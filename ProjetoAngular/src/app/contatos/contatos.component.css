@@ -17,3 +17,9 @@
     width: 70%;
     margin:auto;
 }
+span{
+    color: red;
+}
+textarea{
+    resize: none;
+}
