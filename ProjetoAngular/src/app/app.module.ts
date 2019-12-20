@@ -12,7 +12,8 @@ import { TitleComponent } from './sobre/title/title.component';
 import { ValueComponent } from './sobre/value/value.component';
 import { FormsModule } from '@angular/forms';
 import { FaleconoscoComponent } from './faleconosco/faleconosco.component';
-import { InfosComponent } from './faleconosco/infos/infos.component'
+import { InfosComponent } from './faleconosco/infos/infos.component';
+import { HomeComponent } from './home/home.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { InfosComponent } from './faleconosco/infos/infos.component'
     TitleComponent,
     ValueComponent,
     FaleconoscoComponent,
-    InfosComponent
+    InfosComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
