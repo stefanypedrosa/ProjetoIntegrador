@@ -12,14 +12,3 @@
     margin-top: 5%;
     margin-bottom: 3%;
 }
-
-#formulario{
-    width: 70%;
-    margin:auto;
-}
-span{
-    color: red;
-}
-textarea{
-    resize: none;
-}
