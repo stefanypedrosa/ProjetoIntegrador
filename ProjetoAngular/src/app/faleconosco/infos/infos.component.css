@@ -18,13 +18,7 @@ iframe{
     width:100%;
     height: 100%;
 }
-.info,.card{
-<<<<<<< HEAD
-    margin-left: 4%;
-}
-=======
+.info, .card{
     margin-left: 0%;
     margin-right: 5%;
 }
-
->>>>>>> 5ee098bc1bdb921a69ea3ed63cff1fd305ead1f4

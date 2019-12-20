@@ -1,0 +1,56 @@
+*{
+    margin:0%;
+    padding:0%;
+}
+#menuLatEsq{
+    margin-left: 1%;
+}
+button:hover{
+    background-color: #dedcc5;
+    color: #059faa;
+}
+.btn{
+    padding: 2px;
+    margin: 0;
+    background-color: #059faa;
+    outline-color: #059faa;
+    border: 1px solid #059faa;
+    color: white;
+    text-align: center;
+    width: 125px;
+    
+}
+.show{
+    background-color: rgb(54, 161, 156);
+    margin: auto;
+    margin-top: 2%;
+    width: 55%;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10%;
+    text-align: center;
+}
+.pesquisa{
+    margin:0%;
+    margin-top: 2%;
+    margin-left: 70%;
+}
+.tamanho img{
+    width:100%;
+    margin-bottom: 4%;
+    
+}
+.card{
+    width: 80%;
+    height: 560px;
+    text-align: center
+}
+label{
+    margin-left: 3.5%;
+}
+input{
+    border-radius: 5px;
+    height: 30px;
+    width: 50%;
+    vertical-align: middle;
+}
