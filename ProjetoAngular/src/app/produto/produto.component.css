@@ -8,6 +8,7 @@
 button:hover{
     background-color: #dedcc5;
     color: #059faa;
+    box-shadow: none;
 }
 .btn{
     padding: 2px;
@@ -18,7 +19,10 @@ button:hover{
     color: white;
     text-align: center;
     width: 125px;
-    
+    box-shadow: none;
+}
+#busca{
+    width: 104px;
 }
 .show{
     background-color: rgb(54, 161, 156);
@@ -33,7 +37,7 @@ button:hover{
 .pesquisa{
     margin:0%;
     margin-top: 2%;
-    margin-left: 70%;
+    margin-left: 75%;
 }
 .tamanho img{
     width:100%;
@@ -51,6 +55,12 @@ label{
 input{
     border-radius: 5px;
     height: 30px;
-    width: 50%;
+    width: 69%;
     vertical-align: middle;
+    margin-left: 1%;
+    box-shadow: none;
+}
+span{
+    margin-left: 1%;
+    color: red;
 }

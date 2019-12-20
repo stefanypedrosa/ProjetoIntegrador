@@ -3,9 +3,12 @@
       <div class="col-md-12">
         <div class="pesquisa">
           <!--<label for="inputBusca">O que deseja filtrar?</label>-->
-          <input class="input ml-3 mr-3" type="text" placeholder="O que deseja pesquisar?" [(ngModel)]="idbusca" id="inputBusca">
-          <button class="btn ml-3 mr-3" (click)="pesquisar();">Busque</button>
-          <button class="btn ml-3 mr-3" (click)="pesquisarTodos();">Mostrar todos</button>
+          <input class="input text-center mb-1" type="text" placeholder="O que deseja pesquisar?" [(ngModel)]="idbusca" id="inputBusca">
+          <br/>
+          <button class="btn btn-outline ml-1" id="busca" (click)="pesquisar();">Buscar</button>
+          <button class="btn btn-outline ml-1" (click)="pesquisarTodos();">Mostrar todos</button>
+          <br/>
+          <span *ngIf='_msgErro'>{{_msgErro}}</span>
         </div>
       </div>
     </div>
