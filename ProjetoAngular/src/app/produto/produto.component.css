@@ -25,7 +25,7 @@ button:hover{
     width: 104px;
 }
 .show{
-    background-color: rgb(54, 161, 156);
+    background-color: #60a4a8;
     margin: auto;
     margin-top: 2%;
     width: 55%;
@@ -42,7 +42,8 @@ button:hover{
 .tamanho img{
     width:100%;
     margin-bottom: 4%;
-    
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .card{
     width: 80%;

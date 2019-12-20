@@ -5,8 +5,8 @@
 
 /*Estilização titulo info Equipe Comud*/
 #TituloSobre{
-    margin-top: 5%;
-    margin-bottom: 7%;
+    margin-top: 10%;
+    margin-bottom: 5%;
 }
 #TituloSobre h2{
     text-align: center;
@@ -87,6 +87,27 @@
     margin-right: 25px;
     margin-left: 25px;
     
+}
+#stef p{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 62px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+#matheus p{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 70px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+#aline p{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 40px;
+    margin-right: 25px;
+    margin-left: 25px;
 }
 
 #adrian .flip-card-back{

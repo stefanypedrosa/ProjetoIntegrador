@@ -5,7 +5,7 @@
 #CompanyValues{
     display: flex;
     justify-content: baseline;
-    margin-top:10%;
+    margin-top:8%;
 }
 #CompanyValues h5{
     text-align:center;
@@ -14,7 +14,7 @@
     font-weight: bold;
 }
 #missao p, #visao p, #PolFret p, #valOrg p{
-    margin-top:10%;
+    margin-top:8%;
     text-align:center;
     vertical-align: text-top;
     font-family: 'Ubuntu', sans-serif;
