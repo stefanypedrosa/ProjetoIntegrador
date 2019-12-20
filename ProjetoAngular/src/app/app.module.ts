@@ -13,7 +13,8 @@ import { ValueComponent } from './sobre/value/value.component';
 import { FormsModule } from '@angular/forms';
 import { FaleconoscoComponent } from './faleconosco/faleconosco.component';
 import { InfosComponent } from './faleconosco/infos/infos.component';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { ProdutoComponent } from './produto/produto.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeComponent } from './home/home.component'
     ValueComponent,
     FaleconoscoComponent,
     InfosComponent,
-    HomeComponent
+    HomeComponent,
+    ProdutoComponent
   ],
   imports: [
     BrowserModule,
