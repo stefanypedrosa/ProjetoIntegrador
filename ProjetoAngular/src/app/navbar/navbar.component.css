@@ -42,9 +42,11 @@
     height: 30px;
     color:#dedcc5;
     border-color:#dedcc5;
+    box-shadow: none;
 }
 .btn-outline:hover{
     color:#059faa;
     background-color: #dedcc5;
     border-color:#dedcc5;
+    box-shadow: none;
 }
