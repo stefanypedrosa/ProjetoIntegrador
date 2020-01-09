@@ -74,6 +74,8 @@ export class FormLoginComponent implements OnInit {
     }
 
     if (this.senha.length < 10) {
+      this._msgErroSFA = null;
+      this._msgErroSFO = null;
       this.senha ="";
       this._msgErroS = `A senha deve conter no minimo 10 caracteres`;
     }
@@ -104,7 +106,8 @@ export class FormLoginComponent implements OnInit {
     }
 
     if (this.nome != "" && this.email != "" && this.tel != null && this.senha != "" && this.confSenha != "") {
-      this._msgEnviar = "Dados enviados com SUCESSO!!";
+      //this._msgEnviar = "Dados enviados com SUCESSO!!";
+      alert("Dados enviados com SUCESSO!!");
       this.nome = "";
       this.email = "";
       this.tel = null;
@@ -117,10 +120,12 @@ export class FormLoginComponent implements OnInit {
 
   vSenha(){
     if(this.carEsp.test(this.senha)){
+      this._msgErroS = null;
       this._msgErroSFA = null;
       this._msgErroSFO = "Senha forte";
     }
-    else if (this.filtro.test(this.senha) || this.num.test(this.senha) || this.numFiltro.test(this.senha)){
+    else if (this.filtro.test(this.senha) || this.num.test(this.senha) || this.numFiltro.test(this.senha) || this.senha.length < 10){
+      this._msgErroS = null;
       this._msgErroSFO = null;
       this._msgErroSFA = "Senha fraca";
     }
