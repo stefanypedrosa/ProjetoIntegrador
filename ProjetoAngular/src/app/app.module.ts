@@ -18,7 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './login/login.component';
 import { FormLoginComponent } from './login/form-login/form-login.component';
-import { TituloComponent } from './login/titulo/titulo.component'
+import { TituloComponent } from './login/titulo/titulo.component';
+import { ModalCadComponent } from './login/modal-cad/modal-cad.component'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { TituloComponent } from './login/titulo/titulo.component'
     ProdutoComponent,
     LoginComponent,
     FormLoginComponent,
-    TituloComponent
+    TituloComponent,
+    ModalCadComponent
   ],
   imports: [
     BrowserModule,

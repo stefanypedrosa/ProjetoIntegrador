@@ -3,7 +3,10 @@
     padding:0%;
 }
 
-
+.form-group{
+    width:80%;
+    margin:auto;
+}
 label{
     font-family: 'Mukta', sans-serif;
     font-size:14px;
@@ -26,23 +29,42 @@ span{
     margin-left: 43%;
   
 }
-.btn-outline{
+.btn-outline,#cadastro .btn-outline{
     width: 90px;
     height: 35px;
     color:#dedcc5;
     border-color:#dedcc5;
 }
-.btn-outline:hover{
+.btn-outline:hover,#cadastro .btn-outline:hover{
     color:#059faa;
     background-color: #dedcc5;
     border-color:#dedcc5;
 }
+.row{
+    margin-top: 7%;
+}
+.linha{
+    margin-top: 2%;
+}
+.texto{
+    color:#dedcc5;
+    text-align: center;
 
-#forte{
-    color: #059faa;
+}
+p{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:12px;
+    color:#72726c;
 }
 
-#fraca{
-    color: orange;
+#cadastro{
+    margin-top:7%;
 }
-
+#cadastro .btn{
+    margin-top:3%;
+    width: 300px;
+    background-color: #059faa;
+    color:#dedcc5;
+    margin-left: 28%;
+}

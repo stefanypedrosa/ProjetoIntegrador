@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-form-login',
-  templateUrl: './form-login.component.html',
-  styleUrls: ['./form-login.component.css']
+  selector: 'app-modal-cad',
+  templateUrl: './modal-cad.component.html',
+  styleUrls: ['./modal-cad.component.css']
 })
-export class FormLoginComponent implements OnInit {
+export class ModalCadComponent implements OnInit {
 
-  /*private nome: string;
+  private nome: string;
   private email: string;
   private tel: string;
   private senha: string;
@@ -16,7 +16,7 @@ export class FormLoginComponent implements OnInit {
   private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
   private num: any = /^[0-9]+$/;
   private carEsp: any = /[!@#$%^&*(),.?":{}|<>]/;
-  private numFiltro: any = /[^0-9A-Za-z]/;
+  private numFiltro: any = /[^0-9A-Za-z]*/;
 
   private _msgErroN: string = null 
   private _msgErroE: string = null 
@@ -26,15 +26,14 @@ export class FormLoginComponent implements OnInit {
 
   private _msgErroSFA: string = null;
   private _msgErroSFO: string = null;
-  private _msgEnviar: string = null;*/
-  
+  private _msgEnviar: string = null;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  /*validacao(){
+  validacao(){
 
     if (this.nome == "" || this.email == "" || this.tel == null || this.senha == "" || this.confSenha == "") {
       alert('Preencha todos os campos');  
@@ -63,7 +62,7 @@ export class FormLoginComponent implements OnInit {
     }
     else {
       this._msgErroT = null;
-    }
+    }*/
 
     if (this.tel.length < 10 || !this.num.test(this.tel)) {
       this.tel = null;
@@ -74,6 +73,8 @@ export class FormLoginComponent implements OnInit {
     }
 
     if (this.senha.length < 10) {
+      this._msgErroSFA = null;
+      this._msgErroSFO = null;
       this.senha ="";
       this._msgErroS = `A senha deve conter no minimo 10 caracteres`;
     }
@@ -93,7 +94,7 @@ export class FormLoginComponent implements OnInit {
     else{
       this._msgErroSFA = null;
       this._msgErroSFO = null;
-    }
+    }*/
     
     if(this.confSenha === this.senha){
       this._msgErroCS = null;
@@ -105,6 +106,7 @@ export class FormLoginComponent implements OnInit {
 
     if (this.nome != "" && this.email != "" && this.tel != null && this.senha != "" && this.confSenha != "") {
       this._msgEnviar = "Dados enviados com SUCESSO!!";
+      //alert("Dados enviados com SUCESSO!!");
       this.nome = "";
       this.email = "";
       this.tel = null;
@@ -117,10 +119,12 @@ export class FormLoginComponent implements OnInit {
 
   vSenha(){
     if(this.carEsp.test(this.senha)){
+      this._msgErroS = null;
       this._msgErroSFA = null;
       this._msgErroSFO = "Senha forte";
     }
-    else if (this.filtro.test(this.senha) || this.num.test(this.senha) || this.numFiltro.test(this.senha)){
+    else if (this.filtro.test(this.senha) || this.num.test(this.senha) || this.numFiltro.test(this.senha) || this.senha.length < 10){
+      this._msgErroS = null;
       this._msgErroSFO = null;
       this._msgErroSFA = "Senha fraca";
     }
@@ -132,5 +136,5 @@ export class FormLoginComponent implements OnInit {
 
   limpaEnviar(){
     this._msgEnviar = null;
-  }*/
+  }
 }
