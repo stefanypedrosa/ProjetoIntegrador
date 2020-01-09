@@ -15,7 +15,10 @@ import { FormsModule } from '@angular/forms';
 import { FaleconoscoComponent } from './faleconosco/faleconosco.component';
 import { InfosComponent } from './faleconosco/infos/infos.component';
 import { HomeComponent } from './home/home.component';
-import { ProdutoComponent } from './produto/produto.component'
+import { ProdutoComponent } from './produto/produto.component';
+import { LoginComponent } from './login/login.component';
+import { FormLoginComponent } from './login/form-login/form-login.component';
+import { TituloComponent } from './login/titulo/titulo.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { ProdutoComponent } from './produto/produto.component'
     FaleconoscoComponent,
     InfosComponent,
     HomeComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    LoginComponent,
+    FormLoginComponent,
+    TituloComponent
   ],
   imports: [
     BrowserModule,
