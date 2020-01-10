@@ -15,7 +15,7 @@ export class ModalCadComponent implements OnInit {
 
   private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
   private num: any = /^[0-9]+$/;
-  private carEsp: any = /[!@#$%^&*(),.?":{}|<>]/;
+  private carEsp: any = /[@#$%&]/;
   private numFiltro: any = /[^0-9A-Za-z]*/;
 
   private _msgErroN: string = null 
@@ -118,12 +118,12 @@ export class ModalCadComponent implements OnInit {
   }
 
   vSenha(){
-    if(this.carEsp.test(this.senha)){
+    if(this.carEsp.test(this.senha) && this.senha.length >= 10){
       this._msgErroS = null;
       this._msgErroSFA = null;
       this._msgErroSFO = "Senha forte";
     }
-    else if (this.filtro.test(this.senha) || this.num.test(this.senha) || this.numFiltro.test(this.senha) || this.senha.length < 10){
+    else if (this.filtro.test(this.senha) || this.num.test(this.senha) || this.numFiltro.test(this.senha)){
       this._msgErroS = null;
       this._msgErroSFO = null;
       this._msgErroSFA = "Senha fraca";
