@@ -51,7 +51,15 @@ export class ContatosComponent implements OnInit {
       this._msgErroE = null;
     }
 
-    if (!this.num.test(this.tel)) {
+    if (this.tel.length < 10 || !this.num.test(this.tel)) {
+      this.tel = null;
+      this._msgErroT = `Digite um telefone válido`;
+    }
+    else {
+      this._msgErroT = null;
+    }
+
+    /*if (!this.num.test(this.tel)) {
       this.tel = null;
       this._msgErroT = `Apenas digitos`;
     }
@@ -64,7 +72,8 @@ export class ContatosComponent implements OnInit {
     }
     else {
       this._msgErroT = null;
-    }
+    }*/
+    
     if (this.nome != "" && this.sobrenome != "" && this.email != "" && this.tel != null && this.msg != "") {
       alert("Dados enviados com SUCESSO!!")
       this.nome = "";
