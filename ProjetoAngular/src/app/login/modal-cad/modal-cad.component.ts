@@ -47,6 +47,14 @@ export class ModalCadComponent implements OnInit {
       this._msgErroN = null;
     }
 
+    if(this.nome.indexOf(" ") < 1){
+      this.nome = "";
+      this._msgErroN = "Digite o nome completo";
+    }
+    else {
+      this._msgErroN = null;
+    }
+
     if (this.email.indexOf("@") == -1 && this.email.indexOf("@") > 1 || this.email.indexOf(".") == -1) {
       this.email = "";
       this._msgErroE = "Dado inválido";
