@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { usuario } from 'src/app/model/usuario';
+import { WebListServiceService } from 'src/app/service/web-list-service.service';
 
 @Component({
   selector: 'app-modal-cad',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-cad.component.css']
 })
 export class ModalCadComponent implements OnInit {
+
+  public usuario:usuario = new usuario;
 
   private nome: string;
   private email: string;
@@ -27,8 +31,9 @@ export class ModalCadComponent implements OnInit {
   private _msgErroSFA: string = null;
   private _msgErroSFO: string = null;
   private _msgEnviar: string = null;
+  private _msgEnviarE: string = null;
 
-  constructor() { }
+  constructor(private srv: WebListServiceService) { }
 
   ngOnInit() {
   }
@@ -112,18 +117,24 @@ export class ModalCadComponent implements OnInit {
       this._msgErroCS = "As senhas nâo conferem";
     }
 
-    if (this.nome != "" && this.email != "" && this.tel != null && this.senha != "" && this.confSenha != "") {
-      this._msgEnviar = "Dados enviados com SUCESSO!!";
-      //alert("Dados enviados com SUCESSO!!");
-      this.nome = "";
-      this.email = "";
-      this.tel = null;
-      this.senha = "";
-      this.confSenha = "";
-      this._msgErroSFA = null;
-      this._msgErroSFO = null;
+    //if (this.nome != "" && this.email != "" && this.tel != null && this.senha != "" && this.confSenha != "") {
+      this.srv.inserir(this.usuario).subscribe(res=>{
+        this._msgEnviar = "Dados enviados com SUCESSO!!";
+        //alert("Dados enviados com SUCESSO!!");
+        this.nome = "";
+        this.email = "";
+        this.tel = null;
+        this.senha = "";
+        this.confSenha = "";
+        this._msgErroSFA = null;
+        this._msgErroSFO = null;
+      },
+      error=>{
+        this._msgEnviarE = "Erro ao enviar dados!!";
+      })
+      
     }
-  }
+  //}
 
   vSenha(){
     if(this.carEsp.test(this.senha) && this.senha.length >= 10){
@@ -144,5 +155,6 @@ export class ModalCadComponent implements OnInit {
 
   limpaEnviar(){
     this._msgEnviar = null;
+    this._msgEnviarE = null;
   }
 }
