@@ -102,7 +102,7 @@ export class ModalCadComponent implements OnInit {
     if (this.usuario.nome != "" && this.usuario.email != "" && this.usuario.telefone != null && this.usuario.senha != "" && this.usuario.confSenha != "") {
       this._msgEnviar = null;
       this._msgEnviarE = null;
-      this.srv.insere(this.usuario).subscribe(res=>{
+      this.srv.inserir(this.usuario).subscribe(res=>{
         this._msgEnviar = "Dados enviados com SUCESSO!!";
         this.usuario.nome = "";
         this.usuario.email = "";
