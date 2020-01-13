@@ -19,6 +19,7 @@ export class WebListServiceService {
   public obterListaPorId(  id: string){
     return this.xuxa.get(`http://cloud.professorisidro.com.br:8088/produtos/${id}`)
   }
+<<<<<<< HEAD
   
   public recuperaTodos(){
     return this.xuxa.get("http://cloud.professorisidro.com.br:8088/usuario/all");
@@ -36,4 +37,9 @@ export class WebListServiceService {
 
 
 
+=======
+  public inserir(usuario:usuario){
+    return this.xuxa.post("http://cloud.professorisidro.com.br:8088/usuario/new",usuario);
+  }
+>>>>>>> 70ecbc297559a13d55844c7290c6c308372eea74
 }

@@ -1,17 +1,13 @@
 <div class="form-group">
     <label for="nome">Email</label>
-    <input type="email" class="form-control" id="nome" placeholder=" Digite seu email" [(ngModel)]="nome"
+    <input type="email" class="form-control" id="emaillogin" placeholder=" Digite seu email" [(ngModel)]="nome"
         maxlength="15" required>
-    <span *ngIf='_msgErroN'>{{_msgErroN}}</span>
 </div>
 
 <div class="form-group">
     <label for="senha">Senha</label>
-    <input type="password" class="form-control" id="senha" placeholder=" Digite a senha" [(ngModel)]="senha"
+    <input type="password" class="form-control" id="senhalogin" placeholder=" Digite a senha" [(ngModel)]="senha"
         maxlength="25" required>
-    <span *ngIf='_msgErroS'>{{_msgErroS}}</span>
-    <span *ngIf='_msgErroSFA'>{{_msgErroSFA}}</span>
-    <span *ngIf='_msgErroSFO'>{{_msgErroSFO}}</span>
 </div>
 
 <button type="submit" class="btn btn-outline " (click)="validacao()">Login</button>
@@ -30,7 +26,7 @@
 <div id="cadastro">
     <p>Ao me cadastrar, concordo com todos os termos de serviço e <br>
         políticas de privacidade da COMUD.</p>
-    <button type="submit" class="btn btn-outline " (click)="validacao()" data-toggle="modal"
+        <button type="submit" class="btn btn-outline " (click)="validacao()" data-toggle="modal"
         data-target="#exampleModal">Cadastre-se</button>
     <app-modal-cad></app-modal-cad>
     <button type="submit" class="btn btn-outline" [routerLink]="'/consultausuarios'">Consultar Usuários</button>
