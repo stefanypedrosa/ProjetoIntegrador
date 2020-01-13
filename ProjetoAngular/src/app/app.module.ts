@@ -19,7 +19,9 @@ import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './login/login.component';
 import { FormLoginComponent } from './login/form-login/form-login.component';
 import { TituloComponent } from './login/titulo/titulo.component';
-import { ModalCadComponent } from './login/modal-cad/modal-cad.component'
+import { ModalCadComponent } from './login/modal-cad/modal-cad.component';
+import { ConsultaUsuariosComponent } from './login/consulta-usuarios/consulta-usuarios.component';
+import { EditaUsuarioComponent } from './login/edita-usuario/edita-usuario.component'
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ModalCadComponent } from './login/modal-cad/modal-cad.component'
     LoginComponent,
     FormLoginComponent,
     TituloComponent,
-    ModalCadComponent
+    ModalCadComponent,
+    ConsultaUsuariosComponent,
+    EditaUsuarioComponent
   ],
   imports: [
     BrowserModule,

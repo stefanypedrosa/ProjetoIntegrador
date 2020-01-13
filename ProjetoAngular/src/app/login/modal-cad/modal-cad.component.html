@@ -35,8 +35,8 @@
                         <label for="senha">Senha</label>
                         <input type="password" class="form-control" id="senha" placeholder=" Digite a senha" [(ngModel)]="senha" maxlength="20" required>
                         <span *ngIf='_msgErroS'>{{_msgErroS}}</span>
-                        <span id="fraca" *ngIf='_msgErroSFA'>{{_msgErroSFA}}</span>
-                        <span id="forte" *ngIf='_msgErroSFO'>{{_msgErroSFO}}</span>
+                        <span id="fraca" *ngIf='_msgErroSFA'><strong>{{_msgErroSFA}}</strong></span>
+                        <span id="forte" *ngIf='_msgErroSFO'><strong>{{_msgErroSFO}}</strong></span>
                     </div>
                 
                     <div class="form-group">
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <span *ngIf='_msgEnviar'>{{_msgEnviar}}</span>
+                <span *ngIf='_msgEnviar'><strong>{{_msgEnviar}}</strong></span>
                 <button type="submit" class="btn btn " (click)="validacao()">Enviar</button>
             </div>
         </div>
