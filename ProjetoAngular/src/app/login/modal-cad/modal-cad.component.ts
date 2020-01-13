@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { usuario } from 'src/app/model/usuario';
+import { WebListServiceService } from 'src/app/service/web-list-service.service';
 
 @Component({
   selector: 'app-modal-cad',
@@ -7,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalCadComponent implements OnInit {
 
-  private nome: string;
+  public usuario:usuario = new usuario;
+  private _msgEnviar: string = null;
+  private _msgEnviarE: string = null;
+  private _msgErroSFA: string = null;
+  private _msgErroSFO: string = null;
+
+  /*private nome: string;
   private email: string;
   private tel: string;
   private senha: string;
-  private confSenha: string;
+  private confSenha: string;*/
 
   private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
   private num: any = /^[0-9]+$/;
@@ -24,114 +32,100 @@ export class ModalCadComponent implements OnInit {
   private _msgErroS: string = null;
   private _msgErroCS: string = null;
 
-  private _msgErroSFA: string = null;
+  /*private _msgErroSFA: string = null;
   private _msgErroSFO: string = null;
   private _msgEnviar: string = null;
+  private _msgEnviarE: string = null;*/
 
-  constructor() { }
+  constructor(private srv: WebListServiceService) { }
 
   ngOnInit() {
+    this.validacao();
   }
 
   validacao(){
 
-    if (this.nome == "" || this.email == "" || this.tel == null || this.senha == "" || this.confSenha == "") {
+    if (this.usuario.nome == "" || this.usuario.email == "" || this.usuario.telefone == null || this.usuario.senha == "" || this.usuario.confSenha == "") {
       alert('Preencha todos os campos');  
     }
 
-    if (!this.filtro.test(this.nome)) {
-      this.nome = "";
+    if (!this.filtro.test(this.usuario.nome)) {
+      this.usuario.nome = "";
       this._msgErroN = "Dado inválido";
     }
     else {
       this._msgErroN = null;
     }
 
-    if(this.nome.indexOf(" ") < 1){
-      this.nome = "";
+    if(this.usuario.nome.indexOf(" ") < 1){
+      this.usuario.nome = "";
       this._msgErroN = "Digite o nome completo";
     }
     else {
       this._msgErroN = null;
     }
 
-    if (this.email.indexOf("@") == -1 && this.email.indexOf("@") > 1 || this.email.indexOf(".") == -1) {
-      this.email = "";
+    if (this.usuario.email.indexOf("@") == -1 && this.usuario.email.indexOf("@") > 1 || this.usuario.email.indexOf(".") == -1) {
+      this.usuario.email = "";
       this._msgErroE = "Dado inválido";
     }
     else {
       this._msgErroE = null;
     }
 
-    //validacao do tel
-    /*if (!this.num.test(this.tel)) {
-      this.tel = null;
-      this._msgErroT = `Apenas digitos`;
-    }
-    else {
-      this._msgErroT = null;
-    }*/
-
-    if (this.tel.length < 10 || !this.num.test(this.tel)) {
-      this.tel = null;
+    if (this.usuario.telefone.length < 10 || !this.num.test(this.usuario.telefone)) {
+      this.usuario.telefone = null;
       this._msgErroT = `Digite um telefone válido`;
     }
     else {
       this._msgErroT = null;
     }
 
-    if (this.senha.length < 10) {
+    if (this.usuario.senha.length < 10) {
       this._msgErroSFA = null;
       this._msgErroSFO = null;
-      this.senha ="";
+      this.usuario.senha ="";
       this._msgErroS = `A senha deve conter no minimo 10 caracteres`;
     }
     else {
       this._msgErroS = null;
     }
-
-    //senha fraca ou forte
-    /*if(this.carEsp.test(this.senha)){
-      this._msgErroSFA = null;
-      this._msgErroSFO = "Senha forte";
-    }
-    else if (this.filtro.test(this.senha) || this.num.test(this.senha) || this.numFiltro.test(this.senha)){
-      this._msgErroSFO = null;
-      this._msgErroSFA = "Senha fraca";
-    }
-    else{
-      this._msgErroSFA = null;
-      this._msgErroSFO = null;
-    }*/
     
-    if(this.confSenha === this.senha){
+    if(this.usuario.confSenha === this.usuario.senha){
       this._msgErroCS = null;
     }
     else{
-      this.confSenha= "";
+      this.usuario.confSenha= "";
       this._msgErroCS = "As senhas nâo conferem";
     }
 
-    if (this.nome != "" && this.email != "" && this.tel != null && this.senha != "" && this.confSenha != "") {
-      this._msgEnviar = "Dados enviados com SUCESSO!!";
-      //alert("Dados enviados com SUCESSO!!");
-      this.nome = "";
-      this.email = "";
-      this.tel = null;
-      this.senha = "";
-      this.confSenha = "";
-      this._msgErroSFA = null;
-      this._msgErroSFO = null;
+    if (this.usuario.nome != "" && this.usuario.email != "" && this.usuario.telefone != null && this.usuario.senha != "" && this.usuario.confSenha != "") {
+      this._msgEnviar = null;
+      this._msgEnviarE = null;
+      this.srv.insere(this.usuario).subscribe(res=>{
+        this._msgEnviar = "Dados enviados com SUCESSO!!";
+        this.usuario.nome = "";
+        this.usuario.email = "";
+        this.usuario.telefone = null;
+        this.usuario.senha = "";
+        this.usuario.confSenha = "";
+        this._msgErroSFA = null;
+        this._msgErroSFO = null;
+      },
+      error=>{
+        this._msgEnviarE = "Erro ao enviar dados!!";
+      })
+      
     }
   }
 
   vSenha(){
-    if(this.carEsp.test(this.senha) && this.senha.length >= 10){
+    if(this.carEsp.test(this.usuario.senha) && this.usuario.senha.length >= 10){
       this._msgErroS = null;
       this._msgErroSFA = null;
       this._msgErroSFO = "Senha forte";
     }
-    else if (this.filtro.test(this.senha) || this.num.test(this.senha) || this.numFiltro.test(this.senha)){
+    else if (this.filtro.test(this.usuario.senha) || this.num.test(this.usuario.senha) || this.numFiltro.test(this.usuario.senha)){
       this._msgErroS = null;
       this._msgErroSFO = null;
       this._msgErroSFA = "Senha fraca";
@@ -144,5 +138,6 @@ export class ModalCadComponent implements OnInit {
 
   limpaEnviar(){
     this._msgEnviar = null;
+    this._msgEnviarE = null;
   }
 }
