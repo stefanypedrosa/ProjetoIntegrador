@@ -1,1 +1,15 @@
-<p>consulta-usuarios works!</p>
+<h2 class="text-center mt-5">USER</h2>
+<div class="row mt-5">
+    
+    <div class="col-md-12">
+        
+        <div *ngFor='let USER of listaUser'>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-3 div"><a [routerLink]="['/detalhe',USER.idUsuario]" class="text-muted"> {{ USER.nome }} </a> </div>
+                <div class="col-md-3 div "> <button class="btn btn-outline "><a [routerLink]="['/edita-usuario',USER.idUsuario]" class="text-light"> Alterar </a></button> </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
