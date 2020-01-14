@@ -13,7 +13,7 @@
                     <div class="form-group">
                         <label for="nome">Nome Completo</label>
                         <input type="text" class="form-control" id="nome" (click)="limpaEnviar()" placeholder=" Digite o nome completo"
-                            [(ngModel)]="usuario.nome" maxlength="15" required>
+                            [(ngModel)]="usuario.nome" maxlength="50" required>
                         <span *ngIf='_msgErroN'>{{_msgErroN}}</span>
                     </div>
 

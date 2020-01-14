@@ -1,13 +1,13 @@
 <div class="form-group">
     <label for="nome">Email</label>
-    <input type="email" class="form-control" id="emaillogin" placeholder=" Digite seu email" [(ngModel)]="nome"
-        maxlength="15" required>
+    <input type="email" class="form-control" id="emaillogin" placeholder=" Digite seu email" [(ngModel)]="emaillogin"
+        maxlength="25" required>
 </div>
 
 <div class="form-group">
     <label for="senha">Senha</label>
-    <input type="password" class="form-control" id="senhalogin" placeholder=" Digite a senha" [(ngModel)]="senha"
-        maxlength="25" required>
+    <input type="password" class="form-control" id="senhalogin" placeholder=" Digite a senha" [(ngModel)]="senhalogin"
+        maxlength="20" required>
 </div>
 
 <button type="submit" class="btn btn-outline " (click)="validacao()">Login</button>
