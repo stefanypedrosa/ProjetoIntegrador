@@ -68,15 +68,22 @@ p{
     color:#dedcc5;
     margin-left: 28%;
 }
-#erro{
-    font-size:20px;
+
+span{
+    text-align: center;
+    margin-top: 2%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 1%;
+    margin-left: 35%;
+
+}#erro{
+    font-size:15px;
     margin-right: 18%;
     color:red;
-    margin-left: 32%;
 }
 #certo{
-    font-size:20px;
+    font-size:15px;
     margin-right: 18%;
     color:#048992;
-    margin-left: 26%;
 }
+
