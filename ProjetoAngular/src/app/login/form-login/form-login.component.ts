@@ -21,7 +21,10 @@ export class FormLoginComponent implements OnInit {
   autenticacao() {
     this._msgEnviar = null;
     this._msgEnviarE = null;
-    
+    if(this.login.email == "" || this.login.senha == "" || this.login.email == null || this.login.senha == null){
+      this._msgEnviarE = "Preencha todos os campos";
+    }
+    else{
     this.srv.login(this.login).subscribe(res => {
       this._msgEnviar = "Usuário logado com sucesso!!";
       this.login.email = "";
@@ -32,6 +35,7 @@ export class FormLoginComponent implements OnInit {
         this.login.email = "";
         this.login.senha = "";
       })
+    }
     }
 
   limpaEnviar(){
