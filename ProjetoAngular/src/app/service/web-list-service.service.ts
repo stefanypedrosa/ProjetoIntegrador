@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { usuario } from '../model/usuario';
+import { login } from '../model/login';
 
 
 @Injectable({
@@ -32,6 +33,10 @@ export class WebListServiceService {
   }
   public inserir(usuario:usuario){
     return this.xuxa.post("http://cloud.professorisidro.com.br:8088/usuario/new",usuario);
+  }
+
+  public login(login: login){
+    return this.xuxa.post("http://cloud.professorisidro.com.br:8088/usuario/login", login);
   }
 
 }
