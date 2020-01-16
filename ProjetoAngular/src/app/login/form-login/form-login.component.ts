@@ -21,13 +21,14 @@ export class FormLoginComponent implements OnInit {
   autenticacao() {
     this._msgEnviar = null;
     this._msgEnviarE = null;
+    
     this.srv.login(this.login).subscribe(res => {
       this._msgEnviar = "Usuário logado com sucesso!!";
       this.login.email = "";
       this.login.senha = "";
     },
       error => {
-        this._msgEnviarE = "Email e/ou senha incorreto(s)";
+        this._msgEnviarE = "Email e/ou senha inválido(s)";
         this.login.email = "";
         this.login.senha = "";
       })
