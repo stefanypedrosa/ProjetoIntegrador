@@ -8,6 +8,7 @@ import {ProdutoComponent} from './produto/produto.component';
 import {LoginComponent} from './login/login.component';
 import { ConsultaUsuariosComponent } from './login/consulta-usuarios/consulta-usuarios.component';
 import { EditaUsuarioComponent } from './login/edita-usuario/edita-usuario.component';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'produto', component:ProdutoComponent},
   {path:'login', component:LoginComponent},
   {path: 'consultausuarios', component:ConsultaUsuariosComponent},
-  {path: 'editausuarios/:id', component:EditaUsuarioComponent}
+  {path: 'editausuarios/:id', component:EditaUsuarioComponent},
+  {path: 'faq', component:FaqComponent}
 ];
 
 @NgModule({

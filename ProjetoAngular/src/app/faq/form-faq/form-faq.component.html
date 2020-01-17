@@ -1,0 +1,87 @@
+<h2 class="mt-5">Ainda com dúvidas? Deixa com a gente.</h2>
+
+<div class="row mt-5 mb-5">
+    
+    <div class="col-md-2 ml-5 mr-2">
+        <h5>Como ser parceiro:</h5>
+        <p>
+            A COMUD preza muito pela integridade e intenção das instituições que apoia. Caso queira realizar alguma
+            parceria, podemos conversar melhor pela página de Contato!
+        </p>
+    </div>
+    <div class="col-md-2 mx-3">
+        <h5>Fazer uma denúncia:</h5>
+        <p>
+            Caso tenha sido lesade, mal-tratade e/ou discriminade aqui ou em algum ambiente COMUD, não hesite em nos
+            contatar imediatamente para que tomemos as devidas e legais providências.
+        </p>
+    </div>
+    <div class="col-md-2 mx-3">
+        <h5>Indicações de ONGs</h5>
+        <p>
+            Faz parte, colabora ou conhece alguma ONG que tem tudo a ver ou que precise da ajuda da COMUD? Conta pra
+            gente na página de Contato! A gente vai adorar saber e mal pode esperar para espalhar a comunidade COMUD!
+        </p>
+    </div>
+    <div class="col-md-2 mx-3">
+        <h5>Quer voluntariar nas ONGs parceiras?</h5>
+        <p>
+            Na página de “Doar” há campos de contatos com as ONGs parceiras e acredite, ajuda nunca é demais nesse
+            movimento de mudança, qualquer energia importa!
+        </p>
+    </div>
+    <div class="col-md-2 ml-3">
+        <h5>Receber suporte</h5>
+        <p>
+            Notou alguma “tracinha” ou bichinho estranho em nosso site, não consegue fazer alguma função, ou seus
+            acúmulos sumiram sem nem conseguir trocar? Contando para a gente na nossa página de “Contato” a nossa equipe
+            pode resolver assim que possível.
+        </p>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<hr>
+
+<div class="row mt-3">
+    <div class="col md-2"></div>
+    <div class="col md-8">
+        <h3>Contate:</h3>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Digite o nome" [(ngModel)]="nome"
+                maxlength="15" required>
+            <span *ngIf='_msgErroN'>{{_msgErroN}}</span>
+        </div>
+
+        <div class="form-group">
+            <label for="Telefone">Telefone</label>
+            <input type="tel" class="form-control" id="tel" [(ngModel)]="tel" placeholder="(XX) 99999-9999"
+                maxlength="11" required>
+            <span *ngIf='_msgErroT'>{{_msgErroT}}</span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com.br" [(ngModel)]="email"
+                maxlength="25" required>
+            <span *ngIf='_msgErroE'>{{_msgErroE}}</span>
+        </div>
+
+        <select class="btn" id="slct">
+            <option value="Selecione">Selecione um assunto</option>
+            <option value="Parceiro">Como ser Parceiro</option>
+            <option value="Denuncia">Fazer uma denúncia</option>
+            <option value="ong">Sobre ONG</option>
+            <option value="Suporte">Receber suporte</option>
+        </select>
+
+        <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea class="form-control" [(ngModel)]="msg" id="mensagem" rows="5" maxlength="400" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-outline mt-2" (click)="validacao()">Enviar</button>
+
+    </div>
+    <div class="col md-2"></div>
+</div>
