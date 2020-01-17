@@ -21,7 +21,8 @@ import { FormLoginComponent } from './login/form-login/form-login.component';
 import { TituloComponent } from './login/titulo/titulo.component';
 import { ModalCadComponent } from './login/modal-cad/modal-cad.component';
 import { ConsultaUsuariosComponent } from './login/consulta-usuarios/consulta-usuarios.component';
-import { EditaUsuarioComponent } from './login/edita-usuario/edita-usuario.component'
+import { EditaUsuarioComponent } from './login/edita-usuario/edita-usuario.component';
+import { FaqComponent } from './faq/faq.component'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { EditaUsuarioComponent } from './login/edita-usuario/edita-usuario.compo
     TituloComponent,
     ModalCadComponent,
     ConsultaUsuariosComponent,
-    EditaUsuarioComponent
+    EditaUsuarioComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
