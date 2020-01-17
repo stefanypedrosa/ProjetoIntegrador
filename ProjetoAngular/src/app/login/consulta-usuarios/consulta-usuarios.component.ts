@@ -1,23 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { WebListServiceService } from '../../service/web-list-service.service';
 import { usuario } from '../../model/usuario';
+import { Globals } from '../../model/login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consulta-usuarios',
   templateUrl: './consulta-usuarios.component.html',
-  styleUrls: ['./consulta-usuarios.component.css']
+  styleUrls: ['./consulta-usuarios.component.css'],
+  providers: [Globals]
 })
 
 export class ConsultaUsuariosComponent implements OnInit {
 
   public listaUser: usuario[];
 
-  constructor(private srv: WebListServiceService ) { }
+  usuario: usuario;
+
+  constructor(private router: Router, private srv: WebListServiceService ) { }
 
   ngOnInit() {
-    this.srv.recuperaTodos().subscribe((res: usuario[])=>{
-      this.listaUser = res;
+    if (!Globals.USUARIO) {
+      this.router.navigate(['/login']);
+    }
+    else {
+      this.usuario = Globals.USUARIO;
+    }
+
+    this.srv.recuperaTodos().subscribe((resp: usuario[]) => {
+      this.listaUser = resp;
     });
   }
-
 }
