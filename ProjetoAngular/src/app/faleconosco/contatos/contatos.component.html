@@ -1,7 +1,7 @@
 <div class="container" id="formulario">
     <div class="form-group">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" placeholder="Digite o nome" [(ngModel)]="nome" maxlength="15" required >
+        <input type="text" class="form-control" id="nome" placeholder="Digite o nome" [(ngModel)]="nome" maxlength="20" required >
         <span *ngIf='_msgErroN'>{{_msgErroN}}</span>
     </div>
     <div class="form-group">
@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="name@example.com.br" [(ngModel)]="email" maxlength="25" required>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com.br" [(ngModel)]="email" maxlength="40" required>
         <span *ngIf='_msgErroE'>{{_msgErroE}}</span>
     </div>
     <div class="form-group">

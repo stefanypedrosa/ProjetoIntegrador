@@ -20,7 +20,7 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" (click)="limpaEnviar()"placeholder=" name@example.com.br"
-                            [(ngModel)]="usuario.email" maxlength="25" required>
+                            [(ngModel)]="usuario.email" maxlength="40" required>
                         <span *ngIf='_msgErroE'>{{_msgErroE}}</span>
                     </div>
 
