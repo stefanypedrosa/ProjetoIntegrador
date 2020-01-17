@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { usuario } from '../../model/usuario';
 import { WebListServiceService } from 'src/app/service/web-list-service.service';
+import {Router} from '@angular/router';
+import {Globals} from '../../model/login';
 
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
-  styleUrls: ['./form-login.component.css']
+  styleUrls: ['./form-login.component.css'],
+  providers: [Globals]
 })
 export class FormLoginComponent implements OnInit {
 
@@ -13,7 +16,7 @@ export class FormLoginComponent implements OnInit {
   private _msgEnviar: string = null;
   private _msgEnviarE: string = null;
 
-  constructor(private srv: WebListServiceService) { }
+  constructor(private srv: WebListServiceService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -26,14 +29,18 @@ export class FormLoginComponent implements OnInit {
     }
     else{
     this.srv.login(this.usuario).subscribe(res => {
-      this._msgEnviar = "Usuário logado com sucesso!!";
-      this.usuario.email = "";
-      this.usuario.senha = "";
+      // this._msgEnviar = "Usuário logado com sucesso!!";
+      // this.usuario.email = "";
+      // this.usuario.senha = "";
+      this.router.navigate(['home']);
+
+
     },
       error => {
         this._msgEnviarE = "Email e/ou senha inválido(s)";
         this.usuario.email = "";
         this.usuario.senha = "";
+        this.router.navigate(['login']);
       })
     }
     }
