@@ -1,4 +1,4 @@
-export class login{
-    email: String;
-    senha: String;
+import { usuario } from '../model/usuario';
+export class Globals {
+    public static USUARIO: usuario;
 }

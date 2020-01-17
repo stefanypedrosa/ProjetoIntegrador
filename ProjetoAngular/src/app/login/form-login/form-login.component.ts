@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { login } from '../../model/login';
+import { usuario } from '../../model/usuario';
 import { WebListServiceService } from 'src/app/service/web-list-service.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { WebListServiceService } from 'src/app/service/web-list-service.service'
 })
 export class FormLoginComponent implements OnInit {
 
-  public login: login = new login;
+  public usuario: usuario = new usuario;
   private _msgEnviar: string = null;
   private _msgEnviarE: string = null;
 
@@ -21,19 +21,19 @@ export class FormLoginComponent implements OnInit {
   autenticacao() {
     this._msgEnviar = null;
     this._msgEnviarE = null;
-    if(this.login.email == "" || this.login.senha == "" || this.login.email == null || this.login.senha == null){
+    if(this.usuario.email == "" || this.usuario.senha == "" || this.usuario.email == null || this.usuario.senha == null){
       this._msgEnviarE = "Preencha todos os campos";
     }
     else{
-    this.srv.login(this.login).subscribe(res => {
+    this.srv.login(this.usuario).subscribe(res => {
       this._msgEnviar = "Usuário logado com sucesso!!";
-      this.login.email = "";
-      this.login.senha = "";
+      this.usuario.email = "";
+      this.usuario.senha = "";
     },
       error => {
         this._msgEnviarE = "Email e/ou senha inválido(s)";
-        this.login.email = "";
-        this.login.senha = "";
+        this.usuario.email = "";
+        this.usuario.senha = "";
       })
     }
     }
