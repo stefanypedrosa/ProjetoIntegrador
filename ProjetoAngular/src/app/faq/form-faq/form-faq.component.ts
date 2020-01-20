@@ -23,7 +23,7 @@ export class FormFaqComponent implements OnInit {
   }
 
   validacao() {
-    if (this.nome == "" || this.email == "" || this.tel == null || this.msg == "") {
+    if (this.nome == "" || this.email == "" || this.tel == null || this.msg == "" || this.nome == null || this.email == null || this.msg == null) {
       alert('Preencha todos os campos');
     }
     if (!this.filtro.test(this.nome)) {

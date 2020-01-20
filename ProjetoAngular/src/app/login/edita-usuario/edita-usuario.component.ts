@@ -58,17 +58,9 @@ export class EditaUsuarioComponent implements OnInit {
       alert('Preencha todos os campos');  
     }
 
-    if (!this.filtro.test(this.usuario.nome)) {
+    if (!this.filtro.test(this.usuario.nome) || this.usuario.nome.indexOf(" ") < 1) {
       this.usuario.nome = "";
       this._msgErroN = "Dado inválido";
-    }
-    else {
-      this._msgErroN = null;
-    }
-
-    if(this.usuario.nome.indexOf(" ") < 1){
-      this.usuario.nome = "";
-      this._msgErroN = "Digite o nome completo";
     }
     else {
       this._msgErroN = null;
@@ -99,14 +91,6 @@ export class EditaUsuarioComponent implements OnInit {
     else {
       this._msgErroS = null;
     }
-    
-    /*if(this.usuario.confSenha === this.usuario.senha){
-      this._msgErroCS = null;
-    }
-    else{
-      this.usuario.confSenha= "";
-      this._msgErroCS = "As senhas nâo conferem";
-    }*/
 
     this._msgEnviar = null;
     this._msgEnviarE = null;

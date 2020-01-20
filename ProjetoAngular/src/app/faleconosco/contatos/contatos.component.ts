@@ -25,7 +25,7 @@ export class ContatosComponent implements OnInit {
   }
 
   validacao() {
-    if (this.nome == "" || this.sobrenome == "" || this.email == "" || this.tel == null || this.msg == "") {
+    if (this.nome == "" || this.sobrenome == "" || this.email == "" || this.msg == null || this.nome == null || this.sobrenome == null || this.email == null || this.tel == null || this.msg == null) {
       alert('Preencha todos os campos');
     }
     if (!this.filtro.test(this.nome)) {
@@ -58,21 +58,6 @@ export class ContatosComponent implements OnInit {
     else {
       this._msgErroT = null;
     }
-
-    /*if (!this.num.test(this.tel)) {
-      this.tel = null;
-      this._msgErroT = `Apenas digitos`;
-    }
-    else {
-      this._msgErroT = null;
-    }
-    if (this.tel.length < 11) {
-      this.tel = null;
-      this._msgErroT = `Digite 11 digitos`;
-    }
-    else {
-      this._msgErroT = null;
-    }*/
     
     if (this.nome != "" && this.sobrenome != "" && this.email != "" && this.tel != null && this.msg != "") {
       alert("Dados enviados com SUCESSO!!")

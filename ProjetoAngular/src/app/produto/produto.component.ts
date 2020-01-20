@@ -22,8 +22,6 @@ export class ProdutoComponent implements OnInit {
     this.pesquisarTodos();
   }
 
-
-
   public pesquisarTodos() {
       this._msgErro = "";
       this.lista = true

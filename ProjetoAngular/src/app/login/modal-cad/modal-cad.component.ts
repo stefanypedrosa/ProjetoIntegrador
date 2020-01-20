@@ -15,12 +15,6 @@ export class ModalCadComponent implements OnInit {
   private _msgErroSFA: string = null;
   private _msgErroSFO: string = null;
 
-  /*private nome: string;
-  private email: string;
-  private tel: string;
-  private senha: string;
-  private confSenha: string;*/
-
   private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
   private num: any = /^[0-9]+$/;
   private carEsp: any = /[@#$%&]/;
@@ -31,11 +25,6 @@ export class ModalCadComponent implements OnInit {
   private _msgErroT: string = null 
   private _msgErroS: string = null;
   private _msgErroCS: string = null;
-
-  /*private _msgErroSFA: string = null;
-  private _msgErroSFO: string = null;
-  private _msgEnviar: string = null;
-  private _msgEnviarE: string = null;*/
 
   constructor(private srv: WebListServiceService) { }
 
@@ -48,17 +37,9 @@ export class ModalCadComponent implements OnInit {
       alert('Preencha todos os campos');  
     }
 
-    if (!this.filtro.test(this.usuario.nome)) {
+    if (!this.filtro.test(this.usuario.nome) || this.usuario.nome.indexOf(" ") < 1) {
       this.usuario.nome = "";
       this._msgErroN = "Dado inválido";
-    }
-    else {
-      this._msgErroN = null;
-    }
-
-    if(this.usuario.nome.indexOf(" ") < 1){
-      this.usuario.nome = "";
-      this._msgErroN = "Digite o nome completo";
     }
     else {
       this._msgErroN = null;
