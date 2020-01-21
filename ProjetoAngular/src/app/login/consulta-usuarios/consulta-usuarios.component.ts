@@ -21,7 +21,9 @@ export class ConsultaUsuariosComponent implements OnInit {
 
   ngOnInit() {
     if (!Globals.USUARIO) {
-      this.router.navigate(['/login']);
+      alert("Você precisa estar logado para acessar esta página");
+      this.router.navigate(['/login']
+      );
     }
     else {
       this.usuario = Globals.USUARIO;

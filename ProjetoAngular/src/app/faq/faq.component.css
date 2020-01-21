@@ -18,7 +18,8 @@ h1{
     border: #dedcc5;
     border-radius: none;
     border-start-start-radius: 10px;
-   
+    margin-left: 1%;
+    margin-right: 1%;
 }
 .card-body{
     background-color: rgb(245, 245, 245);
