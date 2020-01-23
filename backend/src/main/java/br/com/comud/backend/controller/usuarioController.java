@@ -70,6 +70,7 @@ public class usuarioController {
 			lista.set(pos, u);
 			return ResponseEntity.ok("Sucess!!");
 		}
-		return ResponseEntity.status(403).build();
+		return ResponseEntity.status(403).build();	
 	}
+	
 }

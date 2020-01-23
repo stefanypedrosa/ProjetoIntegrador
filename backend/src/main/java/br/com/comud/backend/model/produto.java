@@ -1,6 +1,7 @@
 package br.com.comud.backend.model;
 
 public class produto {
+	private int id;
 	private String nome;
 	private String linkFoto;
 	private String detalhes;
@@ -10,6 +11,13 @@ public class produto {
 	private String tamanho = "Selecione";
 	
 	
+	public  int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
