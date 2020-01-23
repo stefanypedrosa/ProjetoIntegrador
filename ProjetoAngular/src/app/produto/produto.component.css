@@ -21,6 +21,7 @@ button:hover{
     width: 125px;
     box-shadow: none;
 }
+
 #busca{
     width: 104px;
 }
@@ -65,3 +66,14 @@ span{
     margin-left: 1%;
     color: red;
 }
+#cad{
+    width: 69%;
+}
+#altera a{
+    text-decoration: none;
+}
+#altera{
+    margin-top: 5%;
+    margin-left: 32%;
+}
+

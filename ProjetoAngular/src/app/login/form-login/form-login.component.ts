@@ -3,6 +3,7 @@ import { usuario } from '../../model/usuario';
 import { WebListServiceService } from 'src/app/service/web-list-service.service';
 import { Router } from '@angular/router';
 import { Globals } from '../../model/login';
+import { Token } from 'src/app/model/token';
 
 @Component({
   selector: 'app-form-login',
@@ -14,11 +15,15 @@ export class FormLoginComponent implements OnInit {
 
   public usuario: usuario = new usuario;
   private _msgEnviarE: string = null;
+  private _msgLogout: string = null;
 
   constructor(private srv: WebListServiceService, private router: Router) { }
 
   ngOnInit() {
-   
+   if(localStorage.getItem("TOKEN")){
+    localStorage.removeItem("TOKEN");
+    this._msgLogout = "Usuário desconectado!";
+   }
   }
 
   autenticacao() {
@@ -27,8 +32,9 @@ export class FormLoginComponent implements OnInit {
       this._msgEnviarE = "Preencha todos os campos";
     }
     else {
-      this.srv.login(this.usuario).subscribe((res: usuario) => {
-        Globals.USUARIO = res;
+      this.srv.login(this.usuario).subscribe((res: Token) => {
+        localStorage.setItem("TOKEN",res.token);
+        //Globals.USUARIO = res;
         this.router.navigate(['home']);
       },
         error => {
@@ -42,6 +48,7 @@ export class FormLoginComponent implements OnInit {
 
   limpaEnviar() {
     this._msgEnviarE = null;
+    this._msgLogout = null;
   }
 
   

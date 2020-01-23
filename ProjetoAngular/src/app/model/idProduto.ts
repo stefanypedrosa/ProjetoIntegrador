@@ -1,10 +1,10 @@
-export class Produto{
-    constructor(
-        public idProduto: number,
-        public titulo: string,
-        public detalhes: string,
-        public linkfoto: string,
-        public preco: number,
-        public qtdEstoque: number
-    ){}
+export class idProduto{
+    id: number;
+    nome: String;
+    linkFoto: String;
+    detalhes: String;
+    categoria: String = "Selecione";
+    classificacao: String = "Selecione";
+    condicao: String = "Selecione";
+    tamanho: String = "Selecione";
 }

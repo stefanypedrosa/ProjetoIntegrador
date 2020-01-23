@@ -1,27 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Globals } from '../model/login';
-import { usuario } from '../model/usuario';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-  providers: [ Globals ]
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  usuario: usuario;
-  private login:string = "";
+
+  private login: String = "";
   constructor() { }
 
   ngOnInit() {
-    if(Globals.USUARIO){
-      this.login = "Logout";
-      this.usuario = Globals.USUARIO;
-    }
-    else{
+    if (!localStorage.getItem("TOKEN")) {
       this.login = "Login";
     }
-    
+    else {
+      this.login = "Logout";
+    }
   }
-
 }

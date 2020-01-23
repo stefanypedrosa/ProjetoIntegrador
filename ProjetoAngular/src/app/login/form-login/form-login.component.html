@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <span id="erro" class="mb-1 text-center" *ngIf='_msgEnviarE'><strong>{{_msgEnviarE}}</strong></span>
+<span id="log" class="mb-1 text-center" *ngIf='_msgLogout'><strong>{{_msgLogout}}</strong></span>
 <br>
 <div class="col">
     <div class="form-group">
@@ -42,55 +43,16 @@
         </div>
     </div>
 
-    <div class="container">
-        <form action="/action_page.php">
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#" class="fb btn social">
-                        <i class="fa fa-facebook fa-fw">
-                        </i> Login com Facebook
-                    </a>
-                    <a href="#" class="twitter btn social">
-                        <i class="fa fa-twitter fa-fw">
-                        </i> Login com Twitter
-                    </a>
-                    <a href="#" class="google btn social">
-                        <i class="fa fa-google fa-fw">
-                        </i> Login com Google
-                    </a>
-                </div>
-                <div class="container">
-                    <div class="row mt-4">
-                        <div class="col-md-5 linha">
-                            <hr>
-                        </div>
-                        <div class="col-md-2 texto">
-                            <p>ou</p>
-                        </div>
-                        <div class="col-md-5 linha">
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid" id="cadastro">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <button type="submit" class="btn btn-outline maior" data-toggle="modal"
-                                data-target="#exampleModal">Cadastre-se</button>
-                            <app-modal-cad></app-modal-cad>
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
-                    <p style="text-align: center;">Ao me cadastrar, concordo com todos
-                        <br>    os termos de serviço e políticas de privacidade da COMUD.</p>
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <button type="submit" class="btn btn-outline maior mt-5"
-                                [routerLink]="'/consultausuarios'">Consultar
-                                Usuários</button>
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
-                </div>
+    <div class="container-fluid" id="cadastro">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 mt-3">
+                <button type="submit" class="btn btn-outline maior" data-toggle="modal"
+                    data-target="#exampleModal">Cadastre-se</button>
+                <app-modal-cad></app-modal-cad>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <p style="text-align: center;">Ao me cadastrar, concordo com todos
+            <br> os termos de serviço e políticas de privacidade da COMUD.</p>
+    </div>
