@@ -18,12 +18,12 @@ import br.com.comud.backend.model.produto;
 public class produtoController {
 	
 	ArrayList<produto> lista = new ArrayList<produto>();
-	int id=0;
+	int id=1;
 	
 	
 	@PostMapping("/produto/new")
 	public ResponseEntity<produto> newProd(@RequestBody produto p){
-		p.setId(id++);
+		p.setId(this.id++);
 		lista.add(p);
 		return ResponseEntity.ok(p);
 	}
@@ -54,7 +54,7 @@ public class produtoController {
 		}
 	
 	@PutMapping("/produto/atualiza")
-	public ResponseEntity<String> alteraProduto(@RequestBody produto p){
+	public ResponseEntity<produto> alteraProduto(@RequestBody produto p){
 		int pos = -1;
 		for (int i = 0; i < lista.size(); i++) {
 			if (lista.get(i).getId() == p.getId()) {
@@ -64,7 +64,7 @@ public class produtoController {
 		}
 		if (pos >= 0) {
 			lista.set(pos, p);
-			return ResponseEntity.ok("Success!!");
+			return ResponseEntity.ok(p);
 		}
 		return ResponseEntity.status(403).build();
 	}
