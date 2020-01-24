@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,8 +45,7 @@ public class usuarioController {
 			for (usuario posicao : lista) {
 				if (u.getEmail().equals(posicao.getEmail())) {
 					return ResponseEntity.status(403).build();
-				} 
-				else {
+				} else {
 					lista.add(u);
 					return ResponseEntity.ok(u);
 				}
@@ -58,10 +58,10 @@ public class usuarioController {
 	public ResponseEntity<String> alteraUsuario(@RequestBody usuario u) {
 		int pos = -1;
 		for (int i = 0; i < lista.size(); i++) {
-			if (u.getEmail().equals(lista.get(i).getEmail())) {
-				return ResponseEntity.status(403).build();
-			} 
-			else if (lista.get(i).getIdUsuario() == u.getIdUsuario()) {
+//			if (u.getEmail().equals(lista.get(i).getEmail())) {
+//				return ResponseEntity.status(403).build();
+//			} else 
+			if (lista.get(i).getIdUsuario() == u.getIdUsuario()) {
 				pos = i;
 				break;
 			}
@@ -70,7 +70,11 @@ public class usuarioController {
 			lista.set(pos, u);
 			return ResponseEntity.ok("Sucess!!");
 		}
-		return ResponseEntity.status(403).build();	
+		return ResponseEntity.status(403).build();
 	}
-	
+
+	@GetMapping("/usuario/todos")
+	public ResponseEntity<ArrayList<usuario>> getTodos(){
+		return ResponseEntity.ok(lista);
+	}
 }

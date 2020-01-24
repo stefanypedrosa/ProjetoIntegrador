@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,11 +18,12 @@ import br.com.comud.backend.model.produto;
 public class produtoController {
 	
 	ArrayList<produto> lista = new ArrayList<produto>();
-	
+	int id=0;
 	
 	
 	@PostMapping("/produto/new")
 	public ResponseEntity<produto> newProd(@RequestBody produto p){
+		p.setId(id++);
 		lista.add(p);
 		return ResponseEntity.ok(p);
 	}
@@ -50,6 +52,22 @@ public class produtoController {
 				return ResponseEntity.notFound().build();
 			}		
 		}
+	
+	@PutMapping("/produto/atualiza")
+	public ResponseEntity<String> alteraProduto(@RequestBody produto p){
+		int pos = -1;
+		for (int i = 0; i < lista.size(); i++) {
+			if (lista.get(i).getId() == p.getId()) {
+				pos = i;
+				break;
+			} 
+		}
+		if (pos >= 0) {
+			lista.set(pos, p);
+			return ResponseEntity.ok("Success!!");
+		}
+		return ResponseEntity.status(403).build();
+	}
 		
 	}
 	

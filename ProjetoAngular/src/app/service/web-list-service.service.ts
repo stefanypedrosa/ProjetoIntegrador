@@ -16,11 +16,6 @@ export class WebListServiceService {
 
   constructor(private xuxa: HttpClient) { }
 
-  //produtos
-  public obterLista(){
-    return this.xuxa.get("http://cloud.professorisidro.com.br:8088/produtos")
-  }
-  
   
   //usuarios api isidro
   public recuperaTodos(){
@@ -33,20 +28,29 @@ export class WebListServiceService {
 
 
   //usuario backend proprio
-  public buscaDetProd( id: string){
-    return this.xuxa.get(`http://localhost:8080/produto/${id}`)
-  }
+  
   public inserir(usuario:usuario){
     return this.xuxa.post("http://localhost:8080/usuario/new",usuario);
   }
   public login(login: usuario){
     return this.xuxa.post("http://localhost:8080/login", login);
   }
+  
+  public atualiza(usuario: usuario){
+    return this.xuxa.put("http://localhost:8080/usuario/atualiza",usuario);
+  }
+
+  //produto backend proprio
+  public buscaDetProd( id: number){
+    return this.xuxa.get(`http://localhost:8080/produto/${id}`)
+  }
   public inserirp(produto:idProduto){
     return this.xuxa.post("http://localhost:8080/produto/new",produto);
   }
-  public atualiza(usuario: usuario){
-    return this.xuxa.put("http://localhost:8080/produto/atualiza",usuario);
+  public obterLista(){
+    return this.xuxa.get("http://localhost:8080/produto/todos")
   }
-  
+  public atualizaProd(produto: idProduto){
+    return this.xuxa.put("http://localhost:8080/produto/atualiza",produto);
+  }
 }

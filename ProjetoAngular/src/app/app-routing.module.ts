@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'consultausuarios', component:ConsultaUsuariosComponent},
   {path: 'editausuarios/:id', component:EditaUsuarioComponent},
   {path: 'faq', component:FaqComponent},
-  {path: 'editaproduto', component:EditaProdutoComponent},
+  {path: 'editaproduto/:id', component:EditaProdutoComponent},
   {path: 'cadastroproduto', component: CadProdutoComponent}
 ];
 

@@ -23,11 +23,12 @@
     <div class="col-md-4 tamanho" *ngFor="let busca of idproduto">
       <div class="card show">
         <img src="{{ busca.linkfoto }}">
-        <p><strong>ID do Produto : </strong> {{ busca.idProduto }}</p>
-        <p><strong>Titulo : </strong> {{ busca.titulo}} </p>
+        <p><strong>Produto : </strong> {{ busca.nome}} </p>
+        <p><strong>Tamanho : </strong> {{busca.tamanho}} </p>
+        <p><strong>Condição : </strong> {{busca.condicao}} </p>
+        <p><strong>Classificação : </strong> {{busca.classificacao}} </p>
+        <p><strong>Categoria : </strong> {{busca.categoria}} </p>
         <p><strong>Detalhes : </strong> {{ busca.detalhes }} </p>
-        <p><strong>Preço : </strong> R${{ busca.preco }},00 </p>
-        <p><strong>Quantidade no estoque : </strong> {{busca.qtdEstoque}} </p>
       </div>
     </div>
   </div>
@@ -41,13 +42,13 @@
       </div>
       <div class="col-md-4 tamanho">
         <div class="card show">
-
-          <img src="{{ _idproduto.linkfoto }}">
-          <p><strong>ID do Produto : </strong> {{ _idproduto.idProduto }}</p>
-          <p><strong>Titulo : </strong> {{  _idproduto.titulo}} </p>
-          <p><strong>Detalhes : </strong> {{  _idproduto.detalhes }}</p>
-          <p><strong>Preço : </strong> R${{  _idproduto.preco }},00 </p>
-          <p><strong>Quantidade no estoque : </strong> {{ _idproduto.qtdEstoque}}</p>
+          <img src="{{ busca.linkfoto }}">
+          <p><strong>Produto : </strong> {{ busca.nome}} </p>
+          <p><strong>Tamanho : </strong> {{busca.tamanho}} </p>
+          <p><strong>Condição : </strong> {{busca.condicao}} </p>
+          <p><strong>Classificação : </strong> {{busca.classificacao}} </p>
+          <p><strong>Categoria : </strong> {{busca.categoria}} </p>
+          <p><strong>Detalhes : </strong> {{ busca.detalhes }} </p>
         <button id="altera" class="btn btn-outline " data-toggle="modal" data-target="#exampleModal"><a
           [routerLink]="['/editaproduto',_idproduto.idProduto]" class="text-light"> Alterar </a></button>
         </div>
