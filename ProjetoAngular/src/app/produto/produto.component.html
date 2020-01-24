@@ -22,7 +22,8 @@
 
     <div class="col-md-4 tamanho" *ngFor="let busca of idproduto">
       <div class="card show">
-        <img src="{{ busca.linkfoto }}">
+        <img src="{{ busca.linkFoto }}">
+        <p><strong>ID : </strong> {{ busca.id}} </p>
         <p><strong>Produto : </strong> {{ busca.nome}} </p>
         <p><strong>Tamanho : </strong> {{busca.tamanho}} </p>
         <p><strong>Condição : </strong> {{busca.condicao}} </p>
@@ -42,15 +43,16 @@
       </div>
       <div class="col-md-4 tamanho">
         <div class="card show">
-          <img src="{{ busca.linkfoto }}">
-          <p><strong>Produto : </strong> {{ busca.nome}} </p>
-          <p><strong>Tamanho : </strong> {{busca.tamanho}} </p>
-          <p><strong>Condição : </strong> {{busca.condicao}} </p>
-          <p><strong>Classificação : </strong> {{busca.classificacao}} </p>
-          <p><strong>Categoria : </strong> {{busca.categoria}} </p>
-          <p><strong>Detalhes : </strong> {{ busca.detalhes }} </p>
+          <img src="{{ _idproduto.linkFoto }}">
+          <p><strong>ID : </strong> {{ _idproduto.id}} </p>
+          <p><strong>Produto : </strong> {{ _idproduto.nome}} </p>
+          <p><strong>Tamanho : </strong> {{_idproduto.tamanho}} </p>
+          <p><strong>Condição : </strong> {{_idproduto.condicao}} </p>
+          <p><strong>Classificação : </strong> {{_idproduto.classificacao}} </p>
+          <p><strong>Categoria : </strong> {{_idproduto.categoria}} </p>
+          <p><strong>Detalhes : </strong> {{ _idproduto.detalhes }} </p>
         <button id="altera" class="btn btn-outline " data-toggle="modal" data-target="#exampleModal"><a
-          [routerLink]="['/editaproduto',_idproduto.idProduto]" class="text-light"> Alterar </a></button>
+          [routerLink]="['/editaproduto',_idproduto.id]" class="text-light"> Alterar </a></button>
         </div>
       </div>
       <div class="col-md-4">

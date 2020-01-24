@@ -9,7 +9,7 @@ import { idProduto } from 'src/app/model/idProduto';
   styleUrls: ['./cad-produto.component.css']
 })
 export class CadProdutoComponent implements OnInit {
-  produto: idProduto = new idProduto();
+  produto: idProduto = new idProduto;
   private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
   _msgErroN = null;
   _msgErroF = null;

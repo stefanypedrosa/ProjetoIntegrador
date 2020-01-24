@@ -4,7 +4,7 @@
         <div class="modal-content estilizicao">
             <div class="modal-header ">
                 <h5 class="modal-title" id="exampleModalLabel">Alteração de Produto</h5>
-                <button type="button" class="close" [routerLink]="'/consultaprodutos'" data-dismiss="modal" aria-label="Fechar">
+                <button type="button" class="close" [routerLink]="'/produto'" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <label for="nome">Foto</label>
                                 <input type="text" class="form-control" id="prod" (click)="limpaEnviar()"
-                                    placeholder="Coloque o link das imagens do produto" [(ngModel)]="produto.linkFoto" maxlength="50" required>
+                                    placeholder="Coloque o link das imagens do produto" [(ngModel)]="produto.linkFoto" required>
                                 <span *ngIf='_msgErroF'>{{_msgErroF}}</span>
                             </div>
                             <div class="row mt-3">

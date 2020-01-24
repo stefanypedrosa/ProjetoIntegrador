@@ -11,9 +11,9 @@
         <span *ngIf='_msgErroN'>{{_msgErroN}}</span>
     </div>
     <div class="form-group">
-        <label for="nome">Foto</label>
+        <label for="prod">Foto</label>
         <input type="text" class="form-control" id="prod" (click)="limpaEnviar()"
-            placeholder="Coloque o link das imagens do produto" [(ngModel)]="produto.linkFoto" maxlength="50" required>
+            placeholder="Coloque o link das imagens do produto" [(ngModel)]="produto.linkFoto" required>
         <span *ngIf='_msgErroF'>{{_msgErroF}}</span>
     </div>
     <div class="row mt-3">
@@ -28,46 +28,46 @@
                 <option value="GG">XG</option>
                 <option value="GG">XXG</option>
                 <option value="GG">XXXG</option>
-                <option value="unico">ÚNICO</option>
+                <option value="ÚNICO">ÚNICO</option>
             </select>
             <span *ngIf='_msgErroT'>{{_msgErroT}}</span>
         </div>
         <div class="col-md-2 mr-4">
             <select class="btn " id="sel" [(ngModel)]="produto.condicao">
                 <option value="Selecione">Selecione a condição</option>
-                <option value="novo">NOVO</option>
-                <option value="semi">SEMI-NOVO</option>
-                <option value="usado">USADO</option>
+                <option value="NOVO">NOVO</option>
+                <option value="SEMI-NOVO">SEMI-NOVO</option>
+                <option value="USADO">USADO</option>
             </select>
             <span *ngIf='_msgErroCO'>{{_msgErroCO}}</span>
         </div>
         <div class="col-md-2 ml-4 mr-3">
             <select class="btn " id="sel" [(ngModel)]="produto.classificacao">
                 <option value="Selecione">Selecione a classificação</option>
-                <option value="infantil">INFANTIL</option>
-                <option value="adulto">ADULTO</option>
+                <option value="INFANTIL">INFANTIL</option>
+                <option value="ADULTO">ADULTO</option>
             </select>
             <span *ngIf='_msgErroCL'>{{_msgErroCL}}</span>
         </div>
         <div class="col-md-2" id="cat">
             <select class="btn" id="sel" [(ngModel)]="produto.categoria">
                 <option value="Selecione">Selecione a categoria</option>
-                <option value="calca">CALÇA</option>
-                <option value="moletom">MOLETOM</option>
-                <option value="vestido">VESTIDO</option>
-                <option value="blusa">BLUSA</option>
-                <option value="cropped">CROPPED</option>
-                <option value="casaco">CASACO</option>
-                <option value="camisa">CAMISA</option>
-                <option value="pijama">PIJAMA</option>
-                <option value="saia">SAIA</option>
-                <option value="bermuda">BERMUDA</option>
-                <option value="short">SHORT</option>
-                <option value="sueter">SUETER</option>
-                <option value="jaqueta">JAQUETA</option>
-                <option value="macacao">MACACÃO</option>
-                <option value="polo">POLO</option>
-                <option value="jardineira">JARDINEIRA</option>
+                <option value="CALÇA">CALÇA</option>
+                <option value="MOLETOM">MOLETOM</option>
+                <option value="VESTIDO">VESTIDO</option>
+                <option value="BLUSA">BLUSA</option>
+                <option value="CROPPED">CROPPED</option>
+                <option value="CASACO">CASACO</option>
+                <option value="CAMISA">CAMISA</option>
+                <option value="PIJAMA">PIJAMA</option>
+                <option value="SAIA">SAIA</option>
+                <option value="BERMUDA">BERMUDA</option>
+                <option value="SHORT">SHORT</option>
+                <option value="SUETER">SUETER</option>
+                <option value="JAQUETA">JAQUETA</option>
+                <option value="MACACÃO">MACACÃO</option>
+                <option value="POLO">POLO</option>
+                <option value="JARDINEIRA">JARDINEIRA</option>
             </select>
             <span *ngIf='_msgErroCA'>{{_msgErroCA}}</span>
         </div>

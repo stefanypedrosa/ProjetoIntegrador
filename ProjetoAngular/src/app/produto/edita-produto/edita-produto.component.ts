@@ -99,6 +99,9 @@ export class EditaProdutoComponent implements OnInit {
         this.produto.categoria = "Selecione";
         this.produto.classificacao = "Selecione";
         this.produto.condicao = "Selecione";
+      },
+      error=>{
+        this._msgEnviar = "Erro ao enviar dados!!";
       });
     }
   }

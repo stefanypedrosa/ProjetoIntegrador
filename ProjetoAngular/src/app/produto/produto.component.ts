@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { WebListServiceService } from '../service/web-list-service.service';
 import { idProduto } from '../model/idproduto';
 
-
 @Component({
   selector: 'app-produto',
   templateUrl: './produto.component.html',
   styleUrls: ['./produto.component.css']
 })
+
+
 export class ProdutoComponent implements OnInit {
 
   public idbusca: number;
