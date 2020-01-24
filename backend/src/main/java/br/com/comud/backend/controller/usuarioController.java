@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -77,4 +78,24 @@ public class usuarioController {
 	public ResponseEntity<ArrayList<usuario>> getTodos(){
 		return ResponseEntity.ok(lista);
 	}
+	
+	@GetMapping("/usuario/{id}")
+	public ResponseEntity<usuario> getProduto(@PathVariable int id){
+	
+		usuario u = null;
+		
+		for (usuario user: lista) {
+			if (user.getIdUsuario() == id) {
+				u = user;
+				break;
+			}
+		}
+			
+			if (u != null) {  
+				return ResponseEntity.ok(u);
+			}
+			else {
+				return ResponseEntity.notFound().build();
+			}		
+		}
 }
