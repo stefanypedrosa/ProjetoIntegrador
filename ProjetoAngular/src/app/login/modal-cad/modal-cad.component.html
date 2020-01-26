@@ -3,7 +3,7 @@
     <div class="modal-dialog " role="document">
         <div class="modal-content estilizicao">
             <div class="modal-header ">
-                <h5 class="modal-title" id="exampleModalLabel">Cadastre-se a</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Cadastre-se</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" >
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -41,7 +41,7 @@
                 
                     <div class="form-group">
                         <label for="ConfirmarSenha">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="ConfSenha" (click)="limpaEnviar()" [(ngModel)]="usuario.confSenha" (click)="vSenha()" placeholder=" Confirme a senha" maxlength="20" required>
+                        <input type="password" class="form-control" id="ConfSenha" (click)="vSenha()" [(ngModel)]="usuario.confSenha" placeholder=" Confirme a senha" maxlength="20" required>
                         <span *ngIf='_msgErroCS'>{{_msgErroCS}}</span>
                     </div>
                 </div>

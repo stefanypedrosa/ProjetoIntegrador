@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebListServiceService } from '../service/web-list-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,14 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   private login: String = "";
-  constructor() { }
+  constructor(private srv: WebListServiceService) { }
+
+  log:boolean;
 
   ngOnInit() {
-    if (!localStorage.getItem("TOKEN")) {
-      this.login = "Login";
-    }
-    else {
-      this.login = "Logout";
-    }
+    this.srv.log.subscribe(value => {
+      this.log = value;
+    });
+  }
+
+  logout(){
+    this.srv.log.next(false);
   }
 }

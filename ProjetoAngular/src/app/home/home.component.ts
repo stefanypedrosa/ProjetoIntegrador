@@ -15,6 +15,11 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if(Globals.USUARIO){
     this.usuario = Globals.USUARIO;
+    }
+    else{
+      this.usuario.nome = "Usuario"
+    }
   }
 }

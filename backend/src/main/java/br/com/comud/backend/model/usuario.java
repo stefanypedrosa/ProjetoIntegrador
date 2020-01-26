@@ -1,18 +1,18 @@
 package br.com.comud.backend.model;
 
 public class usuario {
-	private int idUsuario;
+	private int id;
 	private String nome;
 	private String email;
 	private String telefone;
 	private String senha;
 	private String confSenha;
 	
-	public int getIdUsuario() {
-		return idUsuario;
+	public int getId() {
+		return id;
 	}
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;
@@ -47,7 +47,7 @@ public class usuario {
 	
 	@Override
 	public String toString() {
-		return "usuario [idUsuario=" + idUsuario + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone
+		return "usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone
 				+ ", senha=" + senha + ", confSenha=" + confSenha + "]";
 	}
 	

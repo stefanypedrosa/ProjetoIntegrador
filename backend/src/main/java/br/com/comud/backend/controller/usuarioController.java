@@ -19,27 +19,36 @@ import br.com.comud.backend.security.token;
 @CrossOrigin("*")
 public class usuarioController {
 	ArrayList<usuario> lista = new ArrayList<usuario>();
-	int id = 0;
+	int id = 1;
 
 	@PostMapping("/login")
 	public ResponseEntity<token> autentica(@RequestBody usuario usuario) {
-		for (usuario posicao : lista) {
-			if (usuario.getEmail().equals(posicao.getEmail()) && usuario.getSenha().equals(posicao.getSenha())) {
+		for (int i = 0; i < lista.size(); i++) {
+			if (usuario.getEmail().equals(lista.get(i).getEmail())
+					&& usuario.getSenha().equals(lista.get(i).getSenha())) {
 				String tk = autenticacao.generateToken(usuario);
 				token token = new token();
 				token.setToken(tk);
 				return ResponseEntity.ok(token);
-			} else {
-				return ResponseEntity.status(403).build();
 			}
 		}
 		return ResponseEntity.status(403).build();
 	}
 
+	@PostMapping("/login/{email}")
+	public ResponseEntity<usuario> email(@PathVariable String email, @RequestBody usuario user) {
+		for (usuario pos : lista) {
+			if (email.equals(pos.getEmail())) {
+				user = pos;
+			}
+		}
+		return ResponseEntity.ok(user);
+	}
+
 	@PostMapping("/usuario/new")
 	public ResponseEntity<usuario> newUser(@RequestBody usuario u) {
 		if (lista.size() == 0) {
-			u.setIdUsuario(id++);
+			u.setId(this.id++);
 			lista.add(u);
 			return ResponseEntity.ok(u);
 		} else {
@@ -47,6 +56,7 @@ public class usuarioController {
 				if (u.getEmail().equals(posicao.getEmail())) {
 					return ResponseEntity.status(403).build();
 				} else {
+					u.setId(this.id++);
 					lista.add(u);
 					return ResponseEntity.ok(u);
 				}
@@ -55,47 +65,60 @@ public class usuarioController {
 		return ResponseEntity.status(403).build();
 	}
 
-	@PutMapping("/usuario/altera")
-	public ResponseEntity<String> alteraUsuario(@RequestBody usuario u) {
+	@PutMapping("/usuario/atualiza")
+	public ResponseEntity<usuario> alteraUsuario(@RequestBody usuario u) {
 		int pos = -1;
 		for (int i = 0; i < lista.size(); i++) {
-//			if (u.getEmail().equals(lista.get(i).getEmail())) {
-//				return ResponseEntity.status(403).build();
-//			} else 
-			if (lista.get(i).getIdUsuario() == u.getIdUsuario()) {
+			if (lista.get(i).getId() == u.getId()) {
 				pos = i;
 				break;
 			}
 		}
 		if (pos >= 0) {
 			lista.set(pos, u);
-			return ResponseEntity.ok("Sucess!!");
+			return ResponseEntity.ok(u);
 		}
 		return ResponseEntity.status(403).build();
 	}
 
 	@GetMapping("/usuario/todos")
-	public ResponseEntity<ArrayList<usuario>> getTodos(){
+	public ResponseEntity<ArrayList<usuario>> getTodos() {
 		return ResponseEntity.ok(lista);
 	}
-	
+
 	@GetMapping("/usuario/{id}")
-	public ResponseEntity<usuario> getProduto(@PathVariable int id){
-	
+	public ResponseEntity<usuario> getUsuario(@PathVariable int id) {
+
 		usuario u = null;
-		
-		for (usuario user: lista) {
-			if (user.getIdUsuario() == id) {
+
+		for (usuario user : lista) {
+			if (user.getId() == id) {
 				u = user;
 				break;
 			}
 		}
-			
-			if (u != null) {  
-				return ResponseEntity.ok(u);
-			}
-			else {
-				return ResponseEntity.notFound().build();
-			}		
+
+		if (u != null) {
+			return ResponseEntity.ok(u);
+		} else {
+			return ResponseEntity.notFound().build();
 		}
+	}
+
+	@GetMapping("/usuario/{email}")
+	public ResponseEntity<usuario> getUsuariobyEmail(@PathVariable String email) {
+		usuario u = null;
+		for (usuario user : lista) {
+			if (user.getEmail().equals(email)) {
+				u = user;
+				break;
+			}
+		}
+
+		if (u != null) {
+			return ResponseEntity.ok(u);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 }
