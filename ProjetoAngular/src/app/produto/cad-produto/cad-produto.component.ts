@@ -88,6 +88,7 @@ export class CadProdutoComponent implements OnInit {
         this.produto.categoria = "Selecione";
         this.produto.classificacao = "Selecione";
         this.produto.condicao = "Selecione";
+        this.router.navigate(['produto']);
       },
       (error)=>{
         this._msgEnviar = "Erro ao enviar dados!!";
