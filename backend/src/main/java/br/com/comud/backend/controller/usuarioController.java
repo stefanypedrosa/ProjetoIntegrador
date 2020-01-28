@@ -35,15 +35,6 @@ public class usuarioController {
 		return ResponseEntity.status(403).build();
 	}
 
-	@PostMapping("/login/{email}")
-	public ResponseEntity<usuario> email(@PathVariable String email, @RequestBody usuario user) {
-		for (usuario pos : lista) {
-			if (email.equals(pos.getEmail())) {
-				user = pos;
-			}
-		}
-		return ResponseEntity.ok(user);
-	}
 
 	@PostMapping("/usuario/new")
 	public ResponseEntity<usuario> newUser(@RequestBody usuario u) {
@@ -100,24 +91,8 @@ public class usuarioController {
 
 		if (u != null) {
 			return ResponseEntity.ok(u);
-		} else {
-			return ResponseEntity.notFound().build();
-		}
-	}
-
-	@GetMapping("/usuario/{email}")
-	public ResponseEntity<usuario> getUsuariobyEmail(@PathVariable String email) {
-		usuario u = null;
-		for (usuario user : lista) {
-			if (user.getEmail().equals(email)) {
-				u = user;
-				break;
-			}
-		}
-
-		if (u != null) {
-			return ResponseEntity.ok(u);
-		} else {
+		} 
+		else {
 			return ResponseEntity.notFound().build();
 		}
 	}
