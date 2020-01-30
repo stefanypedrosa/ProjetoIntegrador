@@ -54,3 +54,9 @@ p{
 #slct{
     padding: 0.8%;
 }
+#enviar{
+    padding-top: 10%;
+    font-size:22px;
+    margin-left: 3.5%;
+    color:#056e75;
+}

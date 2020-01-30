@@ -11,10 +11,13 @@ import { Globals } from '../model/login';
   providers: [ Globals ]
 })
 export class HomeComponent implements OnInit {
-  usuario: usuario;
+  usuario: string;
   constructor() { }
 
   ngOnInit() {
-    this.usuario = Globals.USUARIO;
+    if(localStorage.getItem("nome")){
+      Globals.nome = localStorage.getItem("nome");
+      this.usuario = Globals.nome;
+    }
   }
 }

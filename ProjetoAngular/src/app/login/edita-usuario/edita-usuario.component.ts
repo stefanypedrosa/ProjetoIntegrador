@@ -97,6 +97,7 @@ export class EditaUsuarioComponent implements OnInit {
     if (this.usuario.nome != "" && this.usuario.email != "" && this.usuario.telefone != null && this.usuario.senha != "") {
       this.srv.atualiza(this.usuario).subscribe(res=>{
         this._msgEnviar = "Dados enviados com SUCESSO!!";
+        localStorage.setItem("nome", this.usuario.nome);
         this.usuario.nome = "";
         this.usuario.email = "";
         this.usuario.telefone = null;

@@ -86,8 +86,12 @@
                             [(ngModel)]="produto.detalhes" id="mensagem" rows="5" maxlength="200" required></textarea>
                     </div>
                     <span *ngIf='_msgErroD'>{{_msgErroD}}</span>
-                    <button type="submit" class="btn btn-outline mt-2" (click)="validacao()">Enviar Alteração</button>
-                    <span id="enviar" *ngIf='_msgEnviar'><strong>{{_msgEnviar}}</strong></span>
                 </div>
             </div>
         </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-outline mt-2" (click)="validacao()">Enviar Alteração</button>
+            <span id="enviar" *ngIf='_msgEnviar'><strong>{{_msgEnviar}}</strong></span>
+        </div>
+    </div>
+</div>

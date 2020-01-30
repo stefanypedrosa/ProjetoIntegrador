@@ -22,11 +22,14 @@ export class FormLoginComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem("TOKEN")) {
       localStorage.removeItem("TOKEN");
+      localStorage.clear();
+      Globals.nome = undefined;
       this._msgLogout = "Usuário desconectado!";
     }
   }
 
   autenticacao() {
+    this._msgLogout = null;
     this._msgEnviarE = null;
     if (this.usuario.email == "" || this.usuario.senha == "" || this.usuario.email == null || this.usuario.senha == null) {
       this._msgEnviarE = "Preencha todos os campos";
@@ -35,6 +38,8 @@ export class FormLoginComponent implements OnInit {
       //Globals.USUARIO = this.usuario;
       this.srv.login(this.usuario).subscribe((res: Token) => {
         localStorage.setItem("TOKEN", res.token);
+        localStorage.setItem("nome", res.nome);
+        localStorage.setItem("email", res.email);
         this.srv.log.next(true);
         this.router.navigate(['home']);
       },

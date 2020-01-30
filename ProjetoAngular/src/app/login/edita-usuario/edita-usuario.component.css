@@ -43,5 +43,7 @@ label{
 }
 
 #erro{
-    color: red;
+    font-size:20px;
+    margin-right: 18%;
+    color:red;
 }

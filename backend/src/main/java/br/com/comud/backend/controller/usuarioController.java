@@ -26,9 +26,12 @@ public class usuarioController {
 		for (int i = 0; i < lista.size(); i++) {
 			if (usuario.getEmail().equals(lista.get(i).getEmail())
 					&& usuario.getSenha().equals(lista.get(i).getSenha())) {
+				usuario = lista.get(i);
 				String tk = autenticacao.generateToken(usuario);
 				token token = new token();
 				token.setToken(tk);
+				token.setNome(lista.get(i).getNome());
+				token.setEmail(lista.get(i).getEmail());
 				return ResponseEntity.ok(token);
 			}
 		}

@@ -18,6 +18,7 @@ export class ContatosComponent implements OnInit {
   private _msgErroS: string = null;
   private _msgErroE: string = null;
   private _msgErroT: string = null;
+  private _msgEnviar: string = null;
 
   constructor() { }
 
@@ -60,7 +61,7 @@ export class ContatosComponent implements OnInit {
     }
     
     if (this.nome != "" && this.sobrenome != "" && this.email != "" && this.tel != null && this.msg != "") {
-      alert("Dados enviados com SUCESSO!!")
+      this._msgEnviar = "Dados enviados com SUCESSO!!";
       this.nome = "";
       this.sobrenome = "";
       this.email = "";

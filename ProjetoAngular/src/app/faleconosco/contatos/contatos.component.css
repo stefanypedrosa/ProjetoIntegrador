@@ -38,3 +38,10 @@ span{
     background-color: #dedcc5;
     border-color:#dedcc5;
 }
+#enviar{
+    margin-top: 10%;
+    padding-top: 10%;
+    font-size:22px;
+    margin-left: 3.5%;
+    color:#056e75;
+}
