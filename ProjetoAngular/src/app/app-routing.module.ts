@@ -11,6 +11,7 @@ import { EditaUsuarioComponent } from './login/edita-usuario/edita-usuario.compo
 import { FaqComponent } from './faq/faq.component';
 import { EditaProdutoComponent } from './produto/edita-produto/edita-produto.component';
 import { CadProdutoComponent } from './produto/cad-produto/cad-produto.component';
+import { CadOngComponent } from './login/cad-ong/cad-ong.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'editausuarios/:id', component:EditaUsuarioComponent},
   {path: 'faq', component:FaqComponent},
   {path: 'editaproduto/:id', component:EditaProdutoComponent},
-  {path: 'cadastroproduto', component: CadProdutoComponent}
+  {path: 'cadastroproduto', component: CadProdutoComponent},
+  {path: 'cadastroong', component: CadOngComponent}
 ];
 
 @NgModule({

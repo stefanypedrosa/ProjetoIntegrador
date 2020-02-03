@@ -25,12 +25,8 @@ label{
     margin-bottom: 0%;
     margin-top:2%;
 }
-#forte{
-    color: #059faa;
-}
-
-#fraca{
-    color: orange;
+textarea{
+    resize: none;
 }
 .modal-body span{
     font-size:12px;

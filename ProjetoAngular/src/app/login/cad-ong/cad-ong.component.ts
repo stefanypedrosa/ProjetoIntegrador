@@ -8,15 +8,13 @@ import { WebListServiceService } from 'src/app/service/web-list-service.service'
 })
 export class CadOngComponent implements OnInit {
 
-  public ong:ONG = new ONG;
+  public ong:ONG = new ONG();
   private _msgEnviar: string = null;
   private _msgEnviarE: string = null;
 
 
   private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
   private num: any = /^[0-9]+$/;
-  private carEsp: any = /[@#$%&]/;
-  private numFiltro: any = /[^0-9A-Za-z]*/;
 
   private _msgErroN: string = null 
   private _msgErroE: string = null 
