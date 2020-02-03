@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WebListServiceService } from '../../service/web-list-service.service';
-import { usuario } from 'src/app/model/usuario';
+import { Usuario } from 'src/app/model/Usuario';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { usuario } from 'src/app/model/usuario';
 })
 export class EditaUsuarioComponent implements OnInit {
 
-  public usuario:usuario = new usuario;
+  public usuario:Usuario = new Usuario;
   private _msgEnviar: string = null;
   private _msgEnviarE: string = null;
   private _msgErroSFA: string = null;
@@ -46,7 +46,7 @@ export class EditaUsuarioComponent implements OnInit {
   ngOnInit() {
     this.id = this.rota.snapshot.params["id"];
     
-    this.srv.recuperaDetalhe(this.id).subscribe((res:usuario)=>{
+    this.srv.recuperaDetalhe(this.id).subscribe((res:Usuario)=>{
       this.usuario = res;
 
     });

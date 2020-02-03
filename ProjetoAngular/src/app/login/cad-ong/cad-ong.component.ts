@@ -1,0 +1,102 @@
+import { Component, OnInit } from '@angular/core';
+import { ONG } from './../../model/ONG';
+import { WebListServiceService } from 'src/app/service/web-list-service.service';
+@Component({
+  selector: 'app-cad-ong',
+  templateUrl: './cad-ong.component.html',
+  styleUrls: ['./cad-ong.component.css']
+})
+export class CadOngComponent implements OnInit {
+
+  public ong:ONG = new ONG;
+  private _msgEnviar: string = null;
+  private _msgEnviarE: string = null;
+
+
+  private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
+  private num: any = /^[0-9]+$/;
+  private carEsp: any = /[@#$%&]/;
+  private numFiltro: any = /[^0-9A-Za-z]*/;
+
+  private _msgErroN: string = null 
+  private _msgErroE: string = null 
+  private _msgErroT: string = null 
+  private _msgErroS: string = null;
+  private _msgErroEn: string = null;
+  private _msgErroD: string = null;
+
+  constructor(private srv: WebListServiceService) { }
+
+  ngOnInit() {
+    
+  }
+
+  validacao(){
+
+    if (this.ong.nome == "" || this.ong.email == "" || this.ong.telefone == null || this.ong.site == "" || this.ong.endereco == "" || this.ong.descricao == "") {
+      alert('Preencha todos os campos');  
+    }
+
+    if (!this.filtro.test(this.ong.nome)) {
+      this.ong.nome = "";
+      this._msgErroN = "Dado inválido";
+    }
+    else {
+      this._msgErroN = null;
+    }
+
+    if (this.ong.email.indexOf("@") == -1 && this.ong.email.indexOf("@") > 1 || this.ong.email.indexOf(".") == -1) {
+      this.ong.email = "";
+      this._msgErroE = "Dado inválido";
+    }
+    else {
+      this._msgErroE = null;
+    }
+
+    if (this.ong.telefone.length < 10 || !this.num.test(this.ong.telefone)) {
+      this.ong.telefone = null;
+      this._msgErroT = `Digite um telefone válido`;
+    }
+    else {
+      this._msgErroT = null;
+    }
+
+    if (this.ong.site.indexOf(".")<2) {
+      this.ong.site ="";
+      this._msgErroS = `URL inválida`;
+    }
+    else {
+      this._msgErroS = null;
+    }
+
+    if (this.ong.nome != "" && this.ong.email != "" && this.ong.telefone != null && this.ong.site != "" && this.ong.endereco != "" && this.ong.descricao != "") {
+      this._msgEnviar = null;
+      this._msgEnviarE = null;
+      this.srv.cadastra(this.ong).subscribe(res=>{
+        this._msgEnviar = "Dados enviados com SUCESSO!!";
+        this.ong.nome = "";
+        this.ong.email = "";
+        this.ong.telefone = null;
+        this.ong.site = "";
+        this.ong.endereco = "";
+        this.ong.descricao = "";
+      },
+      error=>{
+        this._msgEnviarE = "Erro ao enviar dados!!";
+        this.ong.nome = "";
+        this.ong.email = "";
+        this.ong.telefone = null;
+        this.ong.site = "";
+        this.ong.endereco = "";
+        this.ong.descricao = "";
+      })
+      
+    }
+  }
+
+  limpaEnviar(){
+    this._msgEnviar = null;
+    this._msgEnviarE = null;
+  }
+
+}

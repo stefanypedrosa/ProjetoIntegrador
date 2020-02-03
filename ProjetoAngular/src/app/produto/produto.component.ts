@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebListServiceService } from '../service/web-list-service.service';
-import { idProduto } from '../model/idproduto';
+import { Produto } from '../model/Produto';
 
 @Component({
   selector: 'app-produto',
@@ -12,8 +12,8 @@ import { idProduto } from '../model/idproduto';
 export class ProdutoComponent implements OnInit {
 
   public idbusca: number;
-  public idproduto: idProduto[];
-  public _idproduto: idProduto;
+  public idproduto: Produto[];
+  public _idproduto: Produto;
   public lista: boolean;
   public _msgErro: string = null;
 
@@ -26,7 +26,7 @@ export class ProdutoComponent implements OnInit {
   public pesquisarTodos() {
       this._msgErro = "";
       this.lista = true
-      this.produtoBusca.obterLista().subscribe((resultado: idProduto[]) => {
+      this.produtoBusca.obterLista().subscribe((resultado: Produto[]) => {
         this.idproduto = resultado
         this.idbusca = null;
       })
@@ -39,7 +39,7 @@ export class ProdutoComponent implements OnInit {
     else {
       this._msgErro = "";
       this.lista = false
-      this.produtoBusca.buscaDetProd(this.idbusca).subscribe((resultado: idProduto) => {
+      this.produtoBusca.buscaDetProd(this.idbusca).subscribe((resultado: Produto) => {
         this._idproduto = resultado;
         this.idbusca = null;
 

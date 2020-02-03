@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebListServiceService } from '../../service/web-list-service.service';
-import { usuario } from '../../model/usuario';
+import { Usuario } from '../../model/Usuario';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 
 export class ConsultaUsuariosComponent implements OnInit {
 
-  public listaUser: usuario[];
+  public listaUser: Usuario[];
 
-  usuario: usuario;
+  usuario: Usuario;
 
   constructor(private router: Router, private srv: WebListServiceService ) { }
 
@@ -23,7 +23,7 @@ export class ConsultaUsuariosComponent implements OnInit {
       this.router.navigate(['/login']);
     }
 
-    this.srv.recuperaTodos().subscribe((resp: usuario[]) => {
+    this.srv.recuperaTodos().subscribe((resp: Usuario[]) => {
       this.listaUser = resp;
     });
   }

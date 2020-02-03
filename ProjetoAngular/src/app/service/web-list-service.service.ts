@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { usuario } from '../model/usuario';
-import { idProduto } from '../model/idproduto';
+import { Usuario } from '../model/Usuario';
+import { Produto } from '../model/Produto';
 import { BehaviorSubject } from 'rxjs';
+import { ONG } from '../model/ONG';
 
 
 
@@ -12,7 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class WebListServiceService {
 
-  public listaUser: usuario[];
+  public listaUser: Usuario[];
 
   constructor(private xuxa: HttpClient) { }
 
@@ -20,7 +21,7 @@ export class WebListServiceService {
 
 
   //usuario backend proprio
-  public atualiza(usuario: usuario){
+  public atualiza(usuario: Usuario){
     return this.xuxa.put("http://localhost:8080/usuario/atualiza",usuario);
   }
   public recuperaTodos(){
@@ -29,28 +30,32 @@ export class WebListServiceService {
   public recuperaDetalhe(id: number){
   return this.xuxa.get(`http://localhost:8080/usuario/${id}`);
   }
-  public inserir(usuario:usuario){
+  public inserir(usuario:Usuario){
     return this.xuxa.post("http://localhost:8080/usuario/new",usuario);
   }
-  public login(login: usuario){
+  public login(login: Usuario){
     return this.xuxa.post("http://localhost:8080/login", login);
   }
   // public recuperabyEmail(email: string){
   //   return this.xuxa.get(`http://localhost:8080/login/${email}`);
   // }
   
+  //ong backend
+  public cadastra(ong:ONG){
+    return this.xuxa.post("http://localhost:8080/ong/new",ong);
+  }
   
   //produto backend proprio
   public buscaDetProd( id: number){
     return this.xuxa.get(`http://localhost:8080/produto/${id}`)
   }
-  public inserirp(produto:idProduto){
+  public inserirp(produto:Produto){
     return this.xuxa.post("http://localhost:8080/produto/new",produto);
   }
   public obterLista(){
     return this.xuxa.get("http://localhost:8080/produto/todos")
   }
-  public atualizaProd(produto: idProduto){
+  public atualizaProd(produto: Produto){
     return this.xuxa.put("http://localhost:8080/produto/atualiza",produto);
   }
 }

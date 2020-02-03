@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { WebListServiceService } from 'src/app/service/web-list-service.service';
-import { idProduto } from 'src/app/model/idproduto';
+import { Produto } from 'src/app/model/Produto';
 
 @Component({
   selector: 'app-edita-produto',
@@ -20,7 +20,7 @@ export class EditaProdutoComponent implements OnInit {
   _msgErroD = null;
   _msgEnviar = null;
   private id: number;
-  private produto: idProduto = new idProduto;
+  private produto: Produto = new Produto;
 
   constructor(private router: Router, private rota: ActivatedRoute, private srv: WebListServiceService) { }
 
@@ -34,7 +34,7 @@ export class EditaProdutoComponent implements OnInit {
     else {
       this.id = this.rota.snapshot.params["id"];
 
-      this.srv.buscaDetProd(this.id).subscribe((res: idProduto) => {
+      this.srv.buscaDetProd(this.id).subscribe((res: Produto) => {
         this.produto = res;
       });
     }

@@ -1,4 +1,4 @@
-export class faq{
+export class Faq{
     public nome:string;
     public sobrenome:string;
     public telefone:string;

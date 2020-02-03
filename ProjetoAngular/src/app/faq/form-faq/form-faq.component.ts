@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faq } from './../../model/faq'
+import { Faq } from '../../model/Faq'
 
 @Component({
   selector: 'app-form-faq',
@@ -15,7 +15,7 @@ export class FormFaqComponent implements OnInit {
   private _msgErroT: string = null;
   private _msgErroSe: string = null;
   private _msgEnviar:string = null;
-  private faq:faq = new faq();
+  private faq:Faq = new Faq();
 
   constructor() { }
 

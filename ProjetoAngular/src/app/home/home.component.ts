@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { usuario } from '../model/usuario';
-import { WebListServiceService } from 'src/app/service/web-list-service.service';
-import {Router} from '@angular/router';
-import { Globals } from '../model/login';
+import { Globals } from '../model/Login';
 
 @Component({
   selector: 'app-home',

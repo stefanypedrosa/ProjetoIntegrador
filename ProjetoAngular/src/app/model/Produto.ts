@@ -1,4 +1,4 @@
-export class idProduto{
+export class Produto{
     id: number;
     nome: String;
     linkFoto: String;

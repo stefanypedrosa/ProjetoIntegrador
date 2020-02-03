@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { usuario } from '../../model/usuario';
+import { Usuario } from '../../model/Usuario';
 import { WebListServiceService } from 'src/app/service/web-list-service.service';
 import { Router } from '@angular/router';
-import { Globals } from '../../model/login';
-import { Token } from 'src/app/model/token';
+import { Globals } from '../../model/Login';
+import { Token } from 'src/app/model/Token';
 
 @Component({
   selector: 'app-form-login',
@@ -13,7 +13,7 @@ import { Token } from 'src/app/model/token';
 })
 export class FormLoginComponent implements OnInit {
 
-  public usuario: usuario = new usuario;
+  public usuario: Usuario = new Usuario;
   private _msgEnviarE: string = null;
   private _msgLogout: string = null;
 

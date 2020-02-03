@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { usuario } from 'src/app/model/usuario';
+import { Usuario } from 'src/app/model/Usuario';
 import { WebListServiceService } from 'src/app/service/web-list-service.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { WebListServiceService } from 'src/app/service/web-list-service.service'
   styleUrls: ['./modal-cad.component.css']
 })
 export class ModalCadComponent implements OnInit {
-  public usuario:usuario = new usuario;
+  public usuario:Usuario = new Usuario;
   private _msgEnviar: string = null;
   private _msgEnviarE: string = null;
   private _msgErroSFA: string = null;
