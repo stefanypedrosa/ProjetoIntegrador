@@ -26,9 +26,9 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link text-white" [routerLink]="'/login'" *ngIf="!log">Login</a>
-                        <a class="nav-link text-white "  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="Login()" *ngIf="log">
-                            meu varal
+                        <a class="nav-link text-white" [routerLink]="'/login'" *ngIf="user == null">Login</a>
+                        <a class="nav-link text-white "  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="Login()" *ngIf="user != null">
+                             {{user.nome}} 
                         </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdown" >
                             <a class="dropdown-item" href="#">Minhas Publicações</a>

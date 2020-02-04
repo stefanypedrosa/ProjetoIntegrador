@@ -39,7 +39,9 @@ export class WebListServiceService {
   public delete(id:number){
     return this.xuxa.delete(`http://localhost:8080/usuario/delete/${id}`);
   }
-  
+  public buscarInfo(token: string){
+    return this.xuxa.get("http://localhost:8080/userinfo?token="+token);
+  }
 
   //ong backend
   public cadastra(ong:ONG){

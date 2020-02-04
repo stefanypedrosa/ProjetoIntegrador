@@ -21,8 +21,11 @@ export class FormLoginComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem("TOKEN")) {
-      localStorage.removeItem("TOKEN");
-      localStorage.clear();
+      this.router.navigate(['home']);
+      //Globals.nome = undefined;
+      this._msgLogout = "Usuário desconectado!";
+    }
+    else{
       Globals.nome = undefined;
       this._msgLogout = "Usuário desconectado!";
     }
@@ -41,7 +44,7 @@ export class FormLoginComponent implements OnInit {
         localStorage.setItem("nome", res.nome);
         localStorage.setItem("email", res.email);
         this.srv.log.next(true);
-        this.router.navigate(['home']);
+        window.location.reload(); 
       },
         error => {
           this._msgEnviarE = "Email e/ou senha inválido(s)";
