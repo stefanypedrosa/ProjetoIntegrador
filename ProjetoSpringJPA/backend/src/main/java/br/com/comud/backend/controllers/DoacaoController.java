@@ -2,6 +2,7 @@ package br.com.comud.backend.controllers;
 
 import br.com.comud.backend.services.IDoarService;
 import br.com.comud.backend.models.Doacao;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +22,8 @@ public class DoacaoController {
     
     @PostMapping("doar/create")
     public ResponseEntity<Doacao> create(@RequestBody Doacao doacao){
-        if(doacao.getProduto().getUsuario().getIdUsuario() == doacao.getUsuario().getIdUsuario()){  //verifica se produto pertence a usuario
-            if(doacao.getProduto().getStatus().equals("DISPONÍVEL")){                               //verifica status do produto
+//        if(doacao.getProduto().getUsuario().getIdUsuario() == doacao.getUsuario().getIdUsuario()){		//verifica se produto pertence a usuario
+//            if(doacao.getProduto().getStatus().equals("DISPONÍVEL")){		//verifica status do produto
                 try {
                     doacao.getProduto().setStatus("DOADO");
                     servico.create(doacao);
@@ -31,9 +32,9 @@ public class DoacaoController {
                 catch(Exception ex) {
                     return ResponseEntity.badRequest().build();
                 }
-            }
-        }
-        return ResponseEntity.badRequest().build();
+//            }
+//        }
+//        return ResponseEntity.notFound().build();
     }
         
     @GetMapping("doar/read/{iddoacao}")

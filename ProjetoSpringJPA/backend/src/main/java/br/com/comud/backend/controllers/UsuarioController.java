@@ -1,5 +1,7 @@
 package br.com.comud.backend.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,8 +25,8 @@ public class UsuarioController {
 	private IUsuarioService servico;
 	
 	@PostMapping("/usuario/login")
-    public ResponseEntity<token> loginUser(@RequestBody Usuario usuario){
-    	Usuario u = servico.autenticarUsuario(usuario);
+    public ResponseEntity<token> loginUsuario(@RequestBody Usuario usuario){
+    	Usuario u = servico.autenticarUsuario(usuario.getEmail(), usuario.getSenha());
     	if (u != null) {
     		token token = autenticacao.generateToken(usuario);
     		return ResponseEntity.ok(token);
@@ -54,6 +56,11 @@ public class UsuarioController {
 		else {
 			return ResponseEntity.notFound().build();
 		}
+	}
+	
+	@GetMapping("/usuario/todos")
+	public ResponseEntity<List<Usuario>> readAll(){
+		return ResponseEntity.ok(servico.readAll());
 	}
 	
 	@PutMapping("usuario/update/{idUsuario}")       //verificar 

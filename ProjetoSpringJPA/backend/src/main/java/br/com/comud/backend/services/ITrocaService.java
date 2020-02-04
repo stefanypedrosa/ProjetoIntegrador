@@ -2,7 +2,6 @@ package br.com.comud.backend.services;
 
 import br.com.comud.backend.models.Troca;
 import java.util.List;
-import org.springframework.data.repository.CrudRepository;
 
 public interface ITrocaService{
     public void create(Troca t);

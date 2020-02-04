@@ -1,5 +1,7 @@
 package br.com.comud.backend.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +27,12 @@ public class ServiceUsuario implements IUsuarioService{
 	}
 
 	@Override
+	public List<Usuario> readAll() {
+		// TODO Auto-generated method stub
+		return (List<Usuario>)repo.findAll();
+	}
+	
+	@Override
 	public void update(Usuario u) {
 		// TODO Auto-generated method stub
 		repo.save(u);
@@ -45,9 +53,8 @@ public class ServiceUsuario implements IUsuarioService{
 	}
 
 	@Override
-	public Usuario autenticarUsuario(Usuario usuario) {
+	public Usuario autenticarUsuario(String email, String senha) {
 		// TODO Auto-generated method stub
-//		return repo.findUsuarioByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
-		return null;
+		return repo.findByEmailAndSenha(email, senha);
 	}
 }

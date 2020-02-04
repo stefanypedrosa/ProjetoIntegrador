@@ -10,6 +10,5 @@ public interface IProdutoService {
 	public void update(Produto p);
 	public Produto deleteById(int id);
 	public List<Produto> readAll();
-	public Produto readByName(String name);
 	public boolean existsById(int id);
 }

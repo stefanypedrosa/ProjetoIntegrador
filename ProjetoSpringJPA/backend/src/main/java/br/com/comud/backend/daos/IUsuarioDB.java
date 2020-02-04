@@ -6,6 +6,6 @@ import br.com.comud.backend.models.Usuario;
 
 public interface IUsuarioDB extends CrudRepository<Usuario, Integer>{
 
-	//Usuario findUsuarioByEmailAndSenha(String email, String senha);
+	Usuario findByEmailAndSenha(String email, String senha);
 
 }

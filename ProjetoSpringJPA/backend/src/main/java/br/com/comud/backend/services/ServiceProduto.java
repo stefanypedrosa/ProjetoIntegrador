@@ -46,12 +46,6 @@ public class ServiceProduto implements IProdutoService{
 		return (List<Produto>)repo.findAll();
 	}
 
-	@Override
-	public Produto readByName(String name) {
-		// TODO Auto-generated method stub
-		//return repo.findByName(name);
-		return null;
-	}
 
 	@Override
 	public boolean existsById(int idProduto) {

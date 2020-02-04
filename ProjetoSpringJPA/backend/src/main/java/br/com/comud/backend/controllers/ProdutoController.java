@@ -50,17 +50,6 @@ public class ProdutoController {
 		return ResponseEntity.ok(servico.readAll());
 	}
 	
-//	@GetMapping("/produto/{name}")
-//	public ResponseEntity<Produto> readByName(String name){
-//		Produto p =servico.readByName(name);
-//		if(p!=null) {
-//			return ResponseEntity.ok(p);
-//		}
-//		else {
-//			return ResponseEntity.notFound().build();
-//		}
-//	}
-	
 	@PutMapping("produto/update")
 	public ResponseEntity<Produto> update(@RequestBody Produto p){
             try {

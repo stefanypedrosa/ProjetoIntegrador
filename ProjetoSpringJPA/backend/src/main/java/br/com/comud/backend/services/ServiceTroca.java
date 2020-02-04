@@ -32,7 +32,7 @@ public class ServiceTroca implements ITrocaService{
     }
 
     @Override
-    public boolean existsById(int idDoacao) {
-        return repo.existsById(idDoacao);
+    public boolean existsById(int idTroca) {
+        return repo.existsById(idTroca);
     }
 }

@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name = "doar")
@@ -22,12 +24,15 @@ public class Doacao {
 	private String dataD;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("produtos")
 	private Usuario usuario;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("doacoes")
 	private Ong ong;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("usuario")
 	private Produto produto;
 
 	public int getIddoacao() {
