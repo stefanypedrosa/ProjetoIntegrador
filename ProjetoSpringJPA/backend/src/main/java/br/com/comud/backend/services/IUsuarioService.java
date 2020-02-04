@@ -9,7 +9,6 @@ public interface IUsuarioService {
 	public Usuario readById (int idUsuario);
 	public List<Usuario> readAll();
 	public void update(Usuario u);
-	public Usuario deleteById(int idUsuario);
 	public boolean existsById(int idUsuario);
 	public Usuario autenticarUsuario(String email, String senha);
 }

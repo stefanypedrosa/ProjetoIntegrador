@@ -33,14 +33,6 @@ public class ServiceProduto implements IProdutoService{
 		}
 
 	@Override
-	public Produto deleteById(int idProduto) {
-		// TODO Auto-generated method stub
-		repo.deleteById(idProduto);
-			Produto p = null;
-			return p;
-		}
-
-	@Override
 	public List<Produto> readAll() {
 		// TODO Auto-generated method stub
 		return (List<Produto>)repo.findAll();

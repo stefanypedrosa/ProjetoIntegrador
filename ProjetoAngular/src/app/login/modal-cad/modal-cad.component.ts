@@ -33,7 +33,7 @@ export class ModalCadComponent implements OnInit {
 
   validacao(){
 
-    if (this.usuario.nome == "" || this.usuario.email == "" || this.usuario.telefone == null || this.usuario.endereco == null || this.usuario.endereco == "" || this.usuario.senha == "" || this.usuario.confSenha == "") {
+    if (this.usuario.confSenha == "" || this.usuario.confSenha == null ||this.usuario.nome == "" || this.usuario.email == "" || this.usuario.telefone == null || this.usuario.endereco == null || this.usuario.endereco == "" || this.usuario.senha == "" || this.usuario.nome == null || this.usuario.email == null || this.usuario.senha == null ) {
       alert('Preencha todos os campos');  
     }
 
@@ -87,6 +87,7 @@ export class ModalCadComponent implements OnInit {
         this.usuario.nome = "";
         this.usuario.email = "";
         this.usuario.telefone = null;
+        this.usuario.endereco = "";
         this.usuario.senha = "";
         this.usuario.confSenha = "";
         this._msgErroSFA = null;

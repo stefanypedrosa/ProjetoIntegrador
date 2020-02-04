@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,26 +51,15 @@ public class ProdutoController {
 	
 	@PutMapping("produto/update")
 	public ResponseEntity<Produto> update(@RequestBody Produto p){
-            try {
-		servico.update(p);
-		return ResponseEntity.ok(p);
-            }
-            catch(Exception ex) {
-		return ResponseEntity.badRequest().build();
-            }
-	}
-        
-	@DeleteMapping("produto/delete/{id}")
-	public ResponseEntity<Produto> deleteById(@RequestBody Produto p, @PathVariable int idProduto){
-		if(servico.existsById(idProduto)) {
-			try {
-			servico.deleteById(idProduto);
+		if(servico.existsById(p.getIdProduto())) {
+	        try {
+			servico.update(p);
 			return ResponseEntity.ok(p);
-			}
-			catch(Exception ex) {
-				return ResponseEntity.badRequest().build();
-			}
+	            }
+	            catch(Exception ex) {
+			return ResponseEntity.badRequest().build();
+	        }
 		}
-		return ResponseEntity.notFound().build();
+		return ResponseEntity.badRequest().build();
 	}
 }

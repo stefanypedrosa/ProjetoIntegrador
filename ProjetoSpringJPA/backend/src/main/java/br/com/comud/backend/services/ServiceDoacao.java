@@ -2,7 +2,6 @@ package br.com.comud.backend.services;
 
 import br.com.comud.backend.daos.IDoarDB;
 import br.com.comud.backend.models.Doacao;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,16 +18,6 @@ public class ServiceDoacao implements IDoarService{
     @Override
     public Doacao readById(int idDoacao) {
         return repo.findById(idDoacao).get();
-    }
-
-    @Override
-    public void update(Doacao d) {
-        repo.save(d);
-    }
-
-    @Override
-    public List<Doacao> readAll() {
-        return (List<Doacao>)repo.findAll();
     }
 
     @Override

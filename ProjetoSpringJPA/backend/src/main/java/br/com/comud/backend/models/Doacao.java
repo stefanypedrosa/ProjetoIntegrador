@@ -32,7 +32,7 @@ public class Doacao {
 	private Ong ong;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("usuario")
+	@JsonIgnoreProperties({"usuario", "cedidos", "recebidos"})
 	private Produto produto;
 
 	public int getIddoacao() {

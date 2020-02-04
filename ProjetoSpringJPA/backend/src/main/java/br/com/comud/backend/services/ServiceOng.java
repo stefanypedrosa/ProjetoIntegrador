@@ -31,14 +31,6 @@ public class ServiceOng implements IOngService{
 	}
 
 	@Override
-	public Ong deleteById(int idONG) {
-		// TODO Auto-generated method stub
-		repo.deleteById(idONG);
-		Ong ong = null;
-		return ong;
-	}
-
-	@Override
 	public boolean existsById(int idONG) {
 		// TODO Auto-generated method stub
 		return repo.existsById(idONG);

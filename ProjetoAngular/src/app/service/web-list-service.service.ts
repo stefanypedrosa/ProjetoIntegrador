@@ -4,6 +4,8 @@ import { Usuario } from '../model/Usuario';
 import { Produto } from '../model/Produto';
 import { BehaviorSubject } from 'rxjs';
 import { ONG } from '../model/ONG';
+import { Troca } from '../model/Troca';
+import { Doacao } from '../model/Doacao';
 
 
 
@@ -12,41 +14,35 @@ import { ONG } from '../model/ONG';
 })
 
 export class WebListServiceService {
-
   public listaUser: Usuario[];
-
   constructor(private xuxa: HttpClient) { }
 
   public log: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
 
   //usuario backend proprio
-  public atualiza(usuario: Usuario){
-    return this.xuxa.put("http://localhost:8080/usuario/update",usuario);
-  }
-  public recuperaTodos(){
-    return this.xuxa.get("http://localhost:8080/usuario/todos");
-  }
-  public recuperaDetalhe(id: number){
-  return this.xuxa.get(`http://localhost:8080/usuario/read/${id}`);
+  public login(login: Usuario){
+    return this.xuxa.post("http://localhost:8080/usuario/login", login);
   }
   public inserir(usuario:Usuario){
     return this.xuxa.post("http://localhost:8080/usuario/create",usuario);
   }
-  public login(login: Usuario){
-    return this.xuxa.post("http://localhost:8080/usuario/login", login);
+  public recuperaDetalhe(idUsuario: number){
+  return this.xuxa.get(`http://localhost:8080/usuario/read/${idUsuario}`);
   }
-  public delete(id:number){
-    return this.xuxa.delete(`http://localhost:8080/usuario/delete/${id}`);
+  public recuperaTodos(){
+    return this.xuxa.get("http://localhost:8080/usuario/todos");
+  }
+  public atualiza(usuario: Usuario){
+    return this.xuxa.put(`http://localhost:8080/usuario/update`, usuario);
   }
   
-
   //ong backend
   public cadastra(ong:ONG){
     return this.xuxa.post("http://localhost:8080/ong/create",ong);
   }
-  public consulta(id: number){
-    return this.xuxa.get(`http://localhost:8080/ong/read/${id}`);
+  public consulta(idOng: number){
+    return this.xuxa.get(`http://localhost:8080/ong/read/${idOng}`);
   }
   public atualizaOng(ong: ONG){
     return this.xuxa.put("http://localhost:8080/ong/update",ong);
@@ -54,11 +50,11 @@ export class WebListServiceService {
 
   
   //produto backend proprio
-  public buscaDetProd( id: number){
-    return this.xuxa.get(`http://localhost:8080/produto/read/${id}`)
-  }
   public inserirp(produto:Produto){
     return this.xuxa.post("http://localhost:8080/produto/create",produto);
+  }
+  public buscaDetProd( idProduto: number){
+    return this.xuxa.get(`http://localhost:8080/produto/read/${idProduto}`)
   }
   public obterLista(){
     return this.xuxa.get("http://localhost:8080/produto/todos")
@@ -66,7 +62,23 @@ export class WebListServiceService {
   public atualizaProd(produto: Produto){
     return this.xuxa.put("http://localhost:8080/produto/update",produto);
   }
-  public deleteProduto(id:number){
-    return this.xuxa.delete(`http://localhost:8080/produto/delete/${id}`);
+
+
+  //troca backend proprio
+  public trocar(troca:Troca){
+    return this.xuxa.post("http://localhost:8080/trocar/create",troca);
   }
+  public consultaTroca( idTroca: number){
+    return this.xuxa.get(`http://localhost:8080/trocar/read/${idTroca}`)
+  }
+
+
+  //doacao backend proprio
+  public doar(doar:Doacao){
+    return this.xuxa.post("http://localhost:8080/doar/create",doar);
+  }
+  public consultaDoacao( idDoacao: number){
+    return this.xuxa.get(`http://localhost:8080/doar/read/${idDoacao}`)
+  }
+
 }

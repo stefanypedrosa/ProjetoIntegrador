@@ -17,12 +17,6 @@ export class EditaUsuarioComponent implements OnInit {
   private _msgErroSFA: string = null;
   private _msgErroSFO: string = null;
 
-  /*private nome: string;
-  private email: string;
-  private tel: string;
-  private senha: string;
-  private confSenha: string;*/
-
   private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
   private num: any = /^[0-9]+$/;
   private carEsp: any = /[@#$%&]/;
@@ -33,11 +27,6 @@ export class EditaUsuarioComponent implements OnInit {
   private _msgErroT: string = null 
   private _msgErroS: string = null;
   private _msgErroCS: string = null;
-
-  /*private _msgErroSFA: string = null;
-  private _msgErroSFO: string = null;
-  private _msgEnviar: string = null;
-  private _msgEnviarE: string = null;*/
 
   private id: number;
 
@@ -54,7 +43,7 @@ export class EditaUsuarioComponent implements OnInit {
 
   validacao(){
 
-    if (this.usuario.nome == "" || this.usuario.email == "" || this.usuario.telefone == null || this.usuario.senha == "") {
+    if (this.usuario.confSenha == "" || this.usuario.confSenha == null ||this.usuario.nome == "" || this.usuario.email == "" || this.usuario.telefone == null || this.usuario.endereco == null || this.usuario.endereco == "" || this.usuario.senha == "" || this.usuario.nome == null || this.usuario.email == null || this.usuario.senha == null ) {
       alert('Preencha todos os campos');  
     }
 
@@ -91,13 +80,31 @@ export class EditaUsuarioComponent implements OnInit {
     else {
       this._msgErroS = null;
     }
+    
+    if(this.usuario.confSenha === this.usuario.senha){
+      this._msgErroCS = null;
+    }
+    else{
+      this.usuario.confSenha= "";
+      this._msgErroCS = "As senhas nâo conferem";
+    }
 
-    this._msgEnviar = null;
-    this._msgEnviarE = null;
-    if (this.usuario.nome != "" && this.usuario.email != "" && this.usuario.telefone != null && this.usuario.senha != "") {
-      this.srv.atualiza(this.usuario).subscribe(res=>{
+    if (this.usuario.nome != "" && this.usuario.email != "" && this.usuario.telefone != null && this.usuario.senha != "" && this.usuario.confSenha != "") {
+      this._msgEnviar = null;
+      this._msgEnviarE = null;
+      this.srv.inserir(this.usuario).subscribe(res=>{
         this._msgEnviar = "Dados enviados com SUCESSO!!";
-        localStorage.setItem("nome", this.usuario.nome);
+        this.usuario.nome = "";
+        this.usuario.email = "";
+        this.usuario.telefone = null;
+        this.usuario.endereco = "";
+        this.usuario.senha = "";
+        this.usuario.confSenha = "";
+        this._msgErroSFA = null;
+        this._msgErroSFO = null;
+      },
+      error=>{
+        this._msgEnviarE = "Erro ao enviar dados!!";
         this.usuario.nome = "";
         this.usuario.email = "";
         this.usuario.telefone = null;
@@ -105,10 +112,8 @@ export class EditaUsuarioComponent implements OnInit {
         this.usuario.confSenha = "";
         this._msgErroSFA = null;
         this._msgErroSFO = null;
-    },
-      error=>{
-        this._msgEnviarE = "Erro ao enviar dados!!";
       })
+      
     }
   }
 

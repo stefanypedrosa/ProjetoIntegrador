@@ -170,12 +170,6 @@
             <input type="checkbox" id="POLO">
             <label for="POLO">POLO</label>
           </div>
-
-
-
-
-
-
         </div>
       </div>
     </div>
@@ -206,7 +200,7 @@
         <img src="{{ busca.linkFoto }}">
 
         <button class="butnFa m-auto" data-toggle="modal" data-target=".bd-example-modal-lg"
-          (click)="atribuiModal(busca.id);">
+          (click)="atribuiModal(busca.idProduto);">
           <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
         </button>
       </div>
@@ -229,7 +223,8 @@
 
         <img src="{{prodModal.linkFoto }}">
         <h3><strong>Item :</strong> {{prodModal.nome}} </h3>
-        <p>{{prodModal.detalhes }} </p>
+        <p>Informações adicionais: {{prodModal.detalhes }}</p>
+        <p><strong>{{prodModal.status}}</strong> </p>
         <div class="row  estilizaModal">
           <div class="col-md-2">
             <p>Tamanho : {{prodModal.tamanho}} </p>
@@ -277,7 +272,7 @@
           <p><strong>Categoria : </strong> {{_idproduto.categoria}} </p>
           <p><strong>Detalhes : </strong> {{ _idproduto.detalhes }} </p>
           <button id="altera" class="btn btn-outline " data-toggle="modal" data-target="#exampleModal"><a
-              [routerLink]="['/editaproduto',_idproduto.id]" class="text-light"> Alterar </a></button>
+              [routerLink]="['/editaproduto',_idproduto.idProduto]" class="text-light"> Alterar </a></button>
         </div>
       </div>
       <div class="col-md-4">

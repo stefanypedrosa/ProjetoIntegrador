@@ -48,16 +48,18 @@ public class Produto {
 	private String status;
 
 	@ManyToOne
-	@JsonIgnoreProperties("produtos")
+	@JsonIgnoreProperties({"doados", "cedidos", "recebidos", "produtos"})
 	private Usuario usuario;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cedido")
+	@JsonIgnoreProperties({"produtos"})
 	private List<Troca> cedidos;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recebido")
+	@JsonIgnoreProperties({"produtos"})
 	private List<Troca> recebidos;
 	
 	@OneToMany
-	@JsonIgnoreProperties("doado")
+	@JsonIgnoreProperties({"doados", "cedidos", "recebidos", "produtos"})
 	private List<Doacao> doados;
 
 	public Usuario getUsuario() {

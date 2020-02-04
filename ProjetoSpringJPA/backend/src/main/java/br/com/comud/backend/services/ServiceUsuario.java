@@ -39,14 +39,6 @@ public class ServiceUsuario implements IUsuarioService{
 	}
 
 	@Override
-	public Usuario deleteById(int idUsuario) {
-		// TODO Auto-generated method stub
-			repo.deleteById(idUsuario);
-			Usuario u = null;
-			return u;
-	}
-
-	@Override
 	public boolean existsById(int idUsuario) {
 		// TODO Auto-generated method stub
 		return repo.existsById(idUsuario);

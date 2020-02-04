@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   constructor(private srv: WebListServiceService) { }
 
   log:boolean;
+  ok:string;
 
   ngOnInit() {
     this.srv.log.subscribe(value => {

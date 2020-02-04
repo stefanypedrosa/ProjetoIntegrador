@@ -32,6 +32,12 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="endereço">Endereço</label>
+                        <input type="text" class="form-control" [(ngModel)]="usuario.endereco" placeholder=" Digite seu endereço" maxlength="150" required>
+                        <span *ngIf='_msgErroEn'>{{_msgErroEn}}</span>
+                    </div>
+
+                    <div class="form-group">
                         <label for="senha">Senha</label>
                         <input type="password" class="form-control" id="senha" (click)= limpaEnviar() placeholder=" Digite a senha"
                             [(ngModel)]="usuario.senha" maxlength="20" required>

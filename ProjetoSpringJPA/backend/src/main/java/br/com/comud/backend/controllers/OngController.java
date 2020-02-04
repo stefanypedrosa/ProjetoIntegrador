@@ -3,7 +3,6 @@ package br.com.comud.backend.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,6 +43,7 @@ public class OngController {
 	
 	@PutMapping("ong/update")
 	public ResponseEntity<Ong> update(@RequestBody Ong ong){
+		if(servico.existsById(ong.getIdONG())) {
 			try {
 			servico.update(ong);
 			return ResponseEntity.ok(ong);
@@ -51,19 +51,7 @@ public class OngController {
 			catch(Exception ex) {
 				return ResponseEntity.badRequest().build();
 			}
-		
-	}
-	@DeleteMapping("ong/delete/{idONG}")        //verificar necessidade
-	public ResponseEntity<Ong> deleteById(@RequestBody Ong ong, @PathVariable int idONG){
-		if(servico.existsById(idONG)) {
-			try {
-			servico.deleteById(idONG);
-			return ResponseEntity.ok(ong);
-			}
-			catch(Exception ex) {
-				return ResponseEntity.badRequest().build();
-			}
 		}
-		return ResponseEntity.notFound().build();
+		return ResponseEntity.badRequest().build();
 	}
 }

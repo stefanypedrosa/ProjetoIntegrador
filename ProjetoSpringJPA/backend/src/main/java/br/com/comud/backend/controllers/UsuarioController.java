@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -63,8 +62,9 @@ public class UsuarioController {
 		return ResponseEntity.ok(servico.readAll());
 	}
 	
-	@PutMapping("usuario/update/{idUsuario}")       //verificar 
+	@PutMapping("usuario/update")        
 	public ResponseEntity<Usuario> update(@RequestBody Usuario u){
+		if(servico.existsById(u.getIdUsuario())) {
 			try {
 			servico.update(u);
 			return ResponseEntity.ok(u);
@@ -72,18 +72,7 @@ public class UsuarioController {
 			catch(Exception ex) {
 				return ResponseEntity.badRequest().build();
 			}
-	}
-	@DeleteMapping("usuario/delete/{idUsuario}")
-	public ResponseEntity<Usuario> deleteById(@RequestBody Usuario u, @PathVariable int idUsuario){
-		if(servico.existsById(idUsuario)) {
-			try {
-			servico.deleteById(idUsuario);
-			return ResponseEntity.ok(u);
-			}
-			catch(Exception ex) {
-				return ResponseEntity.badRequest().build();
-			}
 		}
-		return ResponseEntity.notFound().build();
+		return ResponseEntity.badRequest().build();	
 	}
 }

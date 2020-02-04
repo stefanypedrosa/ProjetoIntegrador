@@ -1,5 +1,5 @@
 export class ONG{
-    public idOng:number;
+    public idONG:number;
     public nome:string;
     public site:string;
     public telefone:string;
