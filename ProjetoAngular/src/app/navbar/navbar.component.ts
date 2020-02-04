@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebListServiceService } from '../service/web-list-service.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-navbar',
@@ -21,5 +22,9 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.srv.log.next(false);
+    $('#logout').click();
+  }
+  Login(){
+    this.srv.log.next(true);
   }
 }
