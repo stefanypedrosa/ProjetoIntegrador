@@ -36,7 +36,14 @@ export class WebListServiceService {
   public atualiza(usuario: Usuario){
     return this.xuxa.put(`http://localhost:8080/usuario/update`, usuario);
   }
+<<<<<<< HEAD
   
+=======
+  public buscarInfo(token: string){
+    return this.xuxa.get("http://localhost:8080/userinfo?token="+token);
+  }
+
+>>>>>>> 09e71bfdb8f69d3762e8d111404f0fa5ae35cbd0
   //ong backend
   public cadastra(ong:ONG){
     return this.xuxa.post("http://localhost:8080/ong/create",ong);

@@ -5,10 +5,10 @@ import javax.xml.bind.DatatypeConverter;
 import br.com.comud.backend.models.Usuario;
 
 public class autenticacao {
-	private static final String PREFIXO="*CoMuD|";
+	private static final String PREFIXO="*CoMuD:";
 	public static token generateToken(Usuario usuario) {
 		token token = new token();
-		String str = PREFIXO+"|"+usuario.getIdUsuario()+"|"+usuario.getEmail()+"|"+usuario.getNome();
+		String str = PREFIXO+usuario.toString();
 		String strToken = DatatypeConverter.printHexBinary(str.getBytes());
 		
 		token.setToken(strToken);
@@ -17,21 +17,25 @@ public class autenticacao {
 	}
 	
 	public static boolean isValid(String token) {
-		String str = new String(DatatypeConverter.parseHexBinary(token));
-		System.out.println("Token decode:"+str);
-		String parts[] = str.split("\\|");
-		System.out.println(parts.length);
-		System.out.println(parts[0].equals(PREFIXO));
-		return (parts.length == 4 && parts[0].equals(PREFIXO));
+		byte[] vetor = DatatypeConverter.parseHexBinary(token);
+		//converte o código hexadecimal de volta para texto
+	    String novaString = new String(vetor);
+	    if (novaString.startsWith(PREFIXO)) {
+	    	return true;
+	    }
+	    return false;
 	}
 	
 	public static Usuario extractUser(String token) {
-		String str = new String(DatatypeConverter.parseHexBinary(token));
-		String parts[] = str.split("\\|");
+		
+		byte[] vetor = DatatypeConverter.parseHexBinary(token);
+		String novaString = new String(vetor);
+		String partes[] = novaString.split(":");
+		
 		Usuario usuario = new Usuario();
-		usuario.setIdUsuario(Integer.parseInt(parts[1]));
-		usuario.setEmail(parts[2]);
-		usuario.setNome(parts[3]);
+		usuario.setIdUsuario(Integer.parseInt(partes[1]));
+		usuario.setEmail(partes[3]);
+		usuario.setNome(partes[2]);
 		return usuario;
 	}
 
