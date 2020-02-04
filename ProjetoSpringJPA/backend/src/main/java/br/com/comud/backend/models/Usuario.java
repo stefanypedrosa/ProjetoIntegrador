@@ -29,6 +29,9 @@ public class Usuario {
 	
 	@Column(name="telefone", length = 11)
 	private String telefone;
+        
+        @Column (name="endereco", length = 150)
+        private String endereco;
 	
 	@Column(name="senha" , length = 20)
 	private String senha;
@@ -82,6 +85,12 @@ public class Usuario {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+        public String getEndereco(){
+            return endereco;
+        }
+        public void setEndereco(String endereco){
+            this.endereco = endereco;
+        }
 	public String getSenha() {
 		return senha;
 	}

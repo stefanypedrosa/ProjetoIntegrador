@@ -22,40 +22,51 @@ export class WebListServiceService {
 
   //usuario backend proprio
   public atualiza(usuario: Usuario){
-    return this.xuxa.put("http://localhost:8080/usuario/atualiza",usuario);
+    return this.xuxa.put("http://localhost:8080/usuario/update",usuario);
   }
   public recuperaTodos(){
     return this.xuxa.get("http://localhost:8080/usuario/todos");
   }
   public recuperaDetalhe(id: number){
-  return this.xuxa.get(`http://localhost:8080/usuario/${id}`);
+  return this.xuxa.get(`http://localhost:8080/usuario/read/${id}`);
   }
   public inserir(usuario:Usuario){
-    return this.xuxa.post("http://localhost:8080/usuario/new",usuario);
+    return this.xuxa.post("http://localhost:8080/usuario/create",usuario);
   }
   public login(login: Usuario){
-    return this.xuxa.post("http://localhost:8080/login", login);
+    return this.xuxa.post("http://localhost:8080/usuario/login", login);
   }
-  // public recuperabyEmail(email: string){
-  //   return this.xuxa.get(`http://localhost:8080/login/${email}`);
-  // }
+  public delete(id:number){
+    return this.xuxa.delete(`http://localhost:8080/usuario/delete/${id}`);
+  }
   
+
   //ong backend
   public cadastra(ong:ONG){
-    return this.xuxa.post("http://localhost:8080/ong/new",ong);
+    return this.xuxa.post("http://localhost:8080/ong/create",ong);
   }
+  public consulta(id: number){
+    return this.xuxa.get(`http://localhost:8080/ong/read/${id}`);
+  }
+  public atualizaOng(ong: ONG){
+    return this.xuxa.put("http://localhost:8080/ong/update",ong);
+  }
+
   
   //produto backend proprio
   public buscaDetProd( id: number){
-    return this.xuxa.get(`http://localhost:8080/produto/${id}`)
+    return this.xuxa.get(`http://localhost:8080/produto/read/${id}`)
   }
   public inserirp(produto:Produto){
-    return this.xuxa.post("http://localhost:8080/produto/new",produto);
+    return this.xuxa.post("http://localhost:8080/produto/create",produto);
   }
   public obterLista(){
     return this.xuxa.get("http://localhost:8080/produto/todos")
   }
   public atualizaProd(produto: Produto){
-    return this.xuxa.put("http://localhost:8080/produto/atualiza",produto);
+    return this.xuxa.put("http://localhost:8080/produto/update",produto);
+  }
+  public deleteProduto(id:number){
+    return this.xuxa.delete(`http://localhost:8080/produto/delete/${id}`);
   }
 }

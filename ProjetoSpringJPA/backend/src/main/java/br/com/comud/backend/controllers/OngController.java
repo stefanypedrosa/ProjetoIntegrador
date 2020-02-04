@@ -53,7 +53,7 @@ public class OngController {
 			}
 		
 	}
-	@DeleteMapping("ong/delete/{idONG}")
+	@DeleteMapping("ong/delete/{idONG}")        //verificar necessidade
 	public ResponseEntity<Ong> deleteById(@RequestBody Ong ong, @PathVariable int idONG){
 		if(servico.existsById(idONG)) {
 			try {

@@ -56,7 +56,7 @@ public class UsuarioController {
 		}
 	}
 	
-	@PutMapping("usuario/update")
+	@PutMapping("usuario/update/{idUsuario}")       //verificar 
 	public ResponseEntity<Usuario> update(@RequestBody Usuario u){
 			try {
 			servico.update(u);

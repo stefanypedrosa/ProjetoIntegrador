@@ -18,6 +18,9 @@
     background-color: #dedcc5;
     color:#059faa;
 }
+textarea{
+    resize:none;
+}
 label{
     font-family: 'Mukta', sans-serif;
     font-size:14px;

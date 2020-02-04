@@ -43,6 +43,9 @@ public class Produto {
 		
 		@Column(name="tamanho", length = 5)
 		private String tamanho;
+                
+                @Column (name="status", length = 10)
+                private String status;
 		
 		
 		@ManyToOne
@@ -110,7 +113,13 @@ public class Produto {
 		public void setTamanho(String tamanho) {
 			this.tamanho = tamanho;
 		}
-		public List<Troca> getCedidos() {
+		public String getStatus(){
+                    return status;
+                }
+                public void setStatus(String status){
+                    this.status = status;
+                }
+                public List<Troca> getCedidos() {
 			return cedidos;
 		}
 		public void setCedidos(List<Troca> cedidos) {
@@ -122,5 +131,6 @@ public class Produto {
 		public void setRecebidos(List<Troca> recebidos) {
 			this.recebidos = recebidos;
 		}
+                
 
 }

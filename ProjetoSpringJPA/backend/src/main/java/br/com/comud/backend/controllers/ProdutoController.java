@@ -63,14 +63,15 @@ public class ProdutoController {
 	
 	@PutMapping("produto/update")
 	public ResponseEntity<Produto> update(@RequestBody Produto p){
-			try {
-			servico.update(p);
-			return ResponseEntity.ok(p);
-			}
-			catch(Exception ex) {
-				return ResponseEntity.badRequest().build();
-			}
+            try {
+		servico.update(p);
+		return ResponseEntity.ok(p);
+            }
+            catch(Exception ex) {
+		return ResponseEntity.badRequest().build();
+            }
 	}
+        
 	@DeleteMapping("produto/delete/{id}")
 	public ResponseEntity<Produto> deleteById(@RequestBody Produto p, @PathVariable int idProduto){
 		if(servico.existsById(idProduto)) {
