@@ -4,7 +4,7 @@ import { Usuario } from './Usuario';
 export class Troca{
     idTroca:number;
     dataT:string;
-    cedido: Produto;
+    idCedido: Produto;
     recebido:Produto;
     remetente:Usuario;
     destinatario:Usuario;
