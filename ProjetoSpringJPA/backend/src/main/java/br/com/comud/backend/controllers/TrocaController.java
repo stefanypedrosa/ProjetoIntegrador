@@ -1,5 +1,7 @@
 package br.com.comud.backend.controllers;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -35,6 +37,8 @@ public class TrocaController {
 					try {
 						ced.setStatus("TROCADO");
 						rec.setStatus("TROCADO");
+						LocalDate localDate = LocalDate.now();
+						troca.setDataT(localDate.getYear()+"-"+localDate.getMonthValue()+"-"+localDate.getDayOfWeek().ordinal());
 						servico.create(troca);
 						srv.update(ced);
 						srv.update(rec);

@@ -49,4 +49,6 @@ public class ServiceUsuario implements IUsuarioService{
 		// TODO Auto-generated method stub
 		return repo.findByEmailAndSenha(email, senha);
 	}
+	
+
 }

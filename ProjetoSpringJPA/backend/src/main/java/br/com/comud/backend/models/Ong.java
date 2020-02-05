@@ -41,7 +41,7 @@ public class Ong {
 	
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "ong")
-	@JsonIgnoreProperties("ong")
+	@JsonIgnoreProperties({"ong", "doacoes"})
 	private List<Doacao> doacoes;
 		
 

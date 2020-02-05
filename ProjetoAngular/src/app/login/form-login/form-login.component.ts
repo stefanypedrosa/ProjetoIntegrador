@@ -22,8 +22,6 @@ export class FormLoginComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem("TOKEN")) {
       this.router.navigate(['home']);
-      //Globals.nome = undefined;
-      this._msgLogout = "Usuário desconectado!";
     }
     else{
       Globals.nome = undefined;

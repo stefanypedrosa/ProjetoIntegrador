@@ -6,6 +6,7 @@ import br.com.comud.backend.services.IProdutoService;
 import br.com.comud.backend.models.Doacao;
 import br.com.comud.backend.models.Produto;
 
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,8 @@ public class DoacaoController {
             if(p.getStatus().startsWith("DISP")){		//verifica status do produto
                 try {
                     p.setStatus("DOADO");
+                    LocalDate localDate = LocalDate.now();
+					doacao.setDataD(localDate.getYear()+"-"+localDate.getMonthValue()+"-"+localDate.getDayOfMonth());
                     servico.create(doacao);
                     srv.update(p);
                     return ResponseEntity.ok(doacao);

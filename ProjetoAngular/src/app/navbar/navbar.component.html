@@ -24,31 +24,32 @@
                     <li class="nav-item active">
                         <a class="nav-link text-white" [routerLink]="'/produto'">Products</a>
                     </li>
-                    
+
                     <li class="nav-item">
-<<<<<<< HEAD
-                        <a class="nav-link text-white" [routerLink]="'/login'" *ngIf="!log">Login</a>
-                        <a class="nav-link text-white "  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="Login()" *ngIf="log">
-                            Meu Varal
-=======
                         <a class="nav-link text-white" [routerLink]="'/login'" *ngIf="user == null">Login</a>
-                        <a class="nav-link text-white "  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="Login()" *ngIf="user != null">
-                             {{user.nome}} 
->>>>>>> 09e71bfdb8f69d3762e8d111404f0fa5ae35cbd0
+                        <a class="nav-link text-white " id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" (click)="Login()" *ngIf="user != null">
+                            {{user.nome}}
                         </a>
-                        <div class="dropdown-menu " aria-labelledby="navbarDropdown" >
+                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Minhas Publicações</a>
                             <a class="dropdown-item" href="#">Notificações</a>
-                            <a class="dropdown-item"[routerLink]="'/cadastroproduto'">Cadastre seu produto</a>
+                            <a class="dropdown-item" [routerLink]="'/cadastroproduto'">Cadastre seu produto</a>
                             <a class="dropdown-item" href="#">Dados de Cadastro </a>
                             <div class="dropdown-divider"></div>
-                            <button class="dropdown-item" id="logout" [routerLink]="'/login'" (click)="logout()">Logout</button>
+                            <button class="dropdown-item" id="logout" [routerLink]="'/login'"
+                                (click)="logout()">Logout</button>
                         </div>
                     </li>
                 </ul>
                 <img id="faq" src="../../assets/faq-icon3.png" alt="FAQ" [routerLink]="'/faq'">
                 <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-outline my-2 my-sm-0" type="submit">Doar</button>
+                    <button class="btn btn-outline my-2 my-sm-0" [routerLink]="'/cestadedoacao'"
+                        type="submit">Doar</button>
+                </form>
+                <form class="form-inline my-2 my-lg-0">
+                    <button class="btn btn-outline my-2 my-sm-0" id="troca" [routerLink]="'/cestadetrocas'"
+                        type="submit">Trocar</button>
                 </form>
             </div>
         </nav>

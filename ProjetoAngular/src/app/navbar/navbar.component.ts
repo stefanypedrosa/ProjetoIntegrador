@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebListServiceService } from '../service/web-list-service.service';
-import {Usuario} from '../model/usuario';
+import {Usuario} from '../model/Usuario';
 import {GlobalsUsuario} from '../model/GlobalsUsuario';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
@@ -20,19 +20,14 @@ export class NavbarComponent implements OnInit {
   ok:string;
 
   ngOnInit() {
-    // this.srv.log.subscribe(value => {
-    //   this.log = value;
-    // });
+
     this.srv.buscarInfo(localStorage.getItem("TOKEN")).subscribe(
       (res: Usuario) => {
         GlobalsUsuario.usuario = res;
         this.user = res;
-          console.log("USER INFO...");
-          console.log(res);
       },
       (err) => {
         this.user = null;
-        console.log("ERRO!!!");
       }
     );
   }
@@ -48,6 +43,9 @@ export class NavbarComponent implements OnInit {
   
 }
   Login(){
-    this.srv.log.next(true);
+    if(localStorage.getItem("TOKEN")){
+      this.srv.log.next(true);
+    }
+    
   }
 }

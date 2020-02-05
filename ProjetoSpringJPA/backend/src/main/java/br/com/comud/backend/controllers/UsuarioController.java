@@ -27,18 +27,8 @@ public class UsuarioController {
 	
 	@PostMapping("/usuario/login")
     public ResponseEntity<token> loginUsuario(@RequestBody Usuario usuario){
-    	//List<Usuario> usuarios = servico.readAll();
-    	//boolean logado = false;
-    	//for(Usuario u:usuarios) {
-    		//if(usuario.getEmail().equals(u.getEmail() && u.getSenha().equals(usuario.getSenha()))) {
-    			
-    		//}
-    	//}
-   
     	Usuario u = servico.autenticarUsuario(usuario.getEmail(), usuario.getSenha());
     	if (u != null) {
-		//usuario.setNome(this.Usuario.nome);
-		//usuario.setIdUsuario();
     		token token = autenticacao.generateToken(u);
     		return ResponseEntity.ok(token);
     	}

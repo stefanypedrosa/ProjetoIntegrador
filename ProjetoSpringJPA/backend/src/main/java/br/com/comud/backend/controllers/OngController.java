@@ -1,5 +1,7 @@
 package br.com.comud.backend.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -53,5 +55,10 @@ public class OngController {
 			}
 		}
 		return ResponseEntity.badRequest().build();
+	}
+	
+	@GetMapping("/ong/todos")
+	public ResponseEntity<List<Ong>> readAll(){
+		return ResponseEntity.ok(servico.readAll());
 	}
 }

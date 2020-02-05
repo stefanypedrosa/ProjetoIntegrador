@@ -28,6 +28,7 @@ import { CadProdutoComponent } from './produto/cad-produto/cad-produto.component
 import { EditaProdutoComponent } from './produto/edita-produto/edita-produto.component';
 import { CadOngComponent } from './login/cad-ong/cad-ong.component';
 import { TrocasComponent } from './trocas/trocas.component';
+import { DoacaoComponent } from './doacao/doacao.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { TrocasComponent } from './trocas/trocas.component';
     EditaProdutoComponent,
     CadOngComponent,
     TrocasComponent,
+    DoacaoComponent,
   ],
   imports: [
     BrowserModule,

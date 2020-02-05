@@ -1,5 +1,6 @@
 package br.com.comud.backend.models;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,19 +24,19 @@ public class Troca {
 	private String dataT;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("destinatarios")
+	@JsonIgnoreProperties({"destinatarios","produtos"})
 	private Usuario destinatario;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("remetentes")
+	@JsonIgnoreProperties({"remetentes", "produtos"})
 	private Usuario remetente;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("recebidos")
+	@JsonIgnoreProperties({"recebidos", "produtos"})
 	private Produto recebido;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("cedidos")
+	@JsonIgnoreProperties({"cedidos", "produtos"})
 	private Produto cedido;
 	
 

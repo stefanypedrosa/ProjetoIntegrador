@@ -1,3 +1,5 @@
+import { Usuario } from './Usuario';
+
 export class Produto{
     idProduto: number;
     nome: String;
@@ -8,4 +10,5 @@ export class Produto{
     condicao: String = "Selecione";
     tamanho: String = "Selecione";
     status:String = "DISPONÍVEL";
+    idUsuario:Usuario;
 }

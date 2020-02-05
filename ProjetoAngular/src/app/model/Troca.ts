@@ -2,10 +2,10 @@ import { Produto } from './Produto';
 import { Usuario } from './Usuario';
 
 export class Troca{
-    idTroca:number;
-    dataT:string;
-    idCedido: Produto;
-    recebido:Produto;
-    remetente:Usuario;
-    destinatario:Usuario;
+    public idTroca:number;
+    public dataT:string;
+    public cedido:Produto=new Produto;
+    public recebido:Produto=new Produto;
+    public remetente:Usuario=new Usuario;
+    public destinatario:Usuario=new Usuario;
 }

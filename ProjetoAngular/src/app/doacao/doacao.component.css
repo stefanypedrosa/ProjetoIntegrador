@@ -22,14 +22,14 @@ span{
     color:red;
 }
 .btn{
-    width: 65px;
+    width: 60px;
     background-color: #059faa;
     margin-top:3%;
     color:#dedcc5;
 }
 .btn-outline{
-    width: 65px;
-    height: 40px;
+    width: 60px;
+    height: 35px;
     color:#dedcc5;
     border-color:#dedcc5;
 }
@@ -44,6 +44,10 @@ span{
     font-size:20px;
     margin-left: 3.5%;
     color:#056e75;
+}
+select{
+    padding: 1.5%;
+    padding-right: 50%;
 }
 #erro{
     margin-top: 10%;

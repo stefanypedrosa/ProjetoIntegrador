@@ -2,6 +2,7 @@ package br.com.comud.backend.services;
 
 import br.com.comud.backend.daos.ITrocaDB;
 import br.com.comud.backend.models.Troca;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,4 +25,5 @@ public class ServiceTroca implements ITrocaService{
 	public boolean existsById(int idTroca) {
 		return repo.existsById(idTroca);
 	}
+
 }
