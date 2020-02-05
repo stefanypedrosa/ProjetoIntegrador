@@ -89,4 +89,18 @@ public class UsuarioController {
 		}
 		return ResponseEntity.badRequest().build();
 	}
+	
+	@GetMapping("/detalhes")
+	public ResponseEntity<Usuario> detalhesUsuario(@RequestParam String token){
+		
+		//primeiro passo estrair id através do token
+		Usuario user = autenticacao.extractUser(token);
+		
+		user = servico.readById(user.getIdUsuario());
+				
+		//retornar detalhes do usuario
+		return ResponseEntity.ok(user);
+		
+		
+	}
 }

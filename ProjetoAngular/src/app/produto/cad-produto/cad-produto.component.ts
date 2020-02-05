@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { WebListServiceService } from '../../service/web-list-service.service';
 import { Router } from '@angular/router';
 import { Produto } from 'src/app/model/Produto';
+import {Usuario} from '../../model/usuario';
+import {GlobalsUsuario} from '../../model/GlobalsUsuario';
 
 @Component({
   selector: 'app-cad-produto',
@@ -10,6 +12,11 @@ import { Produto } from 'src/app/model/Produto';
 })
 export class CadProdutoComponent implements OnInit {
   produto: Produto = new Produto;
+  user   : Usuario = new Usuario;
+  userParse :Usuario = new Usuario;
+
+
+
   private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
   _msgErroN = null;
   _msgErroF = null;
@@ -27,6 +34,24 @@ export class CadProdutoComponent implements OnInit {
       alert("Você não pode acessar está página sem estar logado")
       this.router.navigate(['/login']);
     }
+
+    this.srv.BuscaDetalhesProd(localStorage.getItem("TOKEN")).subscribe(
+      (res: Usuario) => {
+        GlobalsUsuario.usuario = res;
+        this.user = res;
+
+        this.userParse.idUsuario = this.user.idUsuario;
+        this.produto.usuario = this.userParse;
+        // this.produto.idUsuario.idUsuario = res.idUsuario;
+        // this.produto.idUsuario = this.user;
+          console.log("USER INFO...");
+          console.log(res);
+      },
+      (err) => {
+        this.user = null;
+        console.log("ERRO!!!");
+      }
+    );
   }
 
   validacao() {

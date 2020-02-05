@@ -10,5 +10,5 @@ export class Produto{
     condicao: String = "Selecione";
     tamanho: String = "Selecione";
     status:String = "DISPONÍVEL";
-    idUsuario:Usuario;
+    usuario:Usuario;
 }

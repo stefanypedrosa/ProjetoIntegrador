@@ -39,6 +39,9 @@ export class WebListServiceService {
   public buscarInfo(token: string){
     return this.xuxa.get("http://localhost:8080/userinfo?token="+token);
   }
+  public BuscaDetalhesProd(token:String){
+    return this.xuxa.get("http://localhost:8080/detalhes?token="+token);
+  }
 
   //ong backend
   public cadastra(ong:ONG){
