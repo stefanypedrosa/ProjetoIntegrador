@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link text-white" [routerLink]="'/home'">Home <span class="sr-only">(página
+                        <a class="nav-link text-white" [routerLink]="'/home'">Home<span class="sr-only">(página
                                 atual)</span></a>
                     </li>
                     <li class="nav-item">
@@ -26,15 +26,15 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white" [routerLink]="'/login'" *ngIf="user == null">Login</a>
+                        <a class="nav-link text-white" [routerLink]="'/login'" *ngIf="user.idUsuario == null">Login</a>
                         <a class="nav-link text-white " id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false" (click)="Login()" *ngIf="user != null">
+                            aria-haspopup="true" aria-expanded="false" (click)="Login()" *ngIf="user.idUsuario != null">
                             {{user.nome}}
                         </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item disabled" href="#">Seu ID de Usuário: {{user.idUsuario}}</a>
-                            <a class="dropdown-item" [routerLink]="'/cadastroproduto'">Cadastre seu produto</a>
-                            <a class="dropdown-item" [routerLink]="['/editausuario', user.idUsuario]">Atualize seu
+                            <a class="dropdown-item disabled" >Meu ID de Usuário: {{user.idUsuario}}</a>
+                            <a class="dropdown-item" [routerLink]="'/cadastroproduto'">Cadastrar meu Produto</a>
+                            <a class="dropdown-item" [routerLink]="['/editausuario', user.idUsuario]">Atualizar meu
                                 Cadastro </a>
                             <div class="dropdown-divider"></div>
                             <button class="dropdown-item" id="logout" [routerLink]="'/login'"

@@ -24,7 +24,7 @@ public class Usuario {
 	@Column(name = "nome", length = 100)
 	private String nome;
 
-	@Column(name = "email", length = 30)
+	@Column(name = "email", length = 30, unique=true)
 	private String email;
 
 	@Column(name = "telefone", length = 11)

@@ -27,7 +27,7 @@ public class Ong {
 	@Column(name="telefone", length = 11)
 	private String telefone;
 	
-	@Column(name="email", length = 50)
+	@Column(name="email", length = 50, unique=true)
 	private String email;
 	
 	@Column(name="descricao", length = 1000)

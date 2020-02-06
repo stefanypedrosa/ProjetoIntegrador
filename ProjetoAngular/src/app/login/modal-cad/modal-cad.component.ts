@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/model/Usuario';
 import { WebListServiceService } from 'src/app/service/web-list-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-cad',
@@ -25,7 +26,7 @@ export class ModalCadComponent implements OnInit {
   _msgErroS: string = null;
   _msgErroCS: string = null;
 
-  constructor(private srv: WebListServiceService) { }
+  constructor(private srv: WebListServiceService, private router:Router) { }
 
   ngOnInit() {
 
@@ -92,6 +93,7 @@ export class ModalCadComponent implements OnInit {
         this.usuario.confSenha = "";
         this._msgErroSFA = null;
         this._msgErroSFO = null;
+        this.router.navigate(['/login']);
       },
         error => {
           this._msgEnviarE = "Erro ao enviar dados!!";
