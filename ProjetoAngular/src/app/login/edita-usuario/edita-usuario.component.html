@@ -3,59 +3,69 @@
     <div class="modal-dialog " role="document">
         <div class="modal-content estilizicao">
             <div class="modal-header ">
-                <h5 class="modal-title" id="exampleModalLabel">Alteração de Cadastro</h5>
-                <button type="button" class="close" [routerLink]="'/consultausuarios'" data-dismiss="modal" aria-label="Fechar">
+                <h5 class="modal-title" id="exampleModalLabel">Conhecendo ONG's parceiras</h5>
+                <button type="button" class="close" [routerLink]="'/consultaongs'" data-dismiss="modal"
+                    aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div>
                     <div class="form-group">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" class="form-control" id="nome" (click)= limpaEnviar() placeholder=" Digite o nome completo"
-                            [(ngModel)]="usuario.nome" maxlength="50" required>
+                        <label for="nome">ID da ONG</label>
+                        <input type="text" class="form-control" id="nome" (click)="limpaEnviar()"
+                            placeholder=" Digite o nome da ONG" [(ngModel)]="ong.idONG" maxlength="100" disabled>
+                        <span *ngIf='_msgErroN'>{{_msgErroN}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" (click)="limpaEnviar()"
+                            placeholder=" Digite o nome da ONG" [(ngModel)]="ong.nome" maxlength="100" disabled>
                         <span *ngIf='_msgErroN'>{{_msgErroN}}</span>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" (click)= limpaEnviar() placeholder=" name@example.com.br"
-                            [(ngModel)]="usuario.email" maxlength="40" required>
+                        <input type="email" class="form-control" id="email" (click)="limpaEnviar()"
+                            placeholder=" name@example.com.br" [(ngModel)]="ong.email" maxlength="40" disabled>
                         <span *ngIf='_msgErroE'>{{_msgErroE}}</span>
                     </div>
 
                     <div class="form-group">
                         <label for="Telefone">Telefone</label>
-                        <input type="tel" class="form-control" id="tel" (click)= limpaEnviar() [(ngModel)]="usuario.telefone" placeholder=" (XX) 99999-9999"
-                            maxlength="11" required>
+                        <input type="tel" class="form-control" id="tel" (click)="limpaEnviar()"
+                            [(ngModel)]="ong.telefone" placeholder=" (XX) 99999-9999" maxlength="11" disabled>
                         <span *ngIf='_msgErroT'>{{_msgErroT}}</span>
                     </div>
 
                     <div class="form-group">
+                        <label for="site">Site</label>
+                        <input type="text" class="form-control" (click)="limpaEnviar()"
+                            placeholder=" Digite o site da ONG" [(ngModel)]="ong.site" maxlength="20" disabled>
+                        <span *ngIf='_msgErroS'>{{_msgErroS}}</span>
+                    </div>
+
+                    <div class="form-group">
                         <label for="endereço">Endereço</label>
-                        <input type="text" class="form-control" [(ngModel)]="usuario.endereco" placeholder=" Digite seu endereço" maxlength="150" required>
+                        <input type="text" class="form-control" [(ngModel)]="ong.endereco"
+                            placeholder=" Digite o endereço da sua ONG" maxlength="150" disabled>
                         <span *ngIf='_msgErroEn'>{{_msgErroEn}}</span>
                     </div>
 
                     <div class="form-group">
-                        <label for="senha">Senha</label>
-                        <input type="password" class="form-control" id="senha" (click)= limpaEnviar() placeholder=" Digite a senha"
-                            [(ngModel)]="usuario.senha" maxlength="20" required>
-                        <span *ngIf='_msgErroS'>{{_msgErroS}}</span>
-                        <span id="fraca" *ngIf='_msgErroSFA'><strong>{{_msgErroSFA}}</strong></span>
-                        <span id="forte" *ngIf='_msgErroSFO'><strong>{{_msgErroSFO}}</strong></span>
+                        <label for="descricao">Descrição</label>
+                        <textarea type="text" class="form-control" placeholder="Descreva sua ONG"
+                            [(ngModel)]="ong.descricao" rows="5" maxlength="400" disabled>
+                        </textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="ConfirmarSenha">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="ConfSenha" (click)="vSenha()" [(ngModel)]="usuario.confSenha" placeholder=" Confirme a senha" maxlength="20" required>
-                        <span *ngIf='_msgErroCS'>{{_msgErroCS}}</span>
-                    </div>
+                    <span *ngIf='_msgErroD'>{{_msgErroD}}</span>
                 </div>
             </div>
             <div class="modal-footer">
                 <span id="enviar" *ngIf='_msgEnviar'><strong>{{_msgEnviar}}</strong></span>
                 <span id="erro" *ngIf='_msgEnviarE'><strong>{{_msgEnviarE}}</strong></span>
-                <button type="submit" class="btn btn " (click)="validacao()">Alterar</button>
+                <button type="submit" class="btn btn " (click)="encerrar()" data-dismiss="modal">Encerrar
+                    Consulta</button>
             </div>
         </div>
     </div>

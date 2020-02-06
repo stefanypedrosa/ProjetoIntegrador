@@ -47,3 +47,6 @@ label{
     margin-right: 18%;
     color:red;
 }
+textarea{
+    resize: none;
+}
