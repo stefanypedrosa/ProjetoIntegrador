@@ -8,6 +8,6 @@ public interface IProdutoService {
 	public void create(Produto p);
 	public Produto readById (int idProduto);
 	public void update(Produto p);
-	public List<Produto> readAll();
+	public List<Produto> readAllDesc();
 	public boolean existsById(int idProduto);
 }

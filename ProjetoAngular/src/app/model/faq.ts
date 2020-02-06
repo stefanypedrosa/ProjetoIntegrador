@@ -1,8 +1,8 @@
-export class Faq{
-    public nome:string;
-    public sobrenome:string;
-    public telefone:string;
-    public email:string;
-    public assunto:String = "Selecione";
-    public mensagem:string;
+export class Faq {
+    nome: string;
+    sobrenome: string;
+    telefone: string;
+    email: string;
+    assunto: String = "Selecione";
+    mensagem: string;
 }

@@ -46,7 +46,7 @@
             placeholder=" Confirme a senha" maxlength="20" required>
         <span *ngIf='_msgErroCS'>{{_msgErroCS}}</span>
     </div>
-<span id="enviar" *ngIf='_msgEnviar'><strong>{{_msgEnviar}}</strong></span>
-<span id="erro" *ngIf='_msgEnviarE'><strong>{{_msgEnviarE}}</strong></span>
-<button type="submit" class="btn btn" (click)="validacao()">Alterar</button>
+    <span id="enviar" *ngIf='_msgEnviar'><strong>{{_msgEnviar}}</strong></span>
+    <span id="erro" *ngIf='_msgEnviarE'><strong>{{_msgEnviarE}}</strong></span>
+    <button type="submit" class="btn btn" (click)="validacao()">Alterar</button>
 </div>

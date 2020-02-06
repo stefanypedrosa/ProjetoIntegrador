@@ -12,7 +12,7 @@
                     <label for="usuario">Usuário</label>
                     <input type="text" class="form-control" id="usuario" placeholder="Digite meu id de usuário"
                         [(ngModel)]="doacao.usuario.idUsuario" (click)="limpaEnviar()" maxlength="3" required>
-                    <span *ngIf='_msgErroR'>{{_msgErroR}}</span>
+                    <span *ngIf='_msgErroP'>{{_msgErroU}}</span>
                 </div>
 
                 <div class="form-group">
@@ -20,27 +20,14 @@
                     <input type="text" class="form-control" id="ong"
                         placeholder="Digite o id da ONG que receberá sua doação" [(ngModel)]="doacao.ong.idONG"
                         (click)="limpaEnviar()" maxlength="3" required>
-                    <span *ngIf='_msgErroR'>{{_msgErroO}}</span>
+                    <span *ngIf='_msgErroO'>{{_msgErroO}}</span>
                 </div>
-
-
-
-                <!-- <label class="mt-3" for="ong">Selecione uma ONG</label>
-                <br>
-                <div *ngFor='let ong of ong'>
-                <select class="btn" id="ong" (click)="apresentaOngs()" [(ngModel)]="doacao.ong.idONG">
-                    <option value={{ong.idONG}}>{{ong.nome}}</option>
-                </select>
-                <span *ngIf='_msgErroT'>{{_msgErroO}}</span>
-                </div> -->
-
-
 
                 <div class="form-group">
                     <label for="produto">Quero doar</label>
                     <input type="text" class="form-control" id="produto" [(ngModel)]="doacao.produto.idProduto"
                         placeholder="Digite o código do seu produto" (click)="limpaEnviar()" maxlength="3" required>
-                    <span *ngIf='_msgErroRec'>{{_msgErroRec}}</span>
+                    <span *ngIf='_msgErroP'>{{_msgErroP}}</span>
                 </div>
 
                 <button type="submit" class="btn btn-outline mt-2" (click)="validacao()">DOAR</button>

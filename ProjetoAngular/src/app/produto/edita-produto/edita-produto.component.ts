@@ -10,7 +10,7 @@ import { Produto } from 'src/app/model/Produto';
 })
 export class EditaProdutoComponent implements OnInit {
 
-  private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
+  filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
   _msgErroN = null;
   _msgErroF = null;
   _msgErroT = null;
@@ -19,8 +19,8 @@ export class EditaProdutoComponent implements OnInit {
   _msgErroCO = null;
   _msgErroD = null;
   _msgEnviar = null;
-  private id: number;
-  private produto: Produto = new Produto;
+  id: number;
+  produto: Produto = new Produto;
 
   constructor(private router: Router, private rota: ActivatedRoute, private srv: WebListServiceService) { }
 
@@ -100,9 +100,9 @@ export class EditaProdutoComponent implements OnInit {
         this.produto.classificacao = "Selecione";
         this.produto.condicao = "Selecione";
       },
-      error=>{
-        this._msgEnviar = "Erro ao enviar dados!!";
-      });
+        error => {
+          this._msgEnviar = "Erro ao enviar dados!!";
+        });
     }
   }
 

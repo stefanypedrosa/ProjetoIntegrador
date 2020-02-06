@@ -25,7 +25,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path: 'consultaongs', component:ConsultaUsuariosComponent},
   {path: 'editausuario/:id', component:EditaUsuarioComponent},
-  {path: 'editaongs/:id', component:EditaOngComponent},
+  {path: 'consultaong/:id', component:EditaOngComponent},
   {path: 'faq', component:FaqComponent},
   {path: 'editaproduto/:id', component:EditaProdutoComponent},
   {path: 'cadastroproduto', component: CadProdutoComponent},

@@ -13,9 +13,9 @@ import { Token } from 'src/app/model/Token';
 })
 export class FormLoginComponent implements OnInit {
 
-  public usuario: Usuario = new Usuario;
-  private _msgEnviarE: string = null;
-  private _msgLogout: string = null;
+  usuario: Usuario = new Usuario;
+  _msgEnviarE: string = null;
+  _msgLogout: string = null;
 
   constructor(private srv: WebListServiceService, private router: Router) { }
 
@@ -23,7 +23,7 @@ export class FormLoginComponent implements OnInit {
     if (localStorage.getItem("TOKEN")) {
       this.router.navigate(['home']);
     }
-    else{
+    else {
       Globals.nome = undefined;
       this._msgLogout = "Usuário desconectado!";
     }
@@ -36,13 +36,12 @@ export class FormLoginComponent implements OnInit {
       this._msgEnviarE = "Preencha todos os campos";
     }
     else {
-      //Globals.USUARIO = this.usuario;
       this.srv.login(this.usuario).subscribe((res: Token) => {
         localStorage.setItem("TOKEN", res.token);
         localStorage.setItem("nome", res.nome);
         localStorage.setItem("email", res.email);
         this.srv.log.next(true);
-        window.location.reload(); 
+        window.location.reload();
       },
         error => {
           this._msgEnviarE = "Email e/ou senha inválido(s)";

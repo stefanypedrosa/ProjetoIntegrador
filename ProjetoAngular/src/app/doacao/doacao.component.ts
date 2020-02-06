@@ -10,19 +10,19 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./doacao.component.css']
 })
 export class DoacaoComponent implements OnInit {
-  ong:ONG[];
-  doacao:Doacao = new Doacao();
+  ong: ONG[];
+  doacao: Doacao = new Doacao();
   num: any = /^[0-9]+$/;
 
   _msgErroP: string = null;
   _msgErroU: string = null;
   _msgEnviar: string = null;
-  _msgErroO:string = null;
-  _msgErro:string = null;
-  
-  
+  _msgErroO: string = null;
+  _msgErro: string = null;
 
-  constructor(private srv:WebListServiceService, private router:Router) { }
+
+
+  constructor(private srv: WebListServiceService, private router: Router) { }
 
   ngOnInit() {
     if (!localStorage.getItem("TOKEN")) {
@@ -31,7 +31,7 @@ export class DoacaoComponent implements OnInit {
     }
   }
   validacao() {
-    if (this.doacao.usuario.idUsuario == null || this.doacao.produto.idProduto == null|| this.doacao.ong.idONG == null) {
+    if (this.doacao.usuario.idUsuario == null || this.doacao.produto.idProduto == null || this.doacao.ong.idONG == null) {
       alert('Preencha todos os campos');
     }
     if (!this.num.test(this.doacao.usuario.idUsuario)) {
@@ -48,38 +48,35 @@ export class DoacaoComponent implements OnInit {
     else {
       this._msgErroP = null;
     }
-    if(!this.num.test(this.doacao.ong.idONG)){
+    if (!this.num.test(this.doacao.ong.idONG)) {
       this.doacao.ong.idONG = null;
       this._msgErroO = "Id inválido";
     }
-    else{
+    else {
       this._msgErroO = null;
     }
-    
+
 
     if (this.doacao.usuario.idUsuario != null && this.doacao.produto.idProduto != null && this.doacao.ong.idONG != null) {
-      this.srv.doar(this.doacao).subscribe((res)=>{
+      this._msgEnviar = null;
+      this._msgErro = null;
+      this.srv.doar(this.doacao).subscribe((res) => {
         this._msgEnviar = "Doação feita com SUCESSO!!";
         this.doacao.usuario.idUsuario = null;
         this.doacao.produto.idProduto = null;
         this.doacao.ong.idONG = null;
       },
-      (error)=>{
-        this._msgErro = "Erro ao enviar dados!!";
-        this.doacao.usuario.idUsuario = null;
-        this.doacao.produto.idProduto = null;
-        this.doacao.ong.idONG = null;
-      })
+        (error) => {
+          this._msgErro = "Erro ao enviar dados!!";
+          this.doacao.usuario.idUsuario = null;
+          this.doacao.produto.idProduto = null;
+          this.doacao.ong.idONG = null;
+        })
     }
   }
-  limpaEnviar(){
+  limpaEnviar() {
     this._msgEnviar = null;
+    this._msgErro = null;
   }
-
-  // apresentaOngs(){
-  //   this.srv.consultaTudo().subscribe((res:ONG[])=>{
-  //     this.ong = res;
-  //   })
-  // }
 
 }

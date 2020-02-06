@@ -8,31 +8,31 @@ import { WebListServiceService } from 'src/app/service/web-list-service.service'
 })
 export class CadOngComponent implements OnInit {
 
-  public ong:ONG = new ONG();
-  private _msgEnviar: string = null;
-  private _msgEnviarE: string = null;
+  ong: ONG = new ONG();
+  _msgEnviar: string = null;
+  _msgEnviarE: string = null;
 
 
-  private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
-  private num: any = /^[0-9]+$/;
+  filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
+  num: any = /^[0-9]+$/;
 
-  private _msgErroN: string = null 
-  private _msgErroE: string = null 
-  private _msgErroT: string = null 
-  private _msgErroS: string = null;
-  private _msgErroEn: string = null;
-  private _msgErroD: string = null;
+  _msgErroN: string = null
+  _msgErroE: string = null
+  _msgErroT: string = null
+  _msgErroS: string = null;
+  _msgErroEn: string = null;
+  _msgErroD: string = null;
 
   constructor(private srv: WebListServiceService) { }
 
   ngOnInit() {
-    
+
   }
 
-  validacao(){
+  validacao() {
 
     if (this.ong.nome == "" || this.ong.email == "" || this.ong.telefone == null || this.ong.site == "" || this.ong.endereco == "" || this.ong.descricao == "") {
-      alert('Preencha todos os campos');  
+      alert('Preencha todos os campos');
     }
 
     if (!this.filtro.test(this.ong.nome)) {
@@ -59,8 +59,8 @@ export class CadOngComponent implements OnInit {
       this._msgErroT = null;
     }
 
-    if (this.ong.site.indexOf(".")<2) {
-      this.ong.site ="";
+    if (this.ong.site.indexOf(".") < 2) {
+      this.ong.site = "";
       this._msgErroS = `URL inválida`;
     }
     else {
@@ -70,7 +70,7 @@ export class CadOngComponent implements OnInit {
     if (this.ong.nome != "" && this.ong.email != "" && this.ong.telefone != null && this.ong.site != "" && this.ong.endereco != "" && this.ong.descricao != "") {
       this._msgEnviar = null;
       this._msgEnviarE = null;
-      this.srv.cadastra(this.ong).subscribe(res=>{
+      this.srv.cadastra(this.ong).subscribe(res => {
         this._msgEnviar = "Dados enviados com SUCESSO!!";
         this.ong.nome = "";
         this.ong.email = "";
@@ -79,20 +79,20 @@ export class CadOngComponent implements OnInit {
         this.ong.endereco = "";
         this.ong.descricao = "";
       },
-      error=>{
-        this._msgEnviarE = "Erro ao enviar dados!!";
-        this.ong.nome = "";
-        this.ong.email = "";
-        this.ong.telefone = null;
-        this.ong.site = "";
-        this.ong.endereco = "";
-        this.ong.descricao = "";
-      })
-      
+        error => {
+          this._msgEnviarE = "Erro ao enviar dados!!";
+          this.ong.nome = "";
+          this.ong.email = "";
+          this.ong.telefone = null;
+          this.ong.site = "";
+          this.ong.endereco = "";
+          this.ong.descricao = "";
+        })
+
     }
   }
 
-  limpaEnviar(){
+  limpaEnviar() {
     this._msgEnviar = null;
     this._msgEnviarE = null;
   }

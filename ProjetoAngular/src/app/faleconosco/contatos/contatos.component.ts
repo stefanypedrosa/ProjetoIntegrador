@@ -8,15 +8,15 @@ import { Faq } from 'src/app/model/Faq';
   styleUrls: ['./contatos.component.css']
 })
 export class ContatosComponent implements OnInit {
-  private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
-  private num: any = /^[0-9]+$/;
-  private _msgErroN: string = null;
-  private _msgErroS: string = null;
-  private _msgErroE: string = null;
-  private _msgErroT: string = null;
-  private _msgErroSe: string = null;
-  private _msgEnviar:string = null;
-  private faq:Faq = new Faq();
+  filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
+  num: any = /^[0-9]+$/;
+  _msgErroN: string = null;
+  _msgErroS: string = null;
+  _msgErroE: string = null;
+  _msgErroT: string = null;
+  _msgErroSe: string = null;
+  _msgEnviar: string = null;
+  faq: Faq = new Faq();
 
   constructor() { }
 
@@ -50,21 +50,21 @@ export class ContatosComponent implements OnInit {
       this._msgErroT = null;
     }
 
-    if(this.faq.assunto == "Selecione"){
+    if (this.faq.assunto == "Selecione") {
       this._msgErroSe = "Escolha uma opção";
     }
-    else{
+    else {
       this._msgErroSe = null;
     }
 
     if (this.faq.nome != "" && this.faq.sobrenome != "" && this.faq.email != "" && this.faq.mensagem != "" && this.faq.assunto != "Selecione" && this.faq.telefone) {
-        this._msgEnviar = "Dados enviados com SUCESSO!!";
-        this.faq.nome = "";
-        this.faq.sobrenome = "";
-        this.faq.email = "";
-        this.faq.mensagem = "";
-        this.faq.telefone = null;
-        this.faq.assunto = "Selecione";
+      this._msgEnviar = "Dados enviados com SUCESSO!!";
+      this.faq.nome = "";
+      this.faq.sobrenome = "";
+      this.faq.email = "";
+      this.faq.mensagem = "";
+      this.faq.telefone = null;
+      this.faq.assunto = "Selecione";
     }
   }
 }

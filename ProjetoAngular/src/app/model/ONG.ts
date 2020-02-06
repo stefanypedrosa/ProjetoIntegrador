@@ -1,9 +1,9 @@
 export class ONG{
-    public idONG:number;
-    public nome:string;
-    public site:string;
-    public telefone:string;
-    public email:string;
-    public descricao:string;
-    public endereco:string;
+    idONG:number;
+    nome:string;
+    site:string;
+    telefone:string;
+    email:string;
+    descricao:string;
+    endereco:string;
 }

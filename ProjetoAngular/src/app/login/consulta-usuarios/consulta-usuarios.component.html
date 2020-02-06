@@ -8,10 +8,12 @@
         <div *ngFor='let ong of listaOng'>
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-md-2 div" id="colN"><a class="text-muted">{{ ong.nome }} </a></div>
-                <div class="col-md-3 div "> <button class="btn btn-outline " data-toggle="modal"
-                        data-target="#exampleModal"><a [routerLink]="['/editaongs',ong.idONG]"
-                            class="text-light"> Conhecer </a></button></div>
+                <div class="col-md-2 div" id="colN">
+                    <a class="text-muted">{{ ong.nome }} </a>
+                </div>
+                <div class="col-md-3 div ">
+                    <button class="btn btn-outline " data-toggle="modal" data-target="#exampleModal" [routerLink]="['/consultaong',ong.idONG]"> Conhecer </button>
+                </div>
                 <div class="col-md-3"></div>
             </div>
         </div>

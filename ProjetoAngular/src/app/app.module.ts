@@ -31,6 +31,7 @@ import { TrocasComponent } from './trocas/trocas.component';
 import { DoacaoComponent } from './doacao/doacao.component';
 import { InfoCardComponent } from './home/info-card/info-card.component';
 import { EditaOngComponent } from './login/edita-ong/edita-ong.component';
+import { CarrosselComponent } from './home/carrossel/carrossel.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { EditaOngComponent } from './login/edita-ong/edita-ong.component';
     DoacaoComponent,
     InfoCardComponent,
     EditaOngComponent,
+    CarrosselComponent,
   ],
   imports: [
     BrowserModule,

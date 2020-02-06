@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebListServiceService } from '../service/web-list-service.service';
-import {Usuario} from '../model/Usuario';
-import {GlobalsUsuario} from '../model/GlobalsUsuario';
+import { Usuario } from '../model/Usuario';
+import { GlobalsUsuario } from '../model/GlobalsUsuario';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
@@ -12,11 +12,11 @@ import * as $ from 'jquery';
 })
 export class NavbarComponent implements OnInit {
   login: String = "";
-  user:Usuario = new Usuario();
-  constructor(private srv: WebListServiceService,private router: Router) { }
+  user: Usuario = new Usuario();
+  constructor(private srv: WebListServiceService, private router: Router) { }
 
-  log:boolean;
-  ok:string;
+  log: boolean;
+  ok: string;
 
   ngOnInit() {
 
@@ -41,20 +41,20 @@ export class NavbarComponent implements OnInit {
     );
   }
 
-  logout(){
+  logout() {
     this.srv.log.next(false);
     localStorage.removeItem("TOKEN");
     localStorage.clear();
-    
+
     $('#logout').click();
 
     this.user = null;
-  
-}
-  Login(){
-    if(localStorage.getItem("TOKEN")){
+
+  }
+  Login() {
+    if (localStorage.getItem("TOKEN")) {
       this.srv.log.next(true);
     }
-    
+
   }
 }

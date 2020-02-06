@@ -8,33 +8,33 @@ import { WebListServiceService } from 'src/app/service/web-list-service.service'
   styleUrls: ['./modal-cad.component.css']
 })
 export class ModalCadComponent implements OnInit {
-  public usuario:Usuario = new Usuario;
-  private _msgEnviar: string = null;
-  private _msgEnviarE: string = null;
-  private _msgErroSFA: string = null;
-  private _msgErroSFO: string = null;
+  usuario: Usuario = new Usuario;
+  _msgEnviar: string = null;
+  _msgEnviarE: string = null;
+  _msgErroSFA: string = null;
+  _msgErroSFO: string = null;
 
-  private filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
-  private num: any = /^[0-9]+$/;
-  private carEsp: any = /[@#$%&]/;
-  private numFiltro: any = /[^0-9A-Za-z]*/;
+  filtro: any = /^([a-zA-zà-úÀ-Ú]|\s+)+$/;
+  num: any = /^[0-9]+$/;
+  carEsp: any = /[@#$%&]/;
+  numFiltro: any = /[^0-9A-Za-z]*/;
 
-  private _msgErroN: string = null 
-  private _msgErroE: string = null 
-  private _msgErroT: string = null 
-  private _msgErroS: string = null;
-  private _msgErroCS: string = null;
+  _msgErroN: string = null
+  _msgErroE: string = null
+  _msgErroT: string = null
+  _msgErroS: string = null;
+  _msgErroCS: string = null;
 
   constructor(private srv: WebListServiceService) { }
 
   ngOnInit() {
-    
+
   }
 
-  validacao(){
+  validacao() {
 
-    if (this.usuario.confSenha == "" || this.usuario.confSenha == null ||this.usuario.nome == "" || this.usuario.email == "" || this.usuario.telefone == null || this.usuario.endereco == null || this.usuario.endereco == "" || this.usuario.senha == "" || this.usuario.nome == null || this.usuario.email == null || this.usuario.senha == null ) {
-      alert('Preencha todos os campos');  
+    if (this.usuario.confSenha == "" || this.usuario.confSenha == null || this.usuario.nome == "" || this.usuario.email == "" || this.usuario.telefone == null || this.usuario.endereco == null || this.usuario.endereco == "" || this.usuario.senha == "" || this.usuario.nome == null || this.usuario.email == null || this.usuario.senha == null) {
+      alert('Preencha todos os campos');
     }
 
     if (!this.filtro.test(this.usuario.nome) || this.usuario.nome.indexOf(" ") < 1) {
@@ -64,25 +64,25 @@ export class ModalCadComponent implements OnInit {
     if (this.usuario.senha.length < 10) {
       this._msgErroSFA = null;
       this._msgErroSFO = null;
-      this.usuario.senha ="";
+      this.usuario.senha = "";
       this._msgErroS = `A senha deve conter no minimo 10 caracteres`;
     }
     else {
       this._msgErroS = null;
     }
-    
-    if(this.usuario.confSenha === this.usuario.senha){
+
+    if (this.usuario.confSenha === this.usuario.senha) {
       this._msgErroCS = null;
     }
-    else{
-      this.usuario.confSenha= "";
+    else {
+      this.usuario.confSenha = "";
       this._msgErroCS = "As senhas nâo conferem";
     }
 
     if (this.usuario.nome != "" && this.usuario.email != "" && this.usuario.telefone != null && this.usuario.senha != "" && this.usuario.confSenha != "") {
       this._msgEnviar = null;
       this._msgEnviarE = null;
-      this.srv.inserir(this.usuario).subscribe(res=>{
+      this.srv.inserir(this.usuario).subscribe(res => {
         this._msgEnviar = "Dados enviados com SUCESSO!!";
         this.usuario.nome = "";
         this.usuario.email = "";
@@ -93,38 +93,38 @@ export class ModalCadComponent implements OnInit {
         this._msgErroSFA = null;
         this._msgErroSFO = null;
       },
-      error=>{
-        this._msgEnviarE = "Erro ao enviar dados!!";
-        this.usuario.nome = "";
-        this.usuario.email = "";
-        this.usuario.telefone = null;
-        this.usuario.senha = "";
-        this.usuario.confSenha = "";
-        this._msgErroSFA = null;
-        this._msgErroSFO = null;
-      })
-      
+        error => {
+          this._msgEnviarE = "Erro ao enviar dados!!";
+          this.usuario.nome = "";
+          this.usuario.email = "";
+          this.usuario.telefone = null;
+          this.usuario.senha = "";
+          this.usuario.confSenha = "";
+          this._msgErroSFA = null;
+          this._msgErroSFO = null;
+        })
+
     }
   }
 
-  vSenha(){
-    if(this.carEsp.test(this.usuario.senha) && this.usuario.senha.length >= 10){
+  vSenha() {
+    if (this.carEsp.test(this.usuario.senha) && this.usuario.senha.length >= 10) {
       this._msgErroS = null;
       this._msgErroSFA = null;
       this._msgErroSFO = "Senha forte";
     }
-    else if (this.filtro.test(this.usuario.senha) || this.num.test(this.usuario.senha) || this.numFiltro.test(this.usuario.senha)){
+    else if (this.filtro.test(this.usuario.senha) || this.num.test(this.usuario.senha) || this.numFiltro.test(this.usuario.senha)) {
       this._msgErroS = null;
       this._msgErroSFO = null;
       this._msgErroSFA = "Senha fraca";
     }
-    else{
+    else {
       this._msgErroSFA = null;
       this._msgErroSFO = null;
     }
   }
 
-  limpaEnviar(){
+  limpaEnviar() {
     this._msgEnviar = null;
     this._msgEnviarE = null;
   }

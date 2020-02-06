@@ -46,7 +46,7 @@ public class ProdutoController {
 	
 	@GetMapping("/produto/todos")
 	public ResponseEntity<List<Produto>> readAll(){
-		return ResponseEntity.ok(servico.readAll());
+		return ResponseEntity.ok(servico.readAllDesc());
 	}
 	
 	@PutMapping("produto/update")

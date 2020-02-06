@@ -11,11 +11,8 @@ import { ONG } from 'src/app/model/ONG';
 
 export class ConsultaUsuariosComponent implements OnInit {
 
-  public listaOng: ONG[];
-
-
-
-  constructor(private router: Router, private srv: WebListServiceService ) { }
+  listaOng: ONG[];
+  constructor(private router: Router, private srv: WebListServiceService) { }
 
   ngOnInit() {
     this.srv.consultaTudo().subscribe((resp: ONG[]) => {

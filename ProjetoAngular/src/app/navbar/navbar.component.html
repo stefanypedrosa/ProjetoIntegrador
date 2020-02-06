@@ -18,9 +18,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" [routerLink]="'/sobre'">About</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link text-white" [routerLink]="'/contatos'">Contact</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item active">
                         <a class="nav-link text-white" [routerLink]="'/produto'">Products</a>
                     </li>
@@ -32,9 +32,10 @@
                             {{user.nome}}
                         </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item disabled" href="#" >Seu ID de Usuário: {{user.idUsuario}}</a>
+                            <a class="dropdown-item disabled" href="#">Seu ID de Usuário: {{user.idUsuario}}</a>
                             <a class="dropdown-item" [routerLink]="'/cadastroproduto'">Cadastre seu produto</a>
-                            <a class="dropdown-item" [routerLink]="['/editausuario', user.idUsuario]">Atualize seu Cadastro </a>
+                            <a class="dropdown-item" [routerLink]="['/editausuario', user.idUsuario]">Atualize seu
+                                Cadastro </a>
                             <div class="dropdown-divider"></div>
                             <button class="dropdown-item" id="logout" [routerLink]="'/login'"
                                 (click)="logout()">Logout</button>
@@ -42,14 +43,14 @@
                     </li>
                 </ul>
                 <img id="faq" src="../../assets/faq-icon3.png" alt="FAQ" [routerLink]="'/faq'">
-                <form class="form-inline my-2 my-lg-0">
+                <!-- <form class="form-inline my-2 my-lg-0">
                     <button class="btn btn-outline my-2 my-sm-0" [routerLink]="'/cestadedoacao'"
                         type="submit">Doar</button>
                 </form>
                 <form class="form-inline my-2 my-lg-0">
                     <button class="btn btn-outline my-2 my-sm-0" id="troca" [routerLink]="'/cestadetrocas'"
                         type="submit">Trocar</button>
-                </form>
+                </form> -->
             </div>
         </nav>
     </div>

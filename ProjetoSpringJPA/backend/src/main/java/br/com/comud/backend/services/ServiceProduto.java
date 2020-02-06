@@ -33,9 +33,9 @@ public class ServiceProduto implements IProdutoService{
 		}
 
 	@Override
-	public List<Produto> readAll() {
+	public List<Produto> readAllDesc() {
 		// TODO Auto-generated method stub
-		return (List<Produto>)repo.findAll();
+		return (List<Produto>)repo.findAllByOrderByIdProdutoDesc();
 	}
 
 
