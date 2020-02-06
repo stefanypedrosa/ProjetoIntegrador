@@ -12,32 +12,22 @@
     margin-top: 5%;
     margin-bottom: 3%;
 }
-.row{
-    margin-top: 3%;
-}  .btn{
-    width: 60px;
-    background-color: #059faa;
-    color:#dedcc5;
+img{
+    width: 100%;
+    height: 100%;
+    margin-top: 11px;
 }
-.btn-outline,#cadastro .btn-outline{
-    width: 90px;
-    height: 35px;
-    color:#dedcc5;
-    border-color:#dedcc5;
+#style{
+    animation-duration: 1s;
+    animation-name: slidein;
 }
-.btn-outline:hover,#cadastro .btn-outline:hover{
-    color:#059faa;
-    background-color: #dedcc5;
-    border-color:#dedcc5;
-}
-.btn{
-    width: 250px;
-    background-color: #059faa;
-    color:#dedcc5;
-    margin-bottom: 2%;
-}
-.col-md-6, .col-md-8{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+@keyframes slidein {
+    from {
+      margin-top: 100%;
+      width: 100%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+      }
+    }

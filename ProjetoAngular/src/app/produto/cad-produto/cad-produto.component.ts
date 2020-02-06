@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WebListServiceService } from '../../service/web-list-service.service';
 import { Router } from '@angular/router';
 import { Produto } from 'src/app/model/Produto';
-import {Usuario} from '../../model/usuario';
+import {Usuario} from '../../model/Usuario';
 import {GlobalsUsuario} from '../../model/GlobalsUsuario';
 
 @Component({
