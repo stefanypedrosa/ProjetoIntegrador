@@ -10,4 +10,5 @@ public interface IProdutoService {
 	public void update(Produto p);
 	public List<Produto> readAllDesc();
 	public boolean existsById(int idProduto);
+	public List<Produto> buscarPorPalavraChave(String palavra);
 }

@@ -44,5 +44,11 @@ public class ServiceProduto implements IProdutoService{
 		// TODO Auto-generated method stub
 		return repo.existsById(idProduto);
 	}
+	
+	@Override
+	public List<Produto> buscarPorPalavraChave(String palavra) {
+		return repo.findAllByDetalhesContains(palavra);
+	}
+	
 
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.comud.backend.models.Produto;
@@ -61,5 +62,9 @@ public class ProdutoController {
 	        }
 		}
 		return ResponseEntity.badRequest().build();
+	}
+	@GetMapping("/produto/busca")
+	public ResponseEntity<List<Produto>> buscaPorKeyword(@RequestParam String key){
+		return ResponseEntity.ok(servico.buscarPorPalavraChave(key));
 	}
 }

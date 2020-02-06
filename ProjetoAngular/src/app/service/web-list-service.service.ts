@@ -71,6 +71,9 @@ export class WebListServiceService {
   public atualizaProd(produto: Produto) {
     return this.http.put("http://localhost:8080/produto/update", produto);
   }
+  public buscaPalavraChave(palavraChave:String){
+    return this.http.get("http://localhost:8080/produto/busca?key="+palavraChave);
+  }
 
 
   //troca backend proprio
