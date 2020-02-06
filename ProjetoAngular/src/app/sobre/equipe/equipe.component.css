@@ -7,8 +7,9 @@
 #TituloSobre{
     margin-top: 10%;
     margin-bottom: 5%;
+
 }
-#TituloSobre h2{
+#TituloSobre h1{
     text-align: center;
     font-family: 'Anton', sans-serif;
     font-weight: bold;
@@ -30,9 +31,6 @@
     filter: invert(25%);
     border-radius:150px 150px 150px 150px;
 }
-
-
-
 .flip-card {
     
     width: 250px;
@@ -156,4 +154,12 @@
     width: 250px;
     line-height: 30px;
     height: 30px; 
+}
+p{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+h1{
+    margin-left: 2%;
+    margin-right: 2%;
 }

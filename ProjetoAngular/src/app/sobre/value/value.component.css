@@ -25,3 +25,10 @@
     height: 50%;
     margin:auto;
 }
+p{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.col-md-2 img:hover{
+transform:scale(1.1)
+}
