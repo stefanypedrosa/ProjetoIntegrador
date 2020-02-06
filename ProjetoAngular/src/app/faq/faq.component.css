@@ -12,14 +12,16 @@ h1{
     font-family: 'Anton', sans-serif;
     font-weight: bold;
     color:#059faa;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
 }
 .card{
     background-color: #059faa;
     border: #dedcc5;
     border-radius: none;
     border-start-start-radius: 10px;
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 .card-body{
     background-color: rgb(245, 245, 245);
@@ -30,4 +32,8 @@ h1{
 }
 .card-header{
     padding:20px;
+}
+hr{
+    margin-left: 20%;
+    margin-right: 20%;
 }

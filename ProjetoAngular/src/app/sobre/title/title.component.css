@@ -11,7 +11,7 @@
 .sobrecomud{
     justify-content: center;
     text-align: center;
-    margin-top: 8%;
+    margin-top: 5%;
 }
 #TextoPrincipal h3,#TituloSobre h3{
     text-align: center;
@@ -20,4 +20,12 @@
     margin-top:5%;
     font-size:16px;
     font-family: 'Ubuntu', sans-serif;
+}
+p{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+h1{
+    margin-left: 2%;
+    margin-right: 2%;
 }
