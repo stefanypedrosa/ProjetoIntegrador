@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { WebListServiceService } from '../../service/web-list-service.service';
-import { Usuario } from '../../model/Usuario';
 import { Router } from '@angular/router';
 import { ONG } from 'src/app/model/ONG';
 

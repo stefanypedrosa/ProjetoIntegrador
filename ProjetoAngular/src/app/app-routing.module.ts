@@ -14,6 +14,7 @@ import { CadProdutoComponent } from './produto/cad-produto/cad-produto.component
 import { CadOngComponent } from './login/cad-ong/cad-ong.component';
 import { TrocasComponent } from './trocas/trocas.component';
 import { DoacaoComponent } from './doacao/doacao.component';
+import { EditaOngComponent } from './login/edita-ong/edita-ong.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'produto', component:ProdutoComponent},
   {path:'login', component:LoginComponent},
   {path: 'consultaongs', component:ConsultaUsuariosComponent},
-  {path: 'editaongs/:id', component:EditaUsuarioComponent},
+  {path: 'editausuario/:id', component:EditaUsuarioComponent},
+  {path: 'editaongs/:id', component:EditaOngComponent},
   {path: 'faq', component:FaqComponent},
   {path: 'editaproduto/:id', component:EditaProdutoComponent},
   {path: 'cadastroproduto', component: CadProdutoComponent},

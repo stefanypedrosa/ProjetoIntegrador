@@ -11,9 +11,8 @@ import * as $ from 'jquery';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  private login: String = "";
-  private user:Usuario = new Usuario();
+  login: String = "";
+  user:Usuario = new Usuario();
   constructor(private srv: WebListServiceService,private router: Router) { }
 
   log:boolean;
@@ -22,6 +21,16 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
 
     this.srv.buscarInfo(localStorage.getItem("TOKEN")).subscribe(
+      (res: Usuario) => {
+        GlobalsUsuario.usuario = res;
+        this.user = res;
+      },
+      (err) => {
+        this.user = null;
+      }
+    );
+
+    this.srv.BuscaDetalhesProd(localStorage.getItem("TOKEN")).subscribe(
       (res: Usuario) => {
         GlobalsUsuario.usuario = res;
         this.user = res;

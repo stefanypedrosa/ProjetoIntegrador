@@ -30,6 +30,7 @@ import { CadOngComponent } from './login/cad-ong/cad-ong.component';
 import { TrocasComponent } from './trocas/trocas.component';
 import { DoacaoComponent } from './doacao/doacao.component';
 import { InfoCardComponent } from './home/info-card/info-card.component';
+import { EditaOngComponent } from './login/edita-ong/edita-ong.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { InfoCardComponent } from './home/info-card/info-card.component';
     TrocasComponent,
     DoacaoComponent,
     InfoCardComponent,
+    EditaOngComponent,
   ],
   imports: [
     BrowserModule,

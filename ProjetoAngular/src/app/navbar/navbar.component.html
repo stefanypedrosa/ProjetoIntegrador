@@ -32,10 +32,9 @@
                             {{user.nome}}
                         </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Minhas Publicações</a>
-                            <a class="dropdown-item" href="#">Notificações</a>
+                            <a class="dropdown-item disabled" href="#" >Seu ID de Usuário: {{user.idUsuario}}</a>
                             <a class="dropdown-item" [routerLink]="'/cadastroproduto'">Cadastre seu produto</a>
-                            <a class="dropdown-item" href="#">Dados de Cadastro </a>
+                            <a class="dropdown-item" [routerLink]="['/editausuario', user.idUsuario]">Atualize seu Cadastro </a>
                             <div class="dropdown-divider"></div>
                             <button class="dropdown-item" id="logout" [routerLink]="'/login'"
                                 (click)="logout()">Logout</button>
