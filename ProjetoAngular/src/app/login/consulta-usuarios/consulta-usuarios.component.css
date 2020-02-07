@@ -47,3 +47,14 @@ a{
     text-decoration: none;
     
 }
+#cadastro{
+    margin-top:2%;
+    margin-left: -5.5%;
+}
+#cadastro .btn{
+    width: 300px;
+    background-color: #059faa;
+    color:#dedcc5;
+    margin-bottom: 2%;
+    
+}

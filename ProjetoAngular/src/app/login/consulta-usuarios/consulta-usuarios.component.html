@@ -12,10 +12,17 @@
                     <a class="text-muted">{{ ong.nome }} </a>
                 </div>
                 <div class="col-md-3 div ">
-                    <button class="btn btn-outline " data-toggle="modal" data-target="#exampleModal" [routerLink]="['/consultaong',ong.idONG]"> Conhecer </button>
+                    <button class="btn btn-outline " data-toggle="modal" data-target="#exampleModal"
+                        [routerLink]="['/consultaong',ong.idONG]"> Conhecer </button>
                 </div>
                 <div class="col-md-3"></div>
             </div>
         </div>
+    </div>
+</div>
+<div class="row" id="cadastro">
+    <div class="col-md-12 mt-3">
+        <button type="submit" class="btn btn-outline maior" data-toggle="modal" data-target="#exampleModal"
+            [routerLink]="'/cadastroong'">Cadastre sua ONG</button>
     </div>
 </div>

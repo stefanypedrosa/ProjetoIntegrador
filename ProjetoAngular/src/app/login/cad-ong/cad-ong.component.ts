@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ONG } from './../../model/ONG';
 import { WebListServiceService } from 'src/app/service/web-list-service.service';
+
 @Component({
   selector: 'app-cad-ong',
   templateUrl: './cad-ong.component.html',
