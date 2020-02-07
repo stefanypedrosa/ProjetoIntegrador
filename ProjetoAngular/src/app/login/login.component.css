@@ -6,3 +6,8 @@
     width: 50%;
     margin:auto;
 }
+@media(max-width:1000px){
+    #formulario{
+        width:70% !important;
+    }
+ }

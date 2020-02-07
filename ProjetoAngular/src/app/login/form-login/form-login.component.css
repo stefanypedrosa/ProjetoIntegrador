@@ -129,3 +129,17 @@ h6{
     align-items: center;
     justify-content: center;
   }
+  @media(max-width:1000px){
+    .form-group{
+        width:100%;
+        margin:auto;
+    }
+    span{
+        text-align: center;
+        margin-top: 2%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-bottom: 1%;
+        margin-left: 10%;
+    
+    }
+ }
