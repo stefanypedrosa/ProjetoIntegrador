@@ -41,7 +41,6 @@ export class FormLoginComponent implements OnInit {
         localStorage.setItem("nome", res.nome);
         localStorage.setItem("email", res.email);
         this.srv.log.next(true);
-        window.location.reload();
       },
         error => {
           this._msgEnviarE = "Email e/ou senha inválido(s)";
