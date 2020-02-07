@@ -38,6 +38,7 @@
 
                 <button type="submit" class="btn btn-outline mt-2" (click)="validacao()">TROCAR</button>
                 <span id="enviar" *ngIf='_msgEnviar'><strong>{{_msgEnviar}}</strong></span>
+                <span id="troca" *ngIf='_msgTroca'>obs: Mais informções sobre sua troca serão encaminhadas para seu email.</span>
                 <span id="erro" *ngIf='_msgErro'><strong>{{_msgErro}}</strong></span>
             </div>
         </div>

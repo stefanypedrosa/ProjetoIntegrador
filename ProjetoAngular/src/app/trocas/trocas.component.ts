@@ -21,6 +21,7 @@ export class TrocasComponent implements OnInit {
   _msgErroRec: string = null;
   _msgEnviar: string = null;
   _msgErro: string = null;
+  _msgTroca:boolean = false;
 
   constructor(private srv: WebListServiceService, private router: Router) { }
 
@@ -68,6 +69,7 @@ export class TrocasComponent implements OnInit {
       this._msgErro = null;
       this.srv.trocar(this.troca).subscribe((res) => {
         this._msgEnviar = "Troca feita com SUCESSO!!";
+        this._msgTroca = true;
         this.troca.remetente.idUsuario = null;
         this.troca.destinatario.idUsuario = null;
         this.troca.cedido.idProduto = null;
@@ -85,5 +87,6 @@ export class TrocasComponent implements OnInit {
   limpaEnviar() {
     this._msgEnviar = null;
     this._msgErro = null;
+    this._msgTroca = false;
   }
 }

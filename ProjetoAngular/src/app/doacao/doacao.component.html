@@ -32,6 +32,7 @@
 
                 <button type="submit" class="btn btn-outline mt-2" (click)="validacao()">DOAR</button>
                 <span id="enviar" *ngIf='_msgEnviar'><strong>{{_msgEnviar}}</strong></span>
+                <span id="doacao" *ngIf='_msgDoacao'>obs: Mais informções sobre sua doação serão encaminhadas para seu email.</span>
                 <span id="erro" *ngIf='_msgErro'><strong>{{_msgErro}}</strong></span>
             </div>
         </div>

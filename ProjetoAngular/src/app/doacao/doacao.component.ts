@@ -19,6 +19,7 @@ export class DoacaoComponent implements OnInit {
   _msgEnviar: string = null;
   _msgErroO: string = null;
   _msgErro: string = null;
+  _msgDoacao:boolean = false;
 
 
 
@@ -62,6 +63,7 @@ export class DoacaoComponent implements OnInit {
       this._msgErro = null;
       this.srv.doar(this.doacao).subscribe((res) => {
         this._msgEnviar = "Doação feita com SUCESSO!!";
+        this._msgDoacao = true;
         this.doacao.usuario.idUsuario = null;
         this.doacao.produto.idProduto = null;
         this.doacao.ong.idONG = null;
@@ -77,6 +79,7 @@ export class DoacaoComponent implements OnInit {
   limpaEnviar() {
     this._msgEnviar = null;
     this._msgErro = null;
+    this._msgDoacao = false;
   }
 
 }
