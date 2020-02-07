@@ -16,7 +16,7 @@
             placeholder="Coloque o link das imagens do produto" [(ngModel)]="produto.linkFoto" required>
         <span *ngIf='_msgErroF'>{{_msgErroF}}</span>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-3 " id="categorias">
         <div class="col-md-2 mr-5">
             <select class="btn" id="tam" [(ngModel)]="produto.tamanho">
                 <option value="Selecione">Selecione o tamanho</option>
@@ -41,7 +41,7 @@
             </select>
             <span *ngIf='_msgErroCO'>{{_msgErroCO}}</span>
         </div>
-        <div class="col-md-2 ml-4 mr-3">
+        <div class="col-md-2 ml-4 mr-3 selResp">
             <select class="btn " id="sel" [(ngModel)]="produto.classificacao">
                 <option value="Selecione">Selecione a classificação</option>
                 <option value="INFANTIL">INFANTIL</option>
@@ -49,7 +49,7 @@
             </select>
             <span *ngIf='_msgErroCL'>{{_msgErroCL}}</span>
         </div>
-        <div class="col-md-2" id="cat">
+        <div class="col-md-2 selResp" id="cat">
             <select class="btn" id="sel" [(ngModel)]="produto.categoria">
                 <option value="Selecione">Selecione a categoria</option>
                 <option value="CALÇA">CALÇA</option>

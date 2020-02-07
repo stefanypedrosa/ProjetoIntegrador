@@ -3,7 +3,7 @@
     padding:0%;
 }
 #formulario{
-    margin-left: 16%;
+    margin-left: 15%;
 }
 
 #titulo h1{
@@ -72,4 +72,13 @@ label{
     font-size:22px;
     margin-left: 3.5%;
     color: red;
+}
+@media(max-width:1000px){
+    #categorias .selResp{
+        margin-left:0% !important;
+    }
+    select{
+        width: 290px;
+    }
+  
 }
