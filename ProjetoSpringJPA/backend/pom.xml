@@ -11,7 +11,7 @@
 	<groupId>br.com.comud</groupId>
 	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>backend</name>
+	<name>backendComud</name>
 	<description>Backend + banco de dados para o e-Commerce COMUD</description>
 
 	<properties>
