@@ -22,75 +22,75 @@ export class WebListServiceService {
 
   //usuario backend proprio
   public login(login: Usuario) {
-    return this.http.post("http://localhost:8080/usuario/login", login);
+    return this.http.post("http://comud.tech:8080/usuario/login", login);
   }
   public inserir(usuario: Usuario) {
-    return this.http.post("http://localhost:8080/usuario/create", usuario);
+    return this.http.post("http://comud.tech:8080/usuario/create", usuario);
   }
   public recuperaDetalhe(idUsuario: number) {
-    return this.http.get(`http://localhost:8080/usuario/read/${idUsuario}`);
+    return this.http.get(`http://comud.tech:8080/usuario/read/${idUsuario}`);
   }
   public recuperaTodos() {
-    return this.http.get("http://localhost:8080/usuario/todos");
+    return this.http.get("http://comud.tech:8080/usuario/todos");
   }
   public atualiza(usuario: Usuario) {
-    return this.http.put(`http://localhost:8080/usuario/update`, usuario);
+    return this.http.put(`http://comud.tech:8080/usuario/update`, usuario);
   }
   public buscarInfo(token: string) {
-    return this.http.get("http://localhost:8080/userinfo?token=" + token);
+    return this.http.get("http://comud.tech:8080/userinfo?token=" + token);
   }
   public BuscaDetalhesProd(token: String) {
-    return this.http.get("http://localhost:8080/detalhes?token=" + token);
+    return this.http.get("http://comud.tech:8080/detalhes?token=" + token);
   }
 
   //ong backend
   public cadastra(ong: ONG) {
-    return this.http.post("http://localhost:8080/ong/create", ong);
+    return this.http.post("http://comud.tech:8080/ong/create", ong);
   }
   public consulta(idOng: number) {
-    return this.http.get(`http://localhost:8080/ong/read/${idOng}`);
+    return this.http.get(`http://comud.tech:8080/ong/read/${idOng}`);
   }
   public consultaTudo() {
-    return this.http.get("http://localhost:8080/ong/todos")
+    return this.http.get("http://comud.tech:8080/ong/todos")
   }
   public atualizaOng(ong: ONG) {
-    return this.http.put("http://localhost:8080/ong/update", ong);
+    return this.http.put("http://comud.tech:8080/ong/update", ong);
   }
 
 
   //produto backend proprio
   public inserirp(produto: Produto) {
-    return this.http.post("http://localhost:8080/produto/create", produto);
+    return this.http.post("http://comud.tech:8080/produto/create", produto);
   }
   public buscaDetProd(idProduto: number) {
-    return this.http.get(`http://localhost:8080/produto/read/${idProduto}`)
+    return this.http.get(`http://comud.tech:8080/produto/read/${idProduto}`)
   }
   public obterLista() {
-    return this.http.get("http://localhost:8080/produto/todos")
+    return this.http.get("http://comud.tech:8080/produto/todos")
   }
   public atualizaProd(produto: Produto) {
-    return this.http.put("http://localhost:8080/produto/update", produto);
+    return this.http.put("http://comud.tech:8080/produto/update", produto);
   }
   public buscaPalavraChave(palavraChave:String){
-    return this.http.get("http://localhost:8080/produto/busca?key="+palavraChave);
+    return this.http.get("http://comud.tech:8080/produto/busca?key="+palavraChave);
   }
 
 
   //troca backend proprio
   public trocar(troca: Troca) {
-    return this.http.post("http://localhost:8080/trocar/create", troca);
+    return this.http.post("http://comud.tech:8080/trocar/create", troca);
   }
   public consultaTroca(idTroca: number) {
-    return this.http.get(`http://localhost:8080/trocar/read/${idTroca}`)
+    return this.http.get(`http://comud.tech:8080/trocar/read/${idTroca}`)
   }
 
 
   //doacao backend proprio
   public doar(doar: Doacao) {
-    return this.http.post("http://localhost:8080/doar/create", doar);
+    return this.http.post("http://comud.tech:8080/doar/create", doar);
   }
   public consultaDoacao(idDoacao: number) {
-    return this.http.get(`http://localhost:8080/doar/read/${idDoacao}`)
+    return this.http.get(`http://comud.tech:8080/doar/read/${idDoacao}`)
   }
 
 }

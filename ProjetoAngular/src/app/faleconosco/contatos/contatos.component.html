@@ -39,7 +39,6 @@
         <label for="mensagem">Mensagem</label>
         <textarea class="form-control" [(ngModel)]="faq.mensagem" id="mensagem" rows="5" maxlength="500"
             required></textarea>
-        <span *ngIf='_msgErroM'>{{_msgErroM}}</span>
     </div>
 
     <button type="submit" class="btn btn-outline mt-2 mb-2" (click)="validacao()">Enviar</button>

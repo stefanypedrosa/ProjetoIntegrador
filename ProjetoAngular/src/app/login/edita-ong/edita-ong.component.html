@@ -14,43 +14,37 @@
                 <div>
                     <div class="form-group">
                         <label for="nome">ID da ONG</label>
-                        <input type="text" class="form-control" id="nome" (click)="limpaEnviar()"
+                        <input type="text" class="form-control" id="nome"
                             placeholder=" Digite o nome da ONG" [(ngModel)]="ong.idONG" maxlength="100" disabled>
-                        <span *ngIf='_msgErroN'>{{_msgErroN}}</span>
                     </div>
                     <div class="form-group">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" (click)="limpaEnviar()"
+                        <input type="text" class="form-control" id="nome" 
                             placeholder=" Digite o nome da ONG" [(ngModel)]="ong.nome" maxlength="100" disabled>
-                        <span *ngIf='_msgErroN'>{{_msgErroN}}</span>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" (click)="limpaEnviar()"
+                        <input type="email" class="form-control" id="email" 
                             placeholder=" name@example.com.br" [(ngModel)]="ong.email" maxlength="40" disabled>
-                        <span *ngIf='_msgErroE'>{{_msgErroE}}</span>
                     </div>
 
                     <div class="form-group">
                         <label for="Telefone">Telefone</label>
-                        <input type="tel" class="form-control" id="tel" (click)="limpaEnviar()"
+                        <input type="tel" class="form-control" id="tel" 
                             [(ngModel)]="ong.telefone" placeholder=" (XX) 99999-9999" maxlength="11" disabled>
-                        <span *ngIf='_msgErroT'>{{_msgErroT}}</span>
                     </div>
 
                     <div class="form-group">
                         <label for="site">Site</label>
-                        <input type="text" class="form-control" (click)="limpaEnviar()"
+                        <input type="text" class="form-control" 
                             placeholder=" Digite o site da ONG" [(ngModel)]="ong.site" maxlength="20" disabled>
-                        <span *ngIf='_msgErroS'>{{_msgErroS}}</span>
                     </div>
 
                     <div class="form-group">
                         <label for="endereço">Endereço</label>
                         <input type="text" class="form-control" [(ngModel)]="ong.endereco"
                             placeholder=" Digite o endereço da sua ONG" maxlength="150" disabled>
-                        <span *ngIf='_msgErroEn'>{{_msgErroEn}}</span>
                     </div>
 
                     <div class="form-group">
@@ -59,12 +53,9 @@
                             [(ngModel)]="ong.descricao" rows="5" maxlength="400" disabled>
                         </textarea>
                     </div>
-                    <span *ngIf='_msgErroD'>{{_msgErroD}}</span>
                 </div>
             </div>
             <div class="modal-footer">
-                <span id="enviar" *ngIf='_msgEnviar'><strong>{{_msgEnviar}}</strong></span>
-                <span id="erro" *ngIf='_msgEnviarE'><strong>{{_msgEnviarE}}</strong></span>
                 <button type="submit" class="btn btn " (click)="encerrar()" data-dismiss="modal">Encerrar
                     Consulta</button>
             </div>
