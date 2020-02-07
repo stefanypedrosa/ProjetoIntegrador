@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ONG } from './../../model/ONG';
 import { WebListServiceService } from 'src/app/service/web-list-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cad-ong',
@@ -24,7 +25,7 @@ export class CadOngComponent implements OnInit {
   _msgErroEn: string = null;
   _msgErroD: string = null;
 
-  constructor(private srv: WebListServiceService) { }
+  constructor(private srv: WebListServiceService, private router:Router) { }
 
   ngOnInit() {
 
@@ -79,6 +80,7 @@ export class CadOngComponent implements OnInit {
         this.ong.site = "";
         this.ong.endereco = "";
         this.ong.descricao = "";
+        this.router.navigate(['/consultaongs']);
       },
         error => {
           this._msgEnviarE = "Erro ao enviar dados!!";
@@ -89,7 +91,6 @@ export class CadOngComponent implements OnInit {
           this.ong.endereco = "";
           this.ong.descricao = "";
         })
-
     }
   }
 
