@@ -10,6 +10,7 @@
           </button>
         </div>
       </div>
+      <span *ngIf='_msgErro'>{{_msgErro}}</span>
     </div>
   </div>
 </div>
@@ -28,7 +29,8 @@
         <ul class="social ">
           <li><a data-toggle="modal" data-target=".bd-example-modal-lg" (click)="atribuiModal(busca.idProduto);"
               data-tip="Veja melhor"><i class="fa fa-search"></i></a></li>
-          <li><a [routerLink]="'/cestadetrocas'" data-tip="Trocar"><i class="fa fa-shopping-bag"></i></a></li>
+          <li><a [routerLink]="'/cestadedoacao'" data-tip="Doar"><i class="fa fa-gift"></i></a></li>
+          <li><a [routerLink]="'/cestadetrocas'" data-tip="Trocar"><i class="fa fa-handshake-o "></i></a></li>
         </ul>
       </div>
     </div>
@@ -87,7 +89,11 @@
 
 
             <div class="row mt-5">
-              <div class="col-md-12">
+              <div class="col-md-6">
+                <button type="button" [routerLink]="'/cestadedoacao'" class="btn  mt-auto p-2"
+                  data-dismiss="modal">Doar</button>
+              </div>
+              <div class="col-md-6">
                 <button type="button" [routerLink]="'/cestadetrocas'" class="btn  mt-auto p-2"
                   data-dismiss="modal">Trocar</button>
               </div>

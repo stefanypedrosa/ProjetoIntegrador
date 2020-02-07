@@ -65,6 +65,11 @@ public class ProdutoController {
 	}
 	@GetMapping("/produto/busca")
 	public ResponseEntity<List<Produto>> buscaPorKeyword(@RequestParam String key){
+		try {
 		return ResponseEntity.ok(servico.buscarPorPalavraChave(key));
+		}
+		catch (Exception ex) {
+			return ResponseEntity.badRequest().build();
+		}
 	}
 }

@@ -49,7 +49,7 @@
     display:block
 }
 .product-grid6 .product-image6 img{
-    width:93%;height:auto;
+    width:93%;height:350px;
     transition:all .5s ease 0s
 }
 .product-grid6:hover .product-image6 img{
