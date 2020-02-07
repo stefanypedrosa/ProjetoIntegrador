@@ -91,14 +91,6 @@ export class CadProdutoComponent implements OnInit {
       this._msgErroN = null;
     }
 
-    if (this.produto.linkFoto.indexOf(".") < 2) {
-      this.produto.linkFoto = "";
-      this._msgErroF = "URL inválida";
-    }
-    else {
-      this._msgErroF = null;
-    }
-
     if (this.produto.nome != "" && this.produto.linkFoto != "" && this.produto.detalhes != "" && this.produto.categoria != "Selecione" && this.produto.tamanho != "Selecione" && this.produto.classificacao != "Selecione" && this.produto.condicao) {
       this.srv.inserirp(this.produto).subscribe((res) => {
         this._msgEnviar = "Dados enviados com SUCESSO!!";
