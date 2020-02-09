@@ -9,12 +9,6 @@
         <div class="col-md-5">
             <div class="mt-2" id="formulario">
                 <div class="form-group">
-                    <label for="remetente">Usuário</label>
-                    <input type="text" class="form-control" id="remetente" placeholder="Digite meu id de usuário"
-                        [(ngModel)]="troca.remetente.idUsuario" (click)="limpaEnviar()" maxlength="3" required>
-                    <span *ngIf='_msgErroR'>{{_msgErroR}}</span>
-                </div>
-                <div class="form-group">
                     <label for="destinatario">Usuário Comuder</label>
                     <input type="text" class="form-control" id="destinatario"
                         placeholder="Digite o id de usuário do comuder" [(ngModel)]="troca.destinatario.idUsuario"

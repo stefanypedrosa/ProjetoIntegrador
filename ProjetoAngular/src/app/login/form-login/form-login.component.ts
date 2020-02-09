@@ -4,6 +4,7 @@ import { WebListServiceService } from 'src/app/service/web-list-service.service'
 import { Router } from '@angular/router';
 import { Globals } from '../../model/Login';
 import { Token } from 'src/app/model/Token';
+import { GlobalsUsuario } from 'src/app/model/GlobalsUsuario';
 
 @Component({
   selector: 'app-form-login',
@@ -41,6 +42,8 @@ export class FormLoginComponent implements OnInit {
         localStorage.setItem("nome", res.nome);
         localStorage.setItem("email", res.email);
         this.srv.log.next(true);
+        GlobalsUsuario.teste = true;
+        this.router.navigate(['home']);
       },
         error => {
           this._msgEnviarE = "Email e/ou senha inválido(s)";

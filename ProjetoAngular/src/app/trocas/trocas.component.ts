@@ -4,6 +4,7 @@ import { WebListServiceService } from '../service/web-list-service.service';
 import { Usuario } from '../model/Usuario';
 import { Produto } from '../model/Produto';
 import { Router } from '@angular/router';
+import { GlobalsUsuario } from '../model/GlobalsUsuario';
 
 @Component({
   selector: 'app-trocas',
@@ -15,13 +16,13 @@ export class TrocasComponent implements OnInit {
 
   num: any = /^[0-9]+$/;
 
-  _msgErroR: string = null;
   _msgErroD: string = null;
   _msgErroC: string = null;
   _msgErroRec: string = null;
   _msgEnviar: string = null;
   _msgErro: string = null;
   _msgTroca:boolean = false;
+  user: Usuario;
 
   constructor(private srv: WebListServiceService, private router: Router) { }
 
@@ -30,17 +31,20 @@ export class TrocasComponent implements OnInit {
       alert("Você não pode acessar está página sem estar logado")
       this.router.navigate(['/login']);
     }
+    this.srv.BuscaDetalhesProd(localStorage.getItem("TOKEN")).subscribe(
+      (res: Usuario) => {
+        GlobalsUsuario.usuario = res;
+        this.user = res;
+        this.troca.remetente.idUsuario = this.user.idUsuario;
+      },
+      (err) => {
+        this.user = null;
+      }
+    );
   }
   validacao() {
-    if (this.troca.remetente.idUsuario == null || this.troca.destinatario.idUsuario == null || this.troca.cedido.idProduto == null || this.troca.recebido.idProduto == null) {
+    if (this.troca.destinatario.idUsuario == null || this.troca.cedido.idProduto == null || this.troca.recebido.idProduto == null) {
       alert('Preencha todos os campos');
-    }
-    if (!this.num.test(this.troca.remetente.idUsuario)) {
-      this.troca.remetente.idUsuario = null;
-      this._msgErroR = "Id inválido";
-    }
-    else {
-      this._msgErroR = null;
     }
     if (!this.num.test(this.troca.destinatario.idUsuario)) {
       this.troca.destinatario.idUsuario = null;
@@ -70,14 +74,12 @@ export class TrocasComponent implements OnInit {
       this.srv.trocar(this.troca).subscribe((res) => {
         this._msgEnviar = "Troca feita com SUCESSO!!";
         this._msgTroca = true;
-        this.troca.remetente.idUsuario = null;
         this.troca.destinatario.idUsuario = null;
         this.troca.cedido.idProduto = null;
         this.troca.recebido.idProduto = null;
       },
         (error) => {
           this._msgErro = "Erro ao enviar dados!!";
-          this.troca.remetente.idUsuario = null;
           this.troca.destinatario.idUsuario = null;
           this.troca.cedido.idProduto = null;
           this.troca.recebido.idProduto = null;

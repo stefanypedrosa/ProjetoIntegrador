@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
   ok: string;
 
   ngOnInit() {
-
     this.srv.buscarInfo(localStorage.getItem("TOKEN")).subscribe(
       (res: Usuario) => {
         GlobalsUsuario.usuario = res;
@@ -45,16 +44,12 @@ export class NavbarComponent implements OnInit {
     this.srv.log.next(false);
     localStorage.removeItem("TOKEN");
     localStorage.clear();
-
     $('#logout').click();
-
     this.user = null;
-
   }
   Login() {
     if (localStorage.getItem("TOKEN")) {
       this.srv.log.next(true);
     }
-
   }
 }

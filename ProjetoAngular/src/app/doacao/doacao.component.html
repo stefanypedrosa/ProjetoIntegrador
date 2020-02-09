@@ -9,13 +9,6 @@
         <div class="col-md-5">
             <div class="mt-2" id="formulario">
                 <div class="form-group">
-                    <label for="usuario">Usuário</label>
-                    <input type="text" class="form-control" id="usuario" placeholder="Digite meu id de usuário"
-                        [(ngModel)]="doacao.usuario.idUsuario" (click)="limpaEnviar()" maxlength="3" required>
-                    <span *ngIf='_msgErroP'>{{_msgErroU}}</span>
-                </div>
-
-                <div class="form-group">
                     <label for="ong">ONG</label>
                     <input type="text" class="form-control" id="ong"
                         placeholder="Digite o id da ONG que receberá sua doação" [(ngModel)]="doacao.ong.idONG"
