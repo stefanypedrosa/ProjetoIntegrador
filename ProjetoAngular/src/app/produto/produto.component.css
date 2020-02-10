@@ -27,7 +27,7 @@
 }
 /********************* Shopping Demo-6 **********************/
 .pic-1{
-    width: 90%;
+    width: 98%;
 }
 
 
@@ -36,11 +36,13 @@
     overflow:hidden
 }
 .product-grid6{
+    width: 93%;
     font-family:'Open Sans',sans-serif;
     text-align:center;
     position:relative;
     padding: 2%;
-    transition:all .5s ease 0s
+    transition:all .5s ease 0s;
+    box-shadow:0 0 10px rgba(0,0,0,.3)
 }
 .product-grid6:hover{
     box-shadow:0 0 10px rgba(0,0,0,.3)
@@ -49,7 +51,9 @@
     display:block
 }
 .product-grid6 .product-image6 img{
-    width:93%;height:350px;
+    width:98%;
+    height:350px;
+    
     transition:all .5s ease 0s
 }
 .product-grid6:hover .product-image6 img{

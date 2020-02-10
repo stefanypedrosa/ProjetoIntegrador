@@ -22,7 +22,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link text-white" [routerLink]="'/login'" *ngIf="user.idUsuario == null">Login</a>
-                    <a class="nav-link text-white" type="button" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    <a class="nav-link text-white dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" (click)="Login()" *ngIf="user.idUsuario != null">
                         {{user.nome}}
                     </a>
