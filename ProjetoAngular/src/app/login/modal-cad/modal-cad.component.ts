@@ -93,7 +93,6 @@ export class ModalCadComponent implements OnInit {
         this.usuario.confSenha = "";
         this._msgErroSFA = null;
         this._msgErroSFO = null;
-        this.router.navigate(['/login'])
       },
         error => {
           this._msgEnviarE = "Erro ao enviar dados!!";

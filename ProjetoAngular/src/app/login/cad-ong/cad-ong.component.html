@@ -35,7 +35,7 @@
                     <div class="form-group">
                         <label for="site">Site</label>
                         <input type="text" class="form-control" (click)="limpaEnviar()"
-                            placeholder=" Digite o site da ONG" [(ngModel)]="ong.site" maxlength="20" required>
+                            placeholder=" Digite o site da ONG" [(ngModel)]="ong.site" maxlength="200" required>
                         <span *ngIf='_msgErroS'>{{_msgErroS}}</span>
                     </div>
 

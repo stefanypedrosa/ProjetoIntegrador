@@ -80,7 +80,6 @@ export class CadOngComponent implements OnInit {
         this.ong.site = "";
         this.ong.endereco = "";
         this.ong.descricao = "";
-        this.router.navigate(['/consultaongs']);
       },
         error => {
           this._msgEnviarE = "Erro ao enviar dados!!";
