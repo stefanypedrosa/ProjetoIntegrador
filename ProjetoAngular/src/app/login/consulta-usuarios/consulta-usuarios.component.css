@@ -58,3 +58,16 @@ a{
     margin-bottom: 2%;
     
 }
+@media(max-width:1000px){
+    #cadastro{
+        margin-top:2%;
+        margin-left: -11.5%;
+    }
+    #cadastro .btn{
+        width: 150px;
+        background-color: #059faa;
+        color:#dedcc5;
+        margin-bottom: 2%;
+        
+    } 
+}
